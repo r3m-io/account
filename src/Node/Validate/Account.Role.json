@@ -17,6 +17,11 @@
                                 ]
                             }
                         }
+                    ],
+                    "rank": [
+                        {
+                            "integer": ">=1"
+                        }
                     ]
                 }
             },
@@ -36,6 +41,16 @@
                                 ]
                             }
                         }
+                    ],
+                    "rank": [
+                        {
+                            "integer": ">=1"
+                        }
+                    ],
+                    "?permission": [
+                        {
+                            "in.array.uuid": true
+                        }
                     ]
                 }
             },
@@ -46,7 +61,7 @@
                             "is.uuid": true
                         }
                     ],
-                    "name": [
+                    "?name": [
                         {
                             "is.unique": {
                                 "class": "Account.Permission",
@@ -54,6 +69,16 @@
                                     "name"
                                 ]
                             }
+                        }
+                    ],
+                    "?rank": [
+                        {
+                            "integer": ">=1"
+                        }
+                    ],
+                    "?permission": [
+                        {
+                            "in.array.uuid": true
                         }
                     ]
                 }
