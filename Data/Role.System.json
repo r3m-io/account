@@ -1,0 +1,31 @@
+{
+  "name" : "ROLE_SYSTEM",
+  "rank" : 1,
+  "#class": "Account.Role",
+  "permission": [
+    {
+      "name": "Account:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:list",
+      "#class": "Account.Permission"
+    }
+  ]
+}

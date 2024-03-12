@@ -1,0 +1,655 @@
+{
+    "Account": {
+        "User": {
+            "count": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "list": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "page": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "read": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "record": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "create": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "create_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "put_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "patch_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "active",
+                                            "loggedIn",
+                                            "created",
+                                            "updated",
+                                            "deleted"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "nickname"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    {
+                                        "role": "ROLE_SYSTEM",
+                                        "property": [
+                                            "uuid",
+                                            "#class",
+                                            "name",
+                                            "rank",
+                                            "description",
+                                            "permission"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
