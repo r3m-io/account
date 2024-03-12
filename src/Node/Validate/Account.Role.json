@@ -11,7 +11,7 @@
                     "name": [
                         {
                             "is.unique": {
-                                "class": "Account.Permission",
+                                "class": "Account.Role",
                                 "attribute": [
                                     "name"
                                 ]
@@ -35,7 +35,7 @@
                     "name": [
                         {
                             "is.unique": {
-                                "class": "Account.Permission",
+                                "class": "Account.Role",
                                 "attribute": [
                                     "name"
                                 ]
@@ -64,7 +64,7 @@
                     "?name": [
                         {
                             "is.unique": {
-                                "class": "Account.Permission",
+                                "class": "Account.Role",
                                 "attribute": [
                                     "name"
                                 ]
