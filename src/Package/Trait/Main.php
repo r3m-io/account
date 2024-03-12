@@ -11,4 +11,8 @@ use Exception;
 
 trait Main {
 
+    public function account_import($flags, $options){
+        d($flags);
+        d($options);
+    }
 }
