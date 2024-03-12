@@ -4,27 +4,99 @@
   "#class": "Account.Role",
   "permission": [
     {
-      "name": "Account:create",
+      "name": "Account:Permission:create",
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:read",
+      "name": "Account:Permission:read",
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:patch",
+      "name": "Account:Permission:patch",
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:put",
+      "name": "Account:Permission:put",
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:delete",
+      "name": "Account:Permission:delete",
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:list",
+      "name": "Account:Permission:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:list",
       "#class": "Account.Permission"
     }
   ]
