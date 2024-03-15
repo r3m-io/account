@@ -11,7 +11,7 @@ use Exception;
 
 trait Main {
 
-    public function account_import($flags, $options){
+    public function account_create_default($flags, $options){
         d($flags);
         d($options);
     }
