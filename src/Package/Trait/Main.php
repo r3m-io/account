@@ -25,6 +25,10 @@ trait Main {
             if(is_array($permissions)){
                 $node = new Node($object);
                 $name = 'Account.Permission';
+                $options_list = $options;
+                if(!property_exists($options_list, 'limit')){
+                    $options_list->limit = '*';
+                }
                 $response = $node->list($name, $node->role_system(), $options);
                 ddd($response);
 
