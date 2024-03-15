@@ -19,6 +19,10 @@ trait Main {
         $object = $this->object();
         $url = $object->config('project.dir.data') . 'Account/Role.System.json';
         $data = $object->data_read($url);
+        if($data){
+            $permission = $data->get('permission');
+            ddd($permission);
+        }
         ddd($data);
 
         d($flags);
