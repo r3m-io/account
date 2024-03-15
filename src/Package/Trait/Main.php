@@ -8,6 +8,7 @@ use R3m\Io\Module\File;
 use R3m\Io\Module\Dir;
 
 use Exception;
+use R3m\Io\Node\Model\Node;
 
 trait Main {
 
@@ -21,6 +22,16 @@ trait Main {
         $data = $object->data_read($url);
         if($data){
             $permissions = $data->get('permission');
+            if(is_array($permissions)){
+                $node = new Node($object);
+                $name = 'Account.Permission';
+                $response = $node->list($name, $node->role_system(), $options);
+                ddd($response);
+
+
+
+//                $node->import($name, $node->role_system(), $options);
+            }
             ddd($permissions);
         }
         ddd($data);
