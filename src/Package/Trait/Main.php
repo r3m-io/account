@@ -12,6 +12,15 @@ use Exception;
 trait Main {
 
     public function account_create_default($flags, $options){
+        /*
+         * - create role ROLE_SYSTEM with rank 1
+         * - create role ROLE_ADMIN with rank 2
+         */
+        $object = $this->object();
+        $url = $object->config('project.dir.data') . 'Account/Role.System.json';
+        $data = $object->data_read($url);
+        ddd($data);
+
         d($flags);
         d($options);
     }
