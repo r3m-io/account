@@ -44,7 +44,7 @@ trait Main {
                     $response = $node->create_many($name, $role, $create_many, [
                         'import' => true,
                         'uuid' => false,
-                        'validation' => $options['validation'] ?? true
+                        'validation' => $options->validation ?? true
                     ]);
                     d($response);
                 }
