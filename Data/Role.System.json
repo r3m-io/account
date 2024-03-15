@@ -8,6 +8,10 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Permission:create.many",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Permission:read",
       "#class": "Account.Permission"
     },
@@ -16,7 +20,15 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Permission:patch.many",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Permission:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:put.many",
       "#class": "Account.Permission"
     },
     {
@@ -27,6 +39,7 @@
       "name": "Account:Permission:list",
       "#class": "Account.Permission"
     },
+
     {
       "name": "Account:Profile:create",
       "#class": "Account.Permission"
