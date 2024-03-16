@@ -87,10 +87,7 @@ trait Main {
                         }
                     }
                 }
-                d($create_many);
-                d($put_many);
-                d($patch_many);
-                ddd($skip);
+                $commit = false;
                 if($is_transaction){
                     $is_lock = $node->startTransaction($name, $options);
                     if($is_create){
@@ -132,7 +129,6 @@ trait Main {
                             $patch = count($response['list']);
                         }
                     }
-                    $commit = false;
                     if(!empty($error)){
                         if($is_lock){
                             $node->unlock($name);
@@ -147,22 +143,22 @@ trait Main {
                     } elseif($is_lock) {
                         $commit = $node->commit($name, $role);
                     }
-                    $duration = microtime(true) - $object->config('r3m.io.node.import.start');
-                    $total = $put + $patch + $create;
-                    $item_per_second = round($total / $duration, 2);
-                    $object->config('delete', 'node.transaction.' . $name);
-                    return [
-                        'skip' => $skip,
-                        'put' => $put,
-                        'patch' => $patch,
-                        'create' => $create,
-                        'commit' => $commit,
-                        'mtime' => File::mtime($url),
-                        'duration' => $duration * 1000,
-                        'item_per_second' => $item_per_second,
-                        'transaction' => true
-                    ];
                 }
+                $duration = microtime(true) - $object->config('r3m.io.node.import.start');
+                $total = $put + $patch + $create;
+                $item_per_second = round($total / $duration, 2);
+                $object->config('delete', 'node.transaction.' . $name);
+                return [
+                    'skip' => $skip,
+                    'put' => $put,
+                    'patch' => $patch,
+                    'create' => $create,
+                    'commit' => $commit,
+                    'mtime' => File::mtime($url),
+                    'duration' => $duration * 1000,
+                    'item_per_second' => $item_per_second,
+                    'transaction' => true
+                ];
             }
         }
     }
