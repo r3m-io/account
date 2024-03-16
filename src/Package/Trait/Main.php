@@ -41,6 +41,7 @@ trait Main {
         $is_create = false;
         $is_patch = false;
         $is_put = false;
+        $is_lock = false;
         $create = 0;
         $patch = 0;
         $put = 0;
@@ -90,6 +91,7 @@ trait Main {
                 $commit = false;
                 if($is_transaction){
                     $is_lock = $node->startTransaction($name, $options);
+                    ddd($is_lock);
                     if($is_create){
                         $response = $node->create_many($name, $role, $create_many, [
                             'import' => true,
