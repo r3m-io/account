@@ -91,7 +91,6 @@ trait Main {
                 $commit = false;
                 if($is_transaction){
                     $is_lock = $node->startTransaction($name, $options);
-                    ddd($is_lock);
                     if($is_create){
                         $response = $node->create_many($name, $role, $create_many, [
                             'import' => true,
@@ -142,8 +141,6 @@ trait Main {
                         ];
                     } elseif($is_lock) {
                         $commit = $node->commit($name, $role);
-                    } else {
-                        ddd('shit');
                     }
                 }
                 $duration = microtime(true) - $object->config('r3m.io.node.import.start');
