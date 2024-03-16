@@ -34,6 +34,15 @@ trait Main {
         $create_many = [];
         $patch_many = [];
         $put_many = [];
+        $list = [];
+        $error = [];
+        $is_transaction = false;
+        $is_create = false;
+        $is_patch = false;
+        $is_put = false;
+        $create = 0;
+        $patch = 0;
+        $put = 0;
         $skip = 0;
         if($data){
             $permissions = $data->get('permission');
@@ -45,35 +54,24 @@ trait Main {
                     $options_list->page = 1;
                 }
                 $response = $node->list($name, $role, $options);
-                $list = [];
-                $error = [];
-                $is_transaction = false;
-                $is_create = false;
-                $is_patch = false;
-                $is_put = false;
-                $create = 0;
-                $patch = 0;
-                $put = 0;
                 if($response) {
                     if (array_key_exists('list', $response)) {
-
                         foreach ($response['list'] as $item) {
                             $list[$item->name] = $item;
                         }
                     }
                 }
-                foreach($permissions as $permission){
-                    if(property_exists($permission, 'name')){
+                foreach($permissions as $permission) {
+                    if (property_exists($permission, 'name')) {
                         $name = $permission->name;
-                        if(array_key_exists($name, $list)){
+                        if (array_key_exists($name, $list)) {
                             //put or patch or skip
-                            if(property_exists($options, 'force')){
+                            if (property_exists($options, 'force')) {
                                 $permission->uuid = $list[$name]->uuid;
                                 $put_many[] = $permission;
                                 $is_transaction = true;
                                 $is_put = true;
-                            }
-                            elseif(property_exists($options, 'patch')){
+                            } elseif (property_exists($options, 'patch')) {
                                 $permission->uuid = $list[$name]->uuid;
                                 $patch_many[] = $permission;
                                 $is_transaction = true;
@@ -88,78 +86,78 @@ trait Main {
                             $is_create = true;
                         }
                     }
-                    if($is_transaction){
-                        $is_lock = $node->startTransaction($name, $options);
-                        if($is_create){
-                            $response = $node->create_many($name, $role, $create_many, [
-                                'import' => true,
-                                'uuid' => false,
-                                'validation' => $options->validation ?? true
-                            ]);
-                            if(array_key_exists('error', $response)){
-                                $error = array_merge($error, $response['error']);
-                            }
-                            if(array_key_exists('list', $response)){
-                                $create = count($response['list']);
-                            }
+                }
+                if($is_transaction){
+                    $is_lock = $node->startTransaction($name, $options);
+                    if($is_create){
+                        $response = $node->create_many($name, $role, $create_many, [
+                            'import' => true,
+                            'uuid' => false,
+                            'validation' => $options->validation ?? true
+                        ]);
+                        if(array_key_exists('error', $response)){
+                            $error = array_merge($error, $response['error']);
                         }
-                        if($is_put){
-                            $response = $node->put_many($name, $role, $put_many, [
-                                'import' => true,
-                                'uuid' => false,
-                                'validation' => $options->validation ?? true
-                            ]);
-                            if(array_key_exists('error', $response)){
-                                $error = array_merge($error, $response['error']);
-                            }
-                            if(array_key_exists('list', $response)){
-                                $put = count($response['list']);
-                            }
+                        if(array_key_exists('list', $response)){
+                            $create = count($response['list']);
                         }
-                        if($is_patch){
-                            $response = $node->patch_many($name, $role, $patch_many, [
-                                'import' => true,
-                                'uuid' => false,
-                                'validation' => $options->validation ?? true
-                            ]);
-                            if(array_key_exists('error', $response)){
-                                $error = array_merge($error, $response['error']);
-                            }
-                            if(array_key_exists('list', $response)){
-                                $patch = count($response['list']);
-                            }
+                    }
+                    if($is_put){
+                        $response = $node->put_many($name, $role, $put_many, [
+                            'import' => true,
+                            'uuid' => false,
+                            'validation' => $options->validation ?? true
+                        ]);
+                        if(array_key_exists('error', $response)){
+                            $error = array_merge($error, $response['error']);
                         }
-                        $commit = false;
-                        if(!empty($error)){
-                            if($is_lock){
-                                $node->unlock($name);
-                            }
-                            //need lock acquired to determine to unlock this.
-                            $object->config('delete', 'node.transaction.' . $name);
-                            return [
-                                'error' => $error,
-                                'transaction' => true,
-                                'duration' => (microtime(true) - $object->config('r3m.io.node.import.start')) * 1000
-                            ];
-                        } elseif($is_lock) {
-                            $commit = $node->commit($name, $role);
+                        if(array_key_exists('list', $response)){
+                            $put = count($response['list']);
                         }
-                        $duration = microtime(true) - $object->config('r3m.io.node.import.start');
-                        $total = $put + $patch + $create;
-                        $item_per_second = round($total / $duration, 2);
+                    }
+                    if($is_patch){
+                        $response = $node->patch_many($name, $role, $patch_many, [
+                            'import' => true,
+                            'uuid' => false,
+                            'validation' => $options->validation ?? true
+                        ]);
+                        if(array_key_exists('error', $response)){
+                            $error = array_merge($error, $response['error']);
+                        }
+                        if(array_key_exists('list', $response)){
+                            $patch = count($response['list']);
+                        }
+                    }
+                    $commit = false;
+                    if(!empty($error)){
+                        if($is_lock){
+                            $node->unlock($name);
+                        }
+                        //need lock acquired to determine to unlock this.
                         $object->config('delete', 'node.transaction.' . $name);
                         return [
-                            'skip' => $skip,
-                            'put' => $put,
-                            'patch' => $patch,
-                            'create' => $create,
-                            'commit' => $commit,
-                            'mtime' => File::mtime($url),
-                            'duration' => $duration * 1000,
-                            'item_per_second' => $item_per_second,
-                            'transaction' => true
+                            'error' => $error,
+                            'transaction' => true,
+                            'duration' => (microtime(true) - $object->config('r3m.io.node.import.start')) * 1000
                         ];
+                    } elseif($is_lock) {
+                        $commit = $node->commit($name, $role);
                     }
+                    $duration = microtime(true) - $object->config('r3m.io.node.import.start');
+                    $total = $put + $patch + $create;
+                    $item_per_second = round($total / $duration, 2);
+                    $object->config('delete', 'node.transaction.' . $name);
+                    return [
+                        'skip' => $skip,
+                        'put' => $put,
+                        'patch' => $patch,
+                        'create' => $create,
+                        'commit' => $commit,
+                        'mtime' => File::mtime($url),
+                        'duration' => $duration * 1000,
+                        'item_per_second' => $item_per_second,
+                        'transaction' => true
+                    ];
                 }
             }
         }
