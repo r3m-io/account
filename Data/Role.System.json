@@ -39,7 +39,10 @@
       "name": "Account:Permission:list",
       "#class": "Account.Permission"
     },
-
+    {
+      "name": "Account:Permission:commit",
+      "#class": "Account.Permission"
+    },
     {
       "name": "Account:Profile:create",
       "#class": "Account.Permission"
@@ -62,6 +65,10 @@
     },
     {
       "name": "Account:Profile:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:commit",
       "#class": "Account.Permission"
     },
     {
@@ -89,6 +96,10 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Role:commit",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:User:create",
       "#class": "Account.Permission"
     },
@@ -110,6 +121,10 @@
     },
     {
       "name": "Account:User:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:commit",
       "#class": "Account.Permission"
     }
   ]
