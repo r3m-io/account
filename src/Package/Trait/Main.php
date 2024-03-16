@@ -87,6 +87,10 @@ trait Main {
                         }
                     }
                 }
+                d($create_many);
+                d($put_many);
+                d($patch_many);
+                ddd($skip);
                 if($is_transaction){
                     $is_lock = $node->startTransaction($name, $options);
                     if($is_create){
