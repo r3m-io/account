@@ -64,16 +64,15 @@ trait Main {
                 }
                 foreach($permissions as $permission) {
                     if (property_exists($permission, 'name')) {
-                        $name = $permission->name;
-                        if (array_key_exists($name, $list)) {
+                        if (array_key_exists($permission->name, $list)) {
                             //put or patch or skip
                             if (property_exists($options, 'force')) {
-                                $permission->uuid = $list[$name]->uuid;
+                                $permission->uuid = $list[$permission->name]->uuid;
                                 $put_many[] = $permission;
                                 $is_transaction = true;
                                 $is_put = true;
                             } elseif (property_exists($options, 'patch')) {
-                                $permission->uuid = $list[$name]->uuid;
+                                $permission->uuid = $list[$permission->name]->uuid;
                                 $patch_many[] = $permission;
                                 $is_transaction = true;
                                 $is_patch = true;
