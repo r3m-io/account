@@ -132,8 +132,6 @@ trait Main {
                         if($is_lock){
                             $node->unlock($name);
                         }
-                        //need lock acquired to determine to unlock this.
-                        $object->config('delete', 'node.transaction.' . $name);
                         return [
                             'error' => $error,
                             'transaction' => true,
