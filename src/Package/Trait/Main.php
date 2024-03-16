@@ -140,6 +140,8 @@ trait Main {
                         ];
                     } elseif($is_lock) {
                         $commit = $node->commit($name, $role);
+                    } else {
+                        ddd('shit');
                     }
                 }
                 $duration = microtime(true) - $object->config('r3m.io.node.import.start');
