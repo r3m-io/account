@@ -106,7 +106,6 @@ trait Main {
                     if($is_put){
                         $response = $node->put_many($name, $role, $put_many, [
                             'import' => true,
-                            'uuid' => false,
                             'validation' => $options->validation ?? true
                         ]);
                         if(array_key_exists('error', $response)){
@@ -119,7 +118,6 @@ trait Main {
                     if($is_patch){
                         $response = $node->patch_many($name, $role, $patch_many, [
                             'import' => true,
-                            'uuid' => false,
                             'validation' => $options->validation ?? true
                         ]);
                         if(array_key_exists('error', $response)){
