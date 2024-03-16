@@ -27,6 +27,7 @@ trait Main {
          * - create role ROLE_ADMIN with rank 2
          */
         $object = $this->object();
+        $object->config('r3m.io.node.import.start', microtime(true));
         $url = $object->config('project.dir.data') . 'Account/Role.System.json';
         $data = $object->data_read($url);
         $node = new Node($object);
