@@ -35,11 +35,21 @@ trait Main {
                 $response = $node->list($name, $role, $options);
                 if($response){
                     if(array_key_exists('list', $response)){
-                        $list = $response['list'];
-                        foreach($list as $item){
-                            ddd($item);
+                        $list = [];
+                        foreach($response['list'] as $item){
+                            $list[$item->name] = $item;
                         }
                     }
+                    foreach($permissions as $permission){
+                        ddd($permission);
+                        /*
+                        if(array_key_exists($permission, $list)){
+                            unset($permissions[$permission]);
+                        }
+                        */
+                    }
+
+
                     $create_many = $permissions;
                     $node->startTransaction($name, $options);
                     $response = $node->create_many($name, $role, $create_many, [
