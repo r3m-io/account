@@ -63,8 +63,14 @@ trait Main {
                         }
                     }
                 }
+                $unique = [];
                 foreach($permissions as $permission) {
                     if (property_exists($permission, 'name')) {
+                        if(in_array($permission->name, $unique)) {
+                            $skip++;
+                            continue;
+                        }
+                        $unique[] = $permission->name;
                         if (array_key_exists($permission->name, $list)) {
                             //put or patch or skip
                             if (property_exists($options, 'force')) {
