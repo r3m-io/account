@@ -46,6 +46,7 @@ trait Main {
         $patch = 0;
         $put = 0;
         $skip = 0;
+        $double = 0;
         if($data){
             $permissions = $data->get('permission');
             if(is_array($permissions)){
@@ -67,7 +68,7 @@ trait Main {
                 foreach($permissions as $permission) {
                     if (property_exists($permission, 'name')) {
                         if(in_array($permission->name, $unique)) {
-                            $skip++;
+                            $double++;
                             continue;
                         }
                         $unique[] = $permission->name;
@@ -152,6 +153,7 @@ trait Main {
                 $item_per_second = round($total / $duration, 2);
                 $object->config('delete', 'node.transaction.' . $name);
                 return [
+                    'double' => $double,
                     'skip' => $skip,
                     'put' => $put,
                     'patch' => $patch,
