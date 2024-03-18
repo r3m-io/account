@@ -144,7 +144,8 @@ trait Main {
                             'transaction' => true,
                             'duration' => (microtime(true) - $object->config('r3m.io.node.import.start')) * 1000
                         ];
-                    } elseif($is_lock) {
+                    }
+                    elseif($is_lock) {
                         $commit = $node->commit($name, $role);
                     }
                 }
