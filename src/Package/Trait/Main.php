@@ -178,6 +178,7 @@ trait Main {
                         ' -rank=' . $role['rank'] .
                         ' -permission[]=' . $role['permission']
                     ;
+                    echo $command . PHP_EOL;
                     exec($command, $output);
                     echo implode(PHP_EOL, $output) . PHP_EOL;
                 }
