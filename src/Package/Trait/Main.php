@@ -169,6 +169,7 @@ trait Main {
                         'permission' => '*'
                     ]
                 ];
+                $name = 'Account.Role';
                 foreach($roles as $role){
                     $record = $node->record($name, $role, [
                         'filter' => [
