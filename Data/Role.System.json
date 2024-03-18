@@ -16,6 +16,46 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Permission:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:export",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Permission:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Permission:record",
       "#class": "Account.Permission"
     },
@@ -56,6 +96,46 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Profile:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:export",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Profile:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Profile:record",
       "#class": "Account.Permission"
     },
@@ -88,6 +168,46 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Role:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:export",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Role:record",
       "#class": "Account.Permission"
     },
@@ -117,6 +237,46 @@
     },
     {
       "name": "Account:User:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:export",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:User:count.relation",
       "#class": "Account.Permission"
     },
     {
