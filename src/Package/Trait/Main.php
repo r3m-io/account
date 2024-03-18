@@ -153,6 +153,36 @@ trait Main {
                 $total = $put + $patch + $create;
                 $item_per_second = round($total / $duration, 2);
                 $object->config('delete', 'node.transaction.' . $name);
+
+                //create role ROLE_SYSTEM
+                //create role ROLE_ADMIN
+
+                $roles = [
+                    [
+                        'name' => 'ROLE_SYSTEM',
+                        'rank' => 1,
+                        'permission' => '*'
+                    ],
+                    [
+                        'name' => 'ROLE_ADMIN',
+                        'rank' => 2,
+                        'permission' => '*'
+                    ]
+                ];
+
+
+                foreach($roles as $role){
+                    $command = Core::binary($object) .
+                        ' r3m_io/node' .
+                        ' create' .
+                        ' -class=Account.Role' .
+                        ' -name=' . $role['name'] .
+                        ' -rank=' . $role['rank'] .
+                        ' -permission[]=' . $role['permission']
+                    ;
+                    exec($command, $output);
+                    echo implode(PHP_EOL, $output) . PHP_EOL;
+                }
                 return [
                     'double' => $double,
                     'skip' => $skip,
