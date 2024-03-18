@@ -22,6 +22,11 @@
                         {
                             "integer": ">=1"
                         }
+                    ],
+                    "?permission": [
+                        {
+                            "is.relation": true
+                        }
                     ]
                 }
             },
@@ -49,7 +54,7 @@
                     ],
                     "?permission": [
                         {
-                            "in.array.uuid": true
+                            "is.relation": true
                         }
                     ]
                 }
@@ -78,7 +83,7 @@
                     ],
                     "?permission": [
                         {
-                            "in.array.uuid": true
+                            "is.relation": true
                         }
                     ]
                 }
