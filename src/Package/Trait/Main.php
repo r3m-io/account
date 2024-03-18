@@ -170,10 +170,10 @@ trait Main {
                     ]
                 ];
                 $name = 'Account.Role';
-                foreach($roles as $role){
+                foreach($roles as $roles_role){
                     $record = $node->record($name, $role, [
                         'filter' => [
-                            'name' => $role['name']
+                            'name' => $roles_role['name']
                         ]
                     ]);
                     d($record);
@@ -181,9 +181,9 @@ trait Main {
                         ' r3m_io/node' .
                         ' create' .
                         ' -class=Account.Role' .
-                        ' -name=' . $role['name'] .
-                        ' -rank=' . $role['rank'] .
-                        ' -permission[]=' . $role['permission']
+                        ' -name=' . $roles_role['name'] .
+                        ' -rank=' . $roles_role['rank'] .
+                        ' -permission[]=' . $roles_role['permission']
                     ;
                     echo $command . PHP_EOL;
                     exec($command, $output);
