@@ -169,8 +169,6 @@ trait Main {
                         'permission' => '*'
                     ]
                 ];
-
-
                 foreach($roles as $role){
                     $command = Core::binary($object) .
                         ' r3m_io/node' .
