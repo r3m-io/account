@@ -170,6 +170,12 @@ trait Main {
                     ]
                 ];
                 foreach($roles as $role){
+                    $record = $node->record($name, $role, [
+                        'filter' => [
+                            'name' => $role['name']
+                        ]
+                    ]);
+                    d($record);
                     $command = Core::binary($object) .
                         ' r3m_io/node' .
                         ' create' .
