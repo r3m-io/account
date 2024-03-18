@@ -176,18 +176,48 @@ trait Main {
                             'name' => $roles_role['name']
                         ]
                     ]);
-                    d($record);
-                    $command = Core::binary($object) .
-                        ' r3m_io/node' .
-                        ' create' .
-                        ' -class=Account.Role' .
-                        ' -name=' . $roles_role['name'] .
-                        ' -rank=' . $roles_role['rank'] .
-                        ' -permission[]=' . $roles_role['permission']
-                    ;
-                    echo $command . PHP_EOL;
-                    exec($command, $output);
-                    echo implode(PHP_EOL, $output) . PHP_EOL;
+                    if(array_key_exists('node', $record)){
+                        if(array_key_exists('force', $options)){
+                            $command = Core::binary($object) .
+                                ' r3m_io/node' .
+                                ' put' .
+                                ' -class=Account.Role' .
+                                ' -uuid=' . $record['node']->uuid .
+                                ' -name=' . $roles_role['name'] .
+                                ' -rank=' . $roles_role['rank'] .
+                                ' -permission[]=' . $roles_role['permission']
+                            ;
+                            echo $command . PHP_EOL;
+                            exec($command, $output);
+                            echo implode(PHP_EOL, $output) . PHP_EOL;
+                        }
+                        elseif(array_key_exists('patch', $options)){
+                            $command = Core::binary($object) .
+                                ' r3m_io/node' .
+                                ' patch' .
+                                ' -class=Account.Role' .
+                                ' -uuid=' . $record['node']->uuid .
+                                ' -name=' . $roles_role['name'] .
+                                ' -rank=' . $roles_role['rank'] .
+                                ' -permission[]=' . $roles_role['permission']
+                            ;
+                            echo $command . PHP_EOL;
+                            exec($command, $output);
+                            echo implode(PHP_EOL, $output) . PHP_EOL;
+                        }
+                    } else {
+                        $command = Core::binary($object) .
+                            ' r3m_io/node' .
+                            ' create' .
+                            ' -class=Account.Role' .
+                            ' -name=' . $roles_role['name'] .
+                            ' -rank=' . $roles_role['rank'] .
+                            ' -permission[]=' . $roles_role['permission']
+                        ;
+                        echo $command . PHP_EOL;
+                        exec($command, $output);
+                        echo implode(PHP_EOL, $output) . PHP_EOL;
+                    }
                 }
                 return [
                     'double' => $double,
