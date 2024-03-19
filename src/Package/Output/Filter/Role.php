@@ -28,5 +28,4 @@ class Role extends Controller {
         }
         return $result;
     }
-
 }
