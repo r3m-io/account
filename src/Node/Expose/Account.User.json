@@ -17,44 +17,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -76,44 +71,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -135,44 +125,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -194,44 +179,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -253,44 +233,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -312,44 +287,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -371,44 +341,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -430,44 +395,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -489,44 +449,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -548,44 +503,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
@@ -607,44 +557,39 @@
                             "is": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "active",
-                                            "loggedIn",
-                                            "created",
-                                            "updated",
-                                            "deleted"
-                                        ]
-                                    }
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
                                 ]
                             },
                             "profile": {
                                 "multiple": false,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
-                                            "nickname"
-                                        ]
-                                    }
+                                    "nickname"
                                 ]
                             },
                             "role": {
                                 "multiple": true,
                                 "output": [
-                                    {
-                                        "role": "ROLE_SYSTEM",
-                                        "property": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
                                             "uuid",
                                             "#class",
-                                            "name",
-                                            "rank",
-                                            "description",
-                                            "permission"
+                                            "name"
                                         ]
                                     }
-                                ]
+                                }
                             }
                         }
                     }
