@@ -17,7 +17,8 @@ class Role extends Controller {
             !empty($response) &&
             is_array($response)
         ){
-            foreach($response as $nr => $record){if(
+            foreach($response as $nr => $record){
+                if(
                     is_object($record) &&
                     property_exists($record, 'name')
                 ){
