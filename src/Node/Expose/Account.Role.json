@@ -20,6 +20,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -48,6 +50,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -76,6 +80,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -104,6 +110,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -132,6 +140,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -160,6 +170,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -188,6 +200,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -216,6 +230,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -244,6 +260,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -272,6 +290,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
@@ -300,6 +320,8 @@
                                     {
                                         "role": "ROLE_SYSTEM",
                                         "property": [
+                                            "uuid",
+                                            "#class",
                                             "name"
                                         ]
                                     }
