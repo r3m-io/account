@@ -186,7 +186,7 @@ trait Main {
                                 ' -uuid=' . $record['node']->uuid .
                                 ' -name=' . $roles_role['name'] .
                                 ' -rank=' . $roles_role['rank'] .
-                                ' -permission[]=\'' . $roles_role['permission'] . '\''
+                                ' -permission=' . $roles_role['permission']
                             ;
                             echo $command . PHP_EOL;
                             exec($command, $output);
@@ -201,8 +201,7 @@ trait Main {
                                 ' -uuid=' . $record['node']->uuid .
                                 ' -name=' . $roles_role['name'] .
                                 ' -rank=' . $roles_role['rank'] .
-                                ' -permission=[]' .
-                                ' -permission[]=\'' . $roles_role['permission'] . '\''
+                                ' -permission=' . $roles_role['permission']
                             ;
                             echo $command . PHP_EOL;
                             exec($command, $output);
@@ -216,7 +215,7 @@ trait Main {
                             ' -class=Account.Role' .
                             ' -name=' . $roles_role['name'] .
                             ' -rank=' . $roles_role['rank'] .
-                            ' -permission[]= \'' . $roles_role['permission'] . '\''
+                            ' -permission=' . $roles_role['permission']
                         ;
                         echo $command . PHP_EOL;
                         exec($command, $output);
