@@ -10,7 +10,7 @@ class Role extends Controller {
 
     const DIR = __DIR__ . '/';
 
-    public static function permission(App $object, $response=null): object
+    public static function permission(App $object, $response=null): array
     {
         $result = [];
         if(
