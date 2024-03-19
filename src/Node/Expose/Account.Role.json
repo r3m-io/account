@@ -15,7 +15,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -40,7 +40,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -65,7 +65,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -90,7 +90,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -115,7 +115,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -140,7 +140,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -165,7 +165,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -190,7 +190,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -215,7 +215,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -240,7 +240,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
@@ -265,7 +265,7 @@
                         ],
                         "object": {
                             "permission": {
-                                "multiple": false,
+                                "multiple": true,
                                 "output": [
                                     "uuid",
                                     "#class",
