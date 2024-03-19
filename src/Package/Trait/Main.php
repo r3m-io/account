@@ -178,6 +178,7 @@ trait Main {
                     ]);
                     if(array_key_exists('node', $record)){
                         if(property_exists($options, 'force')){
+                            $output = [];
                             $command = Core::binary($object) .
                                 ' r3m_io/node' .
                                 ' put' .
@@ -192,6 +193,7 @@ trait Main {
                             echo implode(PHP_EOL, $output) . PHP_EOL;
                         }
                         elseif(property_exists($options, 'patch')){
+                            $output = [];
                             $command = Core::binary($object) .
                                 ' r3m_io/node' .
                                 ' patch' .
@@ -206,6 +208,7 @@ trait Main {
                             echo implode(PHP_EOL, $output) . PHP_EOL;
                         }
                     } else {
+                        $output = [];
                         $command = Core::binary($object) .
                             ' r3m_io/node' .
                             ' create' .
