@@ -45,7 +45,7 @@
             },
             "output": {
                 "filter": [
-                    "R3m:Io:Output:Filter:System:Server:url"
+                    "Package:R3m:Io:Account:Output:Filter:Role:permission"
                 ]
             },
             "where": "",
