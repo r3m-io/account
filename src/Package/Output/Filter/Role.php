@@ -12,6 +12,7 @@ class Role extends Controller {
 
     public static function permission(App $object, $response=null): array
     {
+        return $response;
         $result = [];
         if(
             !empty($response) &&
