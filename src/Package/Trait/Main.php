@@ -176,7 +176,10 @@ trait Main {
                             'name' => $roles_role['name']
                         ]
                     ]);
-                    if(array_key_exists('node', $record)){
+                    if(
+                        $record !== null &&
+                        array_key_exists('node', $record)
+                    ){
                         if(property_exists($options, 'force')){
                             $output = [];
                             $command = Core::binary($object) .
