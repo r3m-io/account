@@ -176,39 +176,40 @@ trait Main {
                             'name' => $roles_role['name']
                         ]
                     ]);
-                    if(
-                        $record !== null &&
-                        array_key_exists('node', $record)
-                    ){
-                        if(property_exists($options, 'force')){
-                            $output = [];
-                            $command = Core::binary($object) .
-                                ' r3m_io/node' .
-                                ' put' .
-                                ' -class=Account.Role' .
-                                ' -uuid=' . $record['node']->uuid .
-                                ' -name=' . $roles_role['name'] .
-                                ' -rank=' . $roles_role['rank'] .
-                                ' -permission=' . $roles_role['permission']
-                            ;
-                            echo $command . PHP_EOL;
-                            exec($command, $output);
-                            echo implode(PHP_EOL, $output) . PHP_EOL;
-                        }
-                        elseif(property_exists($options, 'patch')){
-                            $output = [];
-                            $command = Core::binary($object) .
-                                ' r3m_io/node' .
-                                ' patch' .
-                                ' -class=Account.Role' .
-                                ' -uuid=' . $record['node']->uuid .
-                                ' -name=' . $roles_role['name'] .
-                                ' -rank=' . $roles_role['rank'] .
-                                ' -permission=' . $roles_role['permission']
-                            ;
-                            echo $command . PHP_EOL;
-                            exec($command, $output);
-                            echo implode(PHP_EOL, $output) . PHP_EOL;
+                    if($record){
+                        if(array_key_exists('node', $record)){
+                            if(property_exists($options, 'force')){
+                                $output = [];
+                                $command = Core::binary($object) .
+                                    ' r3m_io/node' .
+                                    ' put' .
+                                    ' -class=Account.Role' .
+                                    ' -uuid=' . $record['node']->uuid .
+                                    ' -name=' . $roles_role['name'] .
+                                    ' -rank=' . $roles_role['rank'] .
+                                    ' -permission=' . $roles_role['permission']
+                                ;
+                                echo $command . PHP_EOL;
+                                exec($command, $output);
+                                echo implode(PHP_EOL, $output) . PHP_EOL;
+                            }
+                            elseif(property_exists($options, 'patch')){
+                                $output = [];
+                                $command = Core::binary($object) .
+                                    ' r3m_io/node' .
+                                    ' patch' .
+                                    ' -class=Account.Role' .
+                                    ' -uuid=' . $record['node']->uuid .
+                                    ' -name=' . $roles_role['name'] .
+                                    ' -rank=' . $roles_role['rank'] .
+                                    ' -permission=' . $roles_role['permission']
+                                ;
+                                echo $command . PHP_EOL;
+                                exec($command, $output);
+                                echo implode(PHP_EOL, $output) . PHP_EOL;
+                            }
+                        } else {
+                            throw new Exception('Unknown state detected...');
                         }
                     } else {
                         $output = [];
