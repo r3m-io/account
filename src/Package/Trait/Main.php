@@ -26,6 +26,7 @@ trait Main {
          * - create role ROLE_SYSTEM with rank 1
          * - create role ROLE_ADMIN with rank 2
          */
+        Core::interactive();
         $object = $this->object();
         $object->config('r3m.io.node.import.start', microtime(true));
         $url = $object->config('project.dir.data') . 'Account/Role.System.json';
@@ -196,8 +197,11 @@ trait Main {
                                     ' -permission=' . $roles_role['permission']
                                 ;
                                 echo $command . PHP_EOL;
-                                exec($command, $output);
-                                echo implode(PHP_EOL, $output) . PHP_EOL;
+                                exec($command, $output, $code);
+                                d($code);
+
+                                $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                ddd($role);
                             }
                             elseif(property_exists($options, 'patch')){
                                 $output = [];
@@ -211,8 +215,11 @@ trait Main {
                                     ' -permission=' . $roles_role['permission']
                                 ;
                                 echo $command . PHP_EOL;
-                                exec($command, $output);
-                                echo implode(PHP_EOL, $output) . PHP_EOL;
+                                exec($command, $output, $code);
+                                d($code);
+                                $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                ddd($role);
+//                                echo implode(PHP_EOL, $output) . PHP_EOL;
                             }
                         } else {
                             throw new Exception('Unknown state detected...');
@@ -228,8 +235,10 @@ trait Main {
                             ' -permission=' . $roles_role['permission']
                         ;
                         echo $command . PHP_EOL;
-                        exec($command, $output);
-                        echo implode(PHP_EOL, $output) . PHP_EOL;
+                        exec($command, $output, $code);
+                        d($code);
+                        $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                        ddd($role);
                     }
                 }
                 return [
