@@ -113,7 +113,8 @@ trait Main {
                         $response = $node->create_many($name, $role, $create_many, [
                             'import' => true,
                             'uuid' => false,
-                            'validation' => $options->validation ?? true
+                            'validation' => $options->validation ?? true,
+                            'parallel' => $options->parallel ?? false
                         ]);
                         if(array_key_exists('error', $response)){
                             $error = array_merge($error, $response['error']);
@@ -125,7 +126,8 @@ trait Main {
                     if($is_put){
                         $response = $node->put_many($name, $role, $put_many, [
                             'import' => true,
-                            'validation' => $options->validation ?? true
+                            'validation' => $options->validation ?? true,
+                            'parallel' => $options->parallel ?? false
                         ]);
                         if(array_key_exists('error', $response)){
                             $error = array_merge($error, $response['error']);
@@ -137,7 +139,8 @@ trait Main {
                     if($is_patch){
                         $response = $node->patch_many($name, $role, $patch_many, [
                             'import' => true,
-                            'validation' => $options->validation ?? true
+                            'validation' => $options->validation ?? true,
+                            'parallel' => $options->parallel ?? false
                         ]);
                         if(array_key_exists('error', $response)){
                             $error = array_merge($error, $response['error']);
