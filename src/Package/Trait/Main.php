@@ -201,7 +201,7 @@ trait Main {
                                     ' -rank=' . $roles_role['rank'] .
                                     ' -permission=' . $roles_role['permission']
                                 ;
-                                echo $command . PHP_EOL;
+//                                echo $command . PHP_EOL;
                                 exec($command, $output, $code);
                                 if($code === 0){
                                     $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
@@ -221,7 +221,7 @@ trait Main {
                                     ' -rank=' . $roles_role['rank'] .
                                     ' -permission=' . $roles_role['permission']
                                 ;
-                                echo $command . PHP_EOL;
+//                                echo $command . PHP_EOL;
                                 exec($command, $output, $code);
                                 if($code === 0){
                                     $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
@@ -243,7 +243,7 @@ trait Main {
                             ' -rank=' . $roles_role['rank'] .
                             ' -permission=' . $roles_role['permission']
                         ;
-                        echo $command . PHP_EOL;
+//                        echo $command . PHP_EOL;
                         exec($command, $output, $code);
                         if($code === 0){
                             $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
