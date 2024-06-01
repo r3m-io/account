@@ -84,11 +84,13 @@ trait Main {
                             if (property_exists($options, 'force')) {
                                 $permission->uuid = $list[$permission->name]->uuid;
                                 $put_many[] = $permission;
+                                $put++;
                                 $is_transaction = true;
                                 $is_put = true;
                             } elseif (property_exists($options, 'patch')) {
                                 $permission->uuid = $list[$permission->name]->uuid;
                                 $patch_many[] = $permission;
+                                $patch++;
                                 $is_transaction = true;
                                 $is_patch = true;
                             } else {
@@ -97,6 +99,7 @@ trait Main {
                         } else {
                             //create
                             $create_many[] = $permission;
+                            $create++;
                             $is_transaction = true;
                             $is_create = true;
                         }
@@ -104,6 +107,7 @@ trait Main {
                 }
                 $commit = false;
                 if($is_transaction){
+                    $object->config('r3m.io.node.import.list.count', $create + $put + $patch);
                     $is_lock = $node->startTransaction($name, $options);
                     if($is_create){
                         $response = $node->create_many($name, $role, $create_many, [
@@ -199,10 +203,13 @@ trait Main {
                                 ;
                                 echo $command . PHP_EOL;
                                 exec($command, $output, $code);
-                                d($code);
-
+                                if($code === 0){
+                                    $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                    if($node){
+                                        $node_list[] = $node;
+                                    }
+                                }
                                 $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
-                                ddd($role);
                             }
                             elseif(property_exists($options, 'patch')){
                                 $output = [];
