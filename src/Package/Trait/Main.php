@@ -177,6 +177,7 @@ trait Main {
                     ]
                 ];
                 $name = 'Account.Role';
+                $node_list = [];
                 foreach($roles as $roles_role){
                     $record = $node->record($name, $role, [
                         'filter' => [
@@ -216,10 +217,12 @@ trait Main {
                                 ;
                                 echo $command . PHP_EOL;
                                 exec($command, $output, $code);
-                                d($code);
-                                $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
-                                ddd($role);
-//                                echo implode(PHP_EOL, $output) . PHP_EOL;
+                                if($code === 0){
+                                    $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                    if($node){
+                                        $node_list[] = $node;
+                                    }
+                                }
                             }
                         } else {
                             throw new Exception('Unknown state detected...');
@@ -236,9 +239,12 @@ trait Main {
                         ;
                         echo $command . PHP_EOL;
                         exec($command, $output, $code);
-                        d($code);
-                        $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
-                        ddd($role);
+                        if($code === 0){
+                            $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                            if($node){
+                                $node_list[] = $node;
+                            }
+                        }
                     }
                 }
                 return [
@@ -251,7 +257,8 @@ trait Main {
                     'mtime' => File::mtime($url),
                     'duration' => $duration * 1000,
                     'item_per_second' => $item_per_second,
-                    'transaction' => true
+                    'transaction' => true,
+                    'role' => $node_list
                 ];
             }
         }
