@@ -204,12 +204,11 @@ trait Main {
                                 echo $command . PHP_EOL;
                                 exec($command, $output, $code);
                                 if($code === 0){
-                                    $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
-                                    if($node){
-                                        $node_list[] = $node;
+                                    $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                    if($item){
+                                        $node_list[] = $item;
                                     }
                                 }
-                                $role = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
                             }
                             elseif(property_exists($options, 'patch')){
                                 $output = [];
@@ -225,9 +224,9 @@ trait Main {
                                 echo $command . PHP_EOL;
                                 exec($command, $output, $code);
                                 if($code === 0){
-                                    $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                                    $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
                                     if($node){
-                                        $node_list[] = $node;
+                                        $node_list[] = $item;
                                     }
                                 }
                             }
@@ -247,9 +246,9 @@ trait Main {
                         echo $command . PHP_EOL;
                         exec($command, $output, $code);
                         if($code === 0){
-                            $node = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
-                            if($node){
-                                $node_list[] = $node;
+                            $item = Core::object(implode(PHP_EOL, $output), Core::OBJECT_OBJECT);
+                            if($item){
+                                $node_list[] = $item;
                             }
                         }
                     }
