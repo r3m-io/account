@@ -69,6 +69,7 @@ trait Main {
                 foreach($permissions as $permission) {
                     if (property_exists($permission, 'name')) {
                         if(in_array($permission->name, $unique)) {
+                            $logger = false;
                             if($object->config('framework.environment') === Config::MODE_DEVELOPMENT){
                                 $logger = $object->config('project.log.debug');
                             }
