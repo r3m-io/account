@@ -299,7 +299,7 @@ trait Main {
                 ;
                 exec($command, $output, $code);
                 if($code !== 0){
-                    throw new Exception('Error creating private key');
+                    throw new Exception('Error creating private key' . implode(PHP_EOL, $output) . PHP_EOL);
                 }
             }
         }
