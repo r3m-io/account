@@ -21,7 +21,8 @@ trait Main {
      * @throws FileWriteException
      * @throws Exception
      */
-    public function account_create_default($flags, $options){
+    public function account_create_default($flags, $options): bool | array
+    {
         /*
          * - create role ROLE_SYSTEM with rank 1
          * - create role ROLE_ADMIN with rank 2
@@ -269,5 +270,141 @@ trait Main {
                 ];
             }
         }
+        return false;
+    }
+
+    /**
+     * @throws ObjectException
+     * @throws FileWriteException
+     */
+    public function account_create_jwt($flags, $options){
+        $object = $this->object();
+        $url_jwt = $object->config('project.dir.data') . 'Account/Jwt.json';
+        if(File::exist($url_jwt)){
+            return false;
+        }
+        if(!property_exists($options, 'token')){
+            $options->token = (object) [];
+        }
+        $permitted_for = Core::uuid();
+        if(!property_exists($options->token, 'private_key')){
+            $options->token->private_key = '{{config(\'project.dir.data\')}}Ssl/Token_key.pem';
+            //create private key
+            if(!File::exist($object->config('project.dir.data') . 'Ssl/Token_key.pem')){
+                $command = Core::binary($object) .
+                    ' openssl' .
+                    ' genrsa' .
+                    ' -out ' . $object->config('project.dir.data') . 'Ssl/Token_key.pem' .
+                    ' 2048'
+                ;
+                exec($command, $output, $code);
+                if($code !== 0){
+                    throw new Exception('Error creating private key');
+                }
+            }
+        }
+        if(!property_exists($options->token, 'certificate')){
+            $options->token->certificate = '{{config(\'project.dir.data\')}}Ssl/Token_cert.pem';
+            if(!File::exist($object->config('project.dir.data') .'Ssl/Token_cert.pem')){
+                $command = Core::binary($object) .
+                    ' openssl' .
+                    ' req' .
+                    ' -new' .
+                    ' -key ' . $object->config('project.dir.data') . 'Ssl/Token_cert.pem' .
+                    ' -out ' . $object->config('project.dir.data') . 'Ssl/Token_cert.pem' .
+                    ' -x509' .
+                    ' -days 365' .
+                    ' -subj "/C=NL/ST=Amsterdam/L=Amsterdam/O=R3m.io/OU=IT Department/CN=refresh.r3m.io"'
+                ;
+                exec($command, $output, $code);
+                if($code !== 0){
+                    throw new Exception('Error creating certificate');
+                }
+            }
+            //create certificate
+        }
+        if(!property_exists($options->token, 'passphrase')){
+            $options->token->passphrase = '';
+        }
+        if(!property_exists($options->token, 'issued_at')){
+            $options->token->issued_at = 'now';
+        }
+        if(!property_exists($options->token, 'identified_by')){
+            $options->token->identified_by = Core::uuid();
+        }
+        if(!property_exists($options->token, 'permitted_for')){
+            $options->token->permitted_for = $permitted_for;
+        }
+        if(!property_exists($options->token, 'can_only_be_used_after')){
+            $options->token->can_only_be_used_after = 'now';
+        }
+        if(!property_exists($options->token, 'expires_at')){
+            $options->token->expires_at = '+9 hours';
+        }
+        if(!property_exists($options->token, 'issued_by')){
+            $options->token->issued_by = 'R3m.io';
+        }
+        if(!property_exists($options, 'refresh')){
+            $options->refresh = (object) [];
+            $options->refresh->token = (object) [];
+        }
+        if(!property_exists($options->refresh->token, 'private_key')){
+            $options->refresh->token->private_key = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_key.pem';
+            //create private key
+            if(!File::exist($object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem')){
+                $command = Core::binary($object) .
+                    ' openssl' .
+                    ' genrsa' .
+                    ' -out ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem' .
+                    ' 2048'
+                ;
+                exec($command, $output, $code);
+                if($code !== 0){
+                    throw new Exception('Error creating private key');
+                }
+            }
+        }
+        if(!property_exists($options->refresh->token, 'certificate')){
+            $options->refresh->token->certificate = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_cert.pem';
+            if(!File::exist($object->config('project.dir.data') .'Ssl/RefreshToken_cert.pem')){
+                $command = Core::binary($object) .
+                    ' openssl' .
+                    ' req' .
+                    ' -new' .
+                    ' -key ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem' .
+                    ' -out ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_cert.pem' .
+                    ' -x509' .
+                    ' -days 365' .
+                    ' -subj "/C=BE/ST=Brussels/L=Brussels/O=R3m.io/OU=IT Department/CN=refresh.r3m.io"'
+                ;
+                exec($command, $output, $code);
+                if($code !== 0){
+                    throw new Exception('Error creating certificate');
+                }
+            }
+            //create certificate
+        }
+        if(!property_exists($options->refresh->token, 'passphrase')){
+            $options->refresh->token->passphrase = '';
+        }
+        if(!property_exists($options->refresh->token, 'issued_at')){
+            $options->refresh->token->issued_at = 'now';
+        }
+        if(!property_exists($options->refresh->token, 'identified_by')){
+            $options->refresh->token->identified_by = Core::uuid();
+        }
+        if(!property_exists($options->refresh->token, 'permitted_for')){
+            $options->refresh->token->permitted_for = $permitted_for;
+        }
+        if(!property_exists($options->refresh->token, 'can_only_be_used_after')){
+            $options->refresh->token->can_only_be_used_after = 'now';
+        }
+        if(!property_exists($options->refresh->token, 'expires_at')){
+            $options->refresh->token->expires_at = '+48 hours';
+        }
+        if(!property_exists($options->refresh->token, 'issued_by')){
+            $options->refresh->token->issued_by = 'R3m.io';
+        }
+        File::write($url_jwt, Core::object($options, Core::OBJECT_JSON));
     }
 }
