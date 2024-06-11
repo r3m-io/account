@@ -337,7 +337,7 @@ trait Main {
         if(!property_exists($options->refresh->token, 'private_key')){
             $options->refresh->token->private_key = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_key.pem';
             //create private key
-            if(!File::exist($object->config('project.dir.data') . 'Ssl/Token_key.pem')){
+            if(!File::exist($object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem')){
                 $command = Core::binary($object) .
                     ' r3m_io/basic' .
                     ' openssl' .
