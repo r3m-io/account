@@ -276,6 +276,7 @@ trait Main {
     /**
      * @throws ObjectException
      * @throws FileWriteException
+     * @throws Exception
      */
     public function account_create_jwt($flags, $options){
         $object = $this->object();
@@ -292,35 +293,20 @@ trait Main {
             //create private key
             if(!File::exist($object->config('project.dir.data') . 'Ssl/Token_key.pem')){
                 $command = Core::binary($object) .
+                    ' r3m_io/basic' .
                     ' openssl' .
-                    ' genrsa' .
-                    ' -out ' . $object->config('project.dir.data') . 'Ssl/Token_key.pem' .
-                    ' 2048'
+                    ' init' .
+                    ' -keyout=' . 'Token_key.pem' .
+                    ' -out=' . 'Token_cert.pem'
                 ;
                 exec($command, $output, $code);
                 if($code !== 0){
-                    throw new Exception('Error creating private key' . implode(PHP_EOL, $output) . PHP_EOL);
+                    throw new Exception('Error creating private key & certificate' . implode(PHP_EOL, $output) . PHP_EOL);
                 }
             }
         }
         if(!property_exists($options->token, 'certificate')){
             $options->token->certificate = '{{config(\'project.dir.data\')}}Ssl/Token_cert.pem';
-            if(!File::exist($object->config('project.dir.data') .'Ssl/Token_cert.pem')){
-                $command = Core::binary($object) .
-                    ' openssl' .
-                    ' req' .
-                    ' -new' .
-                    ' -key ' . $object->config('project.dir.data') . 'Ssl/Token_cert.pem' .
-                    ' -out ' . $object->config('project.dir.data') . 'Ssl/Token_cert.pem' .
-                    ' -x509' .
-                    ' -days 365' .
-                    ' -subj "/C=NL/ST=Amsterdam/L=Amsterdam/O=R3m.io/OU=IT Department/CN=refresh.r3m.io"'
-                ;
-                exec($command, $output, $code);
-                if($code !== 0){
-                    throw new Exception('Error creating certificate');
-                }
-            }
             //create certificate
         }
         if(!property_exists($options->token, 'passphrase')){
@@ -351,37 +337,22 @@ trait Main {
         if(!property_exists($options->refresh->token, 'private_key')){
             $options->refresh->token->private_key = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_key.pem';
             //create private key
-            if(!File::exist($object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem')){
+            if(!File::exist($object->config('project.dir.data') . 'Ssl/Token_key.pem')){
                 $command = Core::binary($object) .
+                    ' r3m_io/basic' .
                     ' openssl' .
-                    ' genrsa' .
-                    ' -out ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem' .
-                    ' 2048'
+                    ' init' .
+                    ' -keyout=' . 'RefreshToken_key.pem' .
+                    ' -out=' . 'RefreshToken_cert.pem'
                 ;
                 exec($command, $output, $code);
                 if($code !== 0){
-                    throw new Exception('Error creating private key' . implode(PHP_EOL, $output) . PHP_EOL);
+                    throw new Exception('Error creating private key & certificate' . implode(PHP_EOL, $output) . PHP_EOL);
                 }
             }
         }
         if(!property_exists($options->refresh->token, 'certificate')){
             $options->refresh->token->certificate = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_cert.pem';
-            if(!File::exist($object->config('project.dir.data') .'Ssl/RefreshToken_cert.pem')){
-                $command = Core::binary($object) .
-                    ' openssl' .
-                    ' req' .
-                    ' -new' .
-                    ' -key ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem' .
-                    ' -out ' . $object->config('project.dir.data') . 'Ssl/RefreshToken_cert.pem' .
-                    ' -x509' .
-                    ' -days 365' .
-                    ' -subj "/C=BE/ST=Brussels/L=Brussels/O=R3m.io/OU=IT Department/CN=refresh.r3m.io"'
-                ;
-                exec($command, $output, $code);
-                if($code !== 0){
-                    throw new Exception('Error creating certificate');
-                }
-            }
             //create certificate
         }
         if(!property_exists($options->refresh->token, 'passphrase')){
