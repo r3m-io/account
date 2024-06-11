@@ -282,7 +282,11 @@ trait Main {
         $object = $this->object();
         $url_jwt = $object->config('project.dir.data') . 'Account/Jwt.json';
         if(File::exist($url_jwt)){
-            return false;
+            if(property_exists($options, 'force')){
+                File::delete($url_jwt);
+            } else {
+                return false;
+            }
         }
         if(!property_exists($options, 'token')){
             $options->token = (object) [];
