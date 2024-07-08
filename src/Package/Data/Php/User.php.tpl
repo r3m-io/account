@@ -133,7 +133,6 @@ class User extends Controller {
                 Response::TYPE_JSON
             );
         }
-
     }
 
 }
