@@ -415,9 +415,6 @@ trait Main {
 
         $response = $parse->compile($data, $parse->storage());
         d($options);
-        d($response);
-        ddd($data);
-
-
+        ddd($response);
     }
 }
