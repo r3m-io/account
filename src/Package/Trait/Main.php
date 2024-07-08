@@ -414,7 +414,7 @@ trait Main {
         $data = File::read($url_template);
 
         $response = $parse->compile($data, $parse->storage());
-
+        d($namespace);
         d($response);
         ddd($data);
 
