@@ -382,4 +382,42 @@ trait Main {
         }
         File::write($url_jwt, Core::object($options, Core::OBJECT_JSON));
     }
+
+    /**
+     * @throws Exception
+     */
+    public function user_create_login($flags, $options)
+    {
+        $object = $this->object();
+        if(!property_exists($options, 'namespace')){
+            throw new Exception('Option namespace required.');
+        }
+        $parse = $this->parse();
+//        $parse->storage('options', $options);
+        $dir_template = $object->config('project.dir.package') .
+            'R3m' .
+            $object->config('ds') .
+            'Io' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Data' .
+            $object->config('ds') .
+            'Php' .
+            $object->config('ds')
+        ;
+        $url_template = $dir_template .
+            'User' .
+            $object->config('extension.php') .
+            $object->config('extension.tpl')
+        ;
+        $data = File::read($url_template);
+
+        $response = $parse->compile($data, $parse->storage());
+
+        d($response);
+        ddd($data);
+
+
+    }
 }
