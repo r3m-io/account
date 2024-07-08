@@ -64,8 +64,10 @@ class User extends Controller {
             );
             throw new Exception($exception);
         }
+
         return User::{$command}($object);
     }
+
 
     private static function info(App $object)
     {
@@ -78,7 +80,9 @@ class User extends Controller {
 
             return $exception;
         }
+
     }
+
 
     /**
      * @throws Exception
@@ -97,7 +101,9 @@ class User extends Controller {
                 Response::TYPE_CLI
             );
         }
+
     }
+
 
     /**
      * @throws Exception
@@ -112,7 +118,9 @@ class User extends Controller {
                 Response::TYPE_JSON
             );
         }
+
     }
+
 
     /**
      * @throws AuthorizationException
@@ -130,7 +138,9 @@ class User extends Controller {
                 Response::TYPE_JSON
             );
         }
+
     }
+
 
     /**
      * @throws AuthorizationException
@@ -146,5 +156,7 @@ class User extends Controller {
                 Response::TYPE_JSON
             );
         }
+
     }
+
 }
