@@ -424,18 +424,24 @@ trait Main {
             property_exists($options, 'force') &&
             $options->force === true
         ){
-            return File::write($url, $response);
+            return [
+                'size' => File::write($url, $response)
+            ];
         }
         elseif(
             property_exists($options, 'patch') &&
             $options->patch === true
         ){
-            return File::write($url, $response);
+            return [
+                'size' => File::write($url, $response)
+            ];
         }
         elseif(File::exist($url)){
             return false;
         } else {
-            return File::write($url, $response);
+            return [
+                'size' => File::write($url, $response)
+            ];
         }
     }
 }
