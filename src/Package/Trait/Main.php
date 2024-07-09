@@ -392,6 +392,9 @@ trait Main {
         if(!property_exists($options, 'namespace')){
             throw new Exception('Option namespace required.');
         }
+        if(!property_exists($options, 'dir')){
+            throw new Exception('Option dir required. (target domain controller)');
+        }
         $parse = $this->parse();
 //        $parse->storage('options', $options);
         $dir_template = $object->config('project.dir.package') .
@@ -412,9 +415,14 @@ trait Main {
             $object->config('extension.tpl')
         ;
         $data = File::read($url_template);
-
         $response = $parse->compile($data, $parse->storage());
-        d($options);
-        ddd($response);
+        $url = $options->dir .
+            'User' .
+            $object->config('extension.php')
+        ;
+        if(File::exist($url)){
+            return false;
+        }
+        File::write($url, $response);
     }
 }
