@@ -4,23 +4,13 @@
 <?php
 namespace {{$namespace}};
 
-
 use R3m\Io\App;
 
-use R3m\Io\Module\Cli;
-use R3m\Io\Module\File;
-use R3m\Io\Module\Handler;
 use R3m\Io\Module\Response;
 use R3m\Io\Module\Controller;
-use Package\R3m\Io\Account\Service\User as Service;
 
 use Exception;
 
-use Doctrine\ORM\Exception\ORMException;
-
-use R3m\Io\Exception\FileWriteException;
-use R3m\Io\Exception\ObjectException;
-use R3m\Io\Exception\AuthorizationException;
 use R3m\Io\Exception\LocateException;
 use R3m\Io\Exception\UrlEmptyException;
 use R3m\Io\Exception\UrlNotExistException;
@@ -67,11 +57,12 @@ class User extends Controller {
             );
             throw new Exception($exception);
         }
-        $user = new User();
-        return $user->{$command}($object);
+        $user = new User($object);
+        return $user->{$command}();
     }
 
-    private function info(App $object){
+    private function info(){
+        $object = $this->object();
         try {
             $name = User::name(__FUNCTION__, __CLASS__, '/');
             $url = User::locate($object, $name);
