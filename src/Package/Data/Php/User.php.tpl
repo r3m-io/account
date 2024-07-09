@@ -45,6 +45,11 @@ class User extends Controller {
     ];
 
     use Package\R3m\Io\Account\Module\User;
+    use Package\R3m\Io\Account\Module\App;
+
+    public function __construct(App $object){
+        $this->object($object);
+    }
 
     /**
     * @throws Exception
