@@ -67,7 +67,8 @@ class User extends Controller {
             $name = User::name(__FUNCTION__, __CLASS__, '/');
             $url = User::locate($object, $name);
             return User::response($object, $url);
-        } catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {
+        }
+        catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {
             return $exception;
         }
     }
