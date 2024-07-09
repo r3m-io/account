@@ -386,7 +386,7 @@ trait Main {
     /**
      * @throws Exception
      */
-    public function user_create_login($flags, $options)
+    public function user_create_login($flags, $options): void
     {
         $object = $this->object();
         if(!property_exists($options, 'namespace')){
@@ -420,9 +420,22 @@ trait Main {
             'User' .
             $object->config('extension.php')
         ;
-        if(File::exist($url)){
-            return false;
+        if(
+            property_exists($options, 'force') &&
+            $options->force === true
+        ){
+            File::write($url, $response);
         }
-        File::write($url, $response);
+        elseif(
+            property_exists($options, 'patch') &&
+            $options->patch === true
+        ){
+            File::write($url, $response);
+        }
+        elseif(File::exist($url)){
+            return;
+        } else {
+            File::write($url, $response);
+        }
     }
 }
