@@ -34,8 +34,8 @@ class User extends Controller {
         '{{binary()}} user token <email>             | Request a login token with e-mail'
     ];
 
-    use Package\R3m\Io\Account\Module\User;
-    use Package\R3m\Io\Account\Module\App;
+    use Package\R3m\Io\Account\Trait\User;
+    use Package\R3m\Io\Account\Trait\App;
 
     public function __construct(App $object){
         $this->object($object);
