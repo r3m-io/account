@@ -443,7 +443,6 @@ trait Main {
             $options = Core::object_merge($data->get('User'), $options);
             $object->data(App::OPTIONS, $options);
         }
-        ddd($options);
         $template = File::read($url_template);
         $response = $parse->compile($template, $parse->storage());
         if(!is_string($response)){
