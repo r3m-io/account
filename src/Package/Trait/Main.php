@@ -446,6 +446,9 @@ trait Main {
             $data->set('User.constant', $parse->compile($data->get('User.constant'), $parse->storage()));
             $options = Core::object_merge($data->get('User'), $options);
             $object->data(App::OPTIONS, $options);
+            $data->set('User.test', $parse->compile($data->get('User.test'), $parse->storage()));
+            $options = Core::object_merge($data->get('User'), $options);
+            $object->data(App::OPTIONS, $options);
         }
         ddd($options);
         $template = File::read($url_template);
