@@ -1,6 +1,6 @@
 {
   "User" : {
-    "class": "User",
+    "class": "{{$options.class}}",
     "use" : [
       "R3m\\Io\\App",
       "R3m\\Io\\Module\\Response",
@@ -14,16 +14,16 @@
     "implements": null,
     "constant": {
       "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
-      "NAME" : "{{$class}}",
+      "NAME" : "{{$options.class}}",
       "COMMAND_TOKEN" : "token",
       "COMMAND_INFO" : "info",
       "COMMAND" : [
-        "{{$class}}::COMMAND_INFO",
-        "{{$class}}::COMMAND_TOKEN"
+        "{{$options.class}}::COMMAND_INFO",
+        "{{$options.class}}::COMMAND_TOKEN"
       ],
-      "DEFAULT_COMMAND" : "{{$class}}::COMMAND_INFO",
-      "EXCEPTION_COMMAND_PARAMETER" : "{{$command}}",
-      "EXCEPTION_COMMAND" : "invalid command ({{$command}})\n"
+      "DEFAULT_COMMAND" : "{{$options.class}}::COMMAND_INFO",
+      "EXCEPTION_COMMAND_PARAMETER" : "{{$options.command}}",
+      "EXCEPTION_COMMAND" : "invalid command ({{$options.command}})\n"
     },
     "trait": [
       "Package\\R3m\\Io\\Account\\Trait\\User",
