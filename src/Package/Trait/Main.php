@@ -436,6 +436,8 @@ trait Main {
             $object->config('extension.php') .
             $object->config('extension.tpl')
         ;
+        $data = $object->data_read($options->data);
+        d($data);
         $template = File::read($url_template);
         ddd($template);
         $response = $parse->compile($template, $parse->storage());
