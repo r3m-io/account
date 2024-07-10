@@ -1,5 +1,6 @@
 {
   "User" : {
+    "class": "User",
     "use" : [
       "R3m\\Io\\App",
       "R3m\\Io\\Module\\Response",

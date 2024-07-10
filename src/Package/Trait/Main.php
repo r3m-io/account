@@ -440,12 +440,12 @@ trait Main {
         $data = $object->data_read($options->data);
         if($data){
             $options = App::options($object);
-            $options = Core::object_merge($options, $data->get('User'));
+            $options = Core::object_merge($data->get('User'), $options);
         }
         d($options);
         $template = File::read($url_template);
-        ddd($template);
         $response = $parse->compile($template, $parse->storage());
+        ddd($response);
         $url = $options->dir .
             $options->class .
             $object->config('extension.php')
