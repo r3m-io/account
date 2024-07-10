@@ -1,8 +1,12 @@
 {{R3M}}
 {{$options = options()}}
-{{dd($options)}}
 {{$namespace = $options.namespace}}
 {{$class = $options.class}}
+{{$extends = $options.extends}}
+{{$use = $options.use}}
+{{$constants = $options.constant}}
+{{$traits = $options.trait}}
+{{$functions = $options.function}}
 <?php
 namespace {{$namespace}};
 {{for.each($use as $usage)}}
