@@ -31,8 +31,8 @@ class {{$class}} {
 
     ]
     {{else}}
-    const {{$property}} = {{$value}};{{/if}}
-
+    const {{$property}} = {{$value}};
+    {{/if}}
 {{/for.each}}
 
 {{for.each($traits as $trait)}}
