@@ -29,7 +29,8 @@ class {{$class}} {
 {{if(is.array($value))}}
     const {{$property}} = [
     {{implode(',' + "\n\t", $value)}}
-];
+
+    ];
 {{else}}
     const {{$property}} = {{$value}};
 {{/if}}
