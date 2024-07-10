@@ -437,6 +437,7 @@ trait Main {
             $object->config('extension.tpl')
         ;
         $template = File::read($url_template);
+        ddd($template);
         $response = $parse->compile($template, $parse->storage());
         $url = $options->dir .
             $options->class .
