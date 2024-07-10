@@ -438,7 +438,7 @@ trait Main {
         ;
         $data = $object->data_read($options->data);
         if($data){
-            $options = $object->options();
+            $options = App::options($object);
             $options = Core::object_merge($options, $data->get('User'));
         }
         d($options);
