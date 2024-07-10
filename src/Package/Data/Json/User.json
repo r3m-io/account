@@ -26,6 +26,9 @@
       "EXCEPTION_COMMAND_PARAMETER" : "{{$this.options.command}}",
       "EXCEPTION_COMMAND" : "invalid command ({{$this.options.command}})\n"
     },
+    "test": {
+      "desciption": "{{dd($this.options)}}",
+    },
     "trait": [
       "Package\\R3m\\Io\\Account\\Trait\\User",
       "Package\\R3m\\Io\\Account\\Trait\\App"
