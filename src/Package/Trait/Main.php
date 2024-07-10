@@ -1,6 +1,7 @@
 <?php
 namespace Package\R3m\Io\Account\Trait;
 
+use R3m\Io\App;
 use R3m\Io\Config;
 
 use R3m\Io\Module\Core;
