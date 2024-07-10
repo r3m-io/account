@@ -10,6 +10,7 @@
 {{$functions = $options.function}}
 <?php
 namespace {{$namespace}};
+
 {{for.each($use as $usage)}}
 use {{$usage}};
 {{/for.each}}
@@ -23,6 +24,7 @@ class {{$class}} extends {{$extends}} {
 {{else}}
 class {{$class}} {
 {{/if}}
+
 {{for.each($constants as $property => $value)}}
     const {{$property}} = {{$value}};
 {{/for.each}}
