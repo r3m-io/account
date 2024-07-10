@@ -437,7 +437,11 @@ trait Main {
             $object->config('extension.tpl')
         ;
         $data = $object->data_read($options->data);
-        d($data);
+        if($data){
+            $options = $object->options();
+            $options = Core::object_merge($options, $data->get('User'));
+        }
+        d($options);
         $template = File::read($url_template);
         ddd($template);
         $response = $parse->compile($template, $parse->storage());
