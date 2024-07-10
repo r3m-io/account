@@ -437,9 +437,11 @@ trait Main {
             $object->config('extension.php') .
             $object->config('extension.tpl')
         ;
-        $data = $object->parse_read($options->data);
+        $data = $object->data_read($options->data);
         if($data){
 //            $options = App::options($object);
+            $data->set('User.options', $parse->compile($data->get('User.options'), $parse->storage()));
+            $data->set('User.constant', $parse->compile($data->get('User.constant'), $parse->storage()));
             $options = Core::object_merge($data->get('User'), $options);
             $object->data(App::OPTIONS, $options);
         }
