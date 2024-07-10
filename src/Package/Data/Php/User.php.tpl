@@ -28,7 +28,7 @@ class {{$class}} {
 {{for.each($constants as $property => $value)}}
     {{if(is.array($value))}}
     const {{$property}} = [
-        {{implode(',' + "\n", $value)}};
+        {{implode(',' + "\n\t", $value)}}
     ]
     {{else}}
     const {{$property}} = {{$value}};
