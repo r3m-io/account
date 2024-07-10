@@ -13,7 +13,7 @@
     "extends" : "Controller",
     "implements": null,
     "constant": {
-      "DIR" : "{{constant('__DIR__')}}{{constant('DIRECTORY_SEPARATOR'))",
+      "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
       "NAME" : "{{$class}}",
       "COMMAND_TOKEN" : "token",
       "COMMAND_INFO" : "info",
