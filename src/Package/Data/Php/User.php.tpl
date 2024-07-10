@@ -26,7 +26,14 @@ class {{$class}} {
 {{/if}}
 
 {{for.each($constants as $property => $value)}}
+    {{if(is.array($value))}}
+    const {{$property}} = [
+        {{implode(',' + "\n", $value)}};
+    ]
+    {{else}}
     const {{$property}} = {{$value}};
+    {{/if}}
+
 {{/for.each}}
 
 {{for.each($traits as $trait)}}
