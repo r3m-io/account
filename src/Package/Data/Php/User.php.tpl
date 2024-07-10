@@ -23,10 +23,8 @@ class {{$class}} extends {{$extends}} {
 {{else}}
 class {{$class}} {
 {{/if}}
-{{for.each($constants as $constant)}}
-    {{for.each($constant as $property => $value)}}
+{{for.each($constants as $property => $value)}}
     const {{$property}} = {{$value}};
-    {{/for.each}}
 {{/for.each}}
 
 {{for.each($traits as $trait)}}
