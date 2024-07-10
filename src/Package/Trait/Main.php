@@ -441,6 +441,8 @@ trait Main {
         if($data){
 //            $options = App::options($object);
             $data->set('User.options', $parse->compile($data->get('User.options'), $parse->storage()));
+            $options = Core::object_merge($data->get('User'), $options);
+            $object->data(App::OPTIONS, $options);
             $data->set('User.constant', $parse->compile($data->get('User.constant'), $parse->storage()));
             $options = Core::object_merge($data->get('User'), $options);
             $object->data(App::OPTIONS, $options);
