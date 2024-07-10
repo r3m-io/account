@@ -1,0 +1,37 @@
+{
+  "User" : {
+    "use" : [
+      "R3m\\Io\\App",
+      "R3m\\Io\\Module\\Response",
+      "R3m\\Io\\Module\\Controller",
+      "Exception",
+      "R3m\\Io\\Exception\\LocateException",
+      "R3m\\Io\\Exception\\UrlEmptyException",
+      "R3m\\Io\\Exception\\UrlNotExistException"
+    ],
+    "extends" : "Controller",
+    "implements": null,
+    "constant": {
+      "DIR" : "{{constant('__DIR__')}}{{constant('DIRECTORY_SEPARATOR'))",
+      "NAME" : "{{$class}}",
+      "COMMAND_TOKEN" : "token",
+      "COMMAND_INFO" : "info",
+      "COMMAND" : [
+        "{{$class}}::COMMAND_INFO",
+        "{{$class}}::COMMAND_TOKEN"
+      ],
+      "DEFAULT_COMMAND" : "{{$class}}::COMMAND_INFO",
+      "EXCEPTION_COMMAND_PARAMETER" : "{{$command}}",
+      "EXCEPTION_COMMAND" : "invalid command ({{$command}})\n"
+    },
+    "trait": [
+      "Package\\R3m\\Io\\Account\\Trait\\User",
+      "Package\\R3m\\Io\\Account\\Trait\\App"
+    ],
+    "function": [
+      "public function __construct(App $object){\n        $this->object($object);\n    }",
+      "/**\n    * @throws Exception\n    */\n    public static function command(App $object){\n        $command = $object->parameter($object, __CLASS__, 1);\n        if($command === null){\n            $command = {{$class}}::DEFAULT_COMMAND;\n        }\n        if(!in_array($command, {{$class}}::COMMAND)){\n            $exception = str_replace(\n                {{$class}}::EXCEPTION_COMMAND_PARAMETER,\n                $command,\n                {{$class}}::EXCEPTION_COMMAND\n            );\n            throw new Exception($exception);\n        }\n        $user = new {{$class}}($object);\n        return $user->{$command}();\n    }",
+      "private function info(){\n        $object = $this->object();\n        try {\n            $name = {{$class}}::name(__FUNCTION__, __CLASS__, '/');\n            $url = {{$class}}::locate($object, $name);\n            return {{$class}}::response($object, $url);\n        }\n        catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {\n            return $exception;\n        }\n    }",
+    ]
+  }
+}

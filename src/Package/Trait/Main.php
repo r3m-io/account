@@ -398,8 +398,21 @@ trait Main {
         if(!property_exists($options, 'class')){
             $options->class = 'User';
         }
+
         $parse = $this->parse();
 //        $parse->storage('options', $options);
+        $dir_data = $object->config('project.dir.package') .
+            'R3m' .
+            $object->config('ds') .
+            'Io' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Data' .
+            $object->config('ds') .
+            'Json' .
+            $object->config('ds')
+        ;
         $dir_template = $object->config('project.dir.package') .
             'R3m' .
             $object->config('ds') .
@@ -412,13 +425,19 @@ trait Main {
             'Php' .
             $object->config('ds')
         ;
+        if(!property_exists($options, 'data')){
+            $options->data = $dir_data .
+                'User' .
+                $object->config('extension.json')
+            ;
+        }
         $url_template = $dir_template .
             'User' .
             $object->config('extension.php') .
             $object->config('extension.tpl')
         ;
-        $data = File::read($url_template);
-        $response = $parse->compile($data, $parse->storage());
+        $template = File::read($url_template);
+        $response = $parse->compile($template, $parse->storage());
         $url = $options->dir .
             $options->class .
             $object->config('extension.php')
