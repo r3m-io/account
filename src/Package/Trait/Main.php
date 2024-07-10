@@ -445,7 +445,6 @@ trait Main {
         }
         $template = File::read($url_template);
         $response = $parse->compile($template, $parse->storage());
-        ddd($response);
         $url = $options->dir .
             $options->class .
             $object->config('extension.php')
