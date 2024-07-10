@@ -12,7 +12,8 @@
 namespace {{$namespace}};
 
 {{for.each($use as $usage)}}
-use {{$usage}};{{/for.each}}
+use {{$usage}};
+{{/for.each}}
 
 {{if($implements && $extends)}}
 class {{$class}} extends {{$extends}} implements {{$implements}} {
