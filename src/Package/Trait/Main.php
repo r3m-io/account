@@ -395,6 +395,9 @@ trait Main {
         if(!property_exists($options, 'dir')){
             throw new Exception('Option dir required. (target domain controller)');
         }
+        if(!property_exists($options, 'class')){
+            $options->class = 'User';
+        }
         $parse = $this->parse();
 //        $parse->storage('options', $options);
         $dir_template = $object->config('project.dir.package') .
@@ -417,7 +420,7 @@ trait Main {
         $data = File::read($url_template);
         $response = $parse->compile($data, $parse->storage());
         $url = $options->dir .
-            'User' .
+            $options->class .
             $object->config('extension.php')
         ;
         if(
