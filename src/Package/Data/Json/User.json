@@ -15,16 +15,16 @@
     "implements": null,
     "constant": {
       "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
-      "NAME" : "{{$this.#parentNode.options.class}}",
-      "COMMAND_TOKEN" : "token",
-      "COMMAND_INFO" : "info",
+      "NAME" : "'{{$this.#parentNode.options.class}}'",
+      "COMMAND_TOKEN" : "'token'",
+      "COMMAND_INFO" : "'info'",
       "COMMAND" : [
         "{{$this.#parentNode.options.class}}::COMMAND_INFO",
         "{{$this.#parentNode.options.class}}::COMMAND_TOKEN"
       ],
       "DEFAULT_COMMAND" : "{{$this.#parentNode.options.class}}::COMMAND_INFO",
       "EXCEPTION_COMMAND_PARAMETER" : "{{$this.#parentNode.options.command}}",
-      "EXCEPTION_COMMAND" : "invalid command ({{$this.#parentNode.options.command}})\n"
+      "EXCEPTION_COMMAND" : "\"invalid command ({{$this.#parentNode.options.command}})\n\""
     },
     "trait": [
       "Package\\R3m\\Io\\Account\\Trait\\User",

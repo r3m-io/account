@@ -25,14 +25,14 @@ class {{$class}} {
 {{/if}}
 
 {{for.each($constants as $property => $value)}}
-    {{if(is.array($value))}}
+{{if(is.array($value))}}
     const {{$property}} = [
         {{implode(',' + "\n\t", $value)}}
 
-    ]
-    {{else}}
+    ];
+{{else}}
     const {{$property}} = {{$value}};
-    {{/if}}
+{{/if}}
 {{/for.each}}
 
 {{for.each($traits as $trait)}}
