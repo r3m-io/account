@@ -13,7 +13,7 @@
 ]}}
 {{$extends = 'Controller'}}
 {{$implements = ''}}
-{{$constants = (object) [
+{{$constants = {
 'DIR' => '__DIR__ . DIRECTORY_SEPARATOR',
 'NAME' => $class,
 'COMMAND_TOKEN' => 'token',
@@ -25,7 +25,7 @@
 'DEFAULT_COMMAND' => '{{$class}}::COMMAND_INFO',
 'EXCEPTION_COMMAND_PARAMETER' => '{{$command}}',
 'EXCEPTION_COMMAND' => 'invalid command (' . ' . "{{$class}}" . '::EXCEPTION_COMMAND_PARAMETER . ')' . PHP_EOL,
-]}}
+}}}
 {{dd($constants)}}
 {{$traits = [
 ]}}
