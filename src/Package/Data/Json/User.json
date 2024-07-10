@@ -30,6 +30,9 @@
       "Package\\R3m\\Io\\Account\\Trait\\User",
       "Package\\R3m\\Io\\Account\\Trait\\App"
     ],
+    "test": {
+      "description": "{{data($this.parentNode)}}"
+    },
     "function": [
       "public function __construct(App $object){\n        $this->object($object);\n    }",
       "/**\n    * @throws Exception\n    */\n    public static function command(App $object){\n        $command = $object->parameter($object, __CLASS__, 1);\n        if($command === null){\n            $command = {{$this.class}}::DEFAULT_COMMAND;\n        }\n        if(!in_array($command, {{$this.class}}::COMMAND)){\n            $exception = str_replace(\n                {{$this.class}}::EXCEPTION_COMMAND_PARAMETER,\n                $command,\n                {{$this.class}}::EXCEPTION_COMMAND\n            );\n            throw new Exception($exception);\n        }\n        $user = new {{$this.class}}($object);\n        return $user->{$command}();\n    }",
