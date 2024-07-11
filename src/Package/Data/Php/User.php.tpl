@@ -46,9 +46,6 @@ class {{$class}} {
 {{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
 {{/if}}
-
-{{d($function)}}
-
         {{implode("\n        ", $function.body)}}
 
     }
