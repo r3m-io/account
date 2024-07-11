@@ -28,7 +28,7 @@ class {{$class}} {
 {{for.each($constants as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
-    {{implode(',' + "\n\t", $value)}}
+    {{implode(',' + "\n    ", $value)}}
 
     ];
 {{else}}
@@ -46,7 +46,7 @@ class {{$class}} {
 {{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
 {{/if}}
-        {{implode("\n\t\t", $function.body)}}
+        {{implode("\n        ", $function.body)}}
 
     }
 
