@@ -31,9 +31,65 @@
       "Package\\R3m\\Io\\Account\\Trait\\App"
     ],
     "function": [
-      "public function __construct(App $object){\n        $this->object($object);\n    }",
-      "/**\n    * @throws Exception\n    */\n    public static function command(App $object){\n        $command = $object->parameter($object, __CLASS__, 1);\n        if($command === null){\n            $command = {{$this.class}}::DEFAULT_COMMAND;\n        }\n        if(!in_array($command, {{$this.class}}::COMMAND)){\n            $exception = str_replace(\n                {{$this.class}}::EXCEPTION_COMMAND_PARAMETER,\n                $command,\n                {{$this.class}}::EXCEPTION_COMMAND\n            );\n            throw new Exception($exception);\n        }\n        $user = new {{$this.class}}($object);\n        return $user->{$command}();\n    }",
-      "private function info(){\n        $object = $this->object();\n        try {\n            $name = {{$this.class}}::name(__FUNCTION__, __CLASS__, '/');\n            $url = {{$this.class}}::locate($object, $name);\n            return {{$this.class}}::response($object, $url);\n        }\n        catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {\n            return $exception;\n        }\n    }"
+        {
+          "name": "__construct",
+          "type" : "public",
+          "static": false,
+          "argument": [
+            "App $object"
+          ],
+          "body": [
+            "$this->object($object);"
+          ]
+        },
+        {
+            "name": "command",
+            "type" : "public",
+            "static": true,
+            "argument": [
+              "App $object"
+            ],
+            "doc-comment": [
+              "/**",
+              " * @throws Exception",
+              " */"
+            ],
+            "body": [
+              "    $command = $object->parameter($object, __CLASS__, 1);",
+              "    if($command === null){",
+              "        $command = {{$this.class}}::DEFAULT_COMMAND;",
+              "    }",
+              "    if(!in_array($command, {{$this.class}}::COMMAND)){",
+              "        $exception = str_replace(",
+              "            {{$this.class}}::EXCEPTION_COMMAND_PARAMETER,",
+              "            $command,",
+              "            {{$this.class}}::EXCEPTION_COMMAND",
+              "        );",
+              "        throw new Exception($exception);",
+              "    }",
+              "    $user = new {{$this.class}}($object);",
+              "    return $user->{$command}();",
+              "}"
+            ]
+        },
+        {
+            "name": "info",
+            "type" : "private",
+            "static": false,
+            "argument": [],
+            "body": [
+              "    $object = $this->object();",
+              "    try {",
+              "        $name = {{$this.class}}::name(__FUNCTION__, __CLASS__, '/');",
+              "        $url = {{$this.class}}::locate($object, $name);",
+              "        return {{$this.class}}::response($object, $url);",
+              "    }",
+              "    catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {",
+              "        return $exception;",
+              "    }",
+              "}"
+            ]
+        }
     ]
   }
 }
