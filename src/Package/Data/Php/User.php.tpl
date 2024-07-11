@@ -41,12 +41,12 @@ class {{$class}} {
 {{/for.each}}
 
 {{for.each($functions as $function)}}
-    {{if($function.static)}}
+{{if($function.static)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) {
-    {{else}}
+{{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
-    {{/if}}
-    {{implode("\n", $function.body)}}
+{{/if}}
+        {{implode("\n\t\t", $function.body)}}
 
     }
 
