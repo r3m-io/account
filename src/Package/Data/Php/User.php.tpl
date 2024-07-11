@@ -49,7 +49,7 @@ class {{$class}} {
 
 {{dd($function)}}
 
-{{implode("\n        ", $function.body)}}
+        {{implode("\n        ", $function.body)}}
 
     }
 
