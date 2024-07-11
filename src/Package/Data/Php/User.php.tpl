@@ -46,7 +46,7 @@ class {{$class}} {
     {{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
     {{/if}}
-    {{$function.body}}
+    {{implode("\n", $function.body)}}
     }
 {{/for.each}}
 }
