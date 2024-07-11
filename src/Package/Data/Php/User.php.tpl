@@ -46,6 +46,9 @@ class {{$class}} {
 {{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
 {{/if}}
+
+{{dd($function)}}
+
 {{implode("\n        ", $function.body)}}
 
     }
