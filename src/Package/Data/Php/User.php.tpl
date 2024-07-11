@@ -47,6 +47,8 @@ class {{$class}} {
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
     {{/if}}
     {{implode("\n", $function.body)}}
+
     }
+
 {{/for.each}}
 }
