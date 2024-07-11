@@ -42,9 +42,9 @@ class {{$class}} {
 
 {{for.each($functions as $function)}}
     {{if($function.static)}}
-    {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument}}) {
+    {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) {
     {{else}}
-    {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument}}) {
+    {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
     {{/if}}
     {{$function.body}}
     }
