@@ -55,21 +55,20 @@
               " */"
             ],
             "body": [
-              "    $command = $object->parameter($object, __CLASS__, 1);",
-              "    if($command === null){",
-              "        $command = {{$this.class}}::DEFAULT_COMMAND;",
-              "    }",
-              "    if(!in_array($command, {{$this.class}}::COMMAND)){",
-              "        $exception = str_replace(",
-              "            {{$this.class}}::EXCEPTION_COMMAND_PARAMETER,",
-              "            $command,",
-              "            {{$this.class}}::EXCEPTION_COMMAND",
-              "        );",
-              "        throw new Exception($exception);",
-              "    }",
-              "    $user = new {{$this.class}}($object);",
-              "    return $user->{$command}();",
-              "}"
+              "$command = $object->parameter($object, __CLASS__, 1);",
+              "if($command === null){",
+              "    $command = {{$this.class}}::DEFAULT_COMMAND;",
+              "}",
+              "if(!in_array($command, {{$this.class}}::COMMAND)){",
+              "    $exception = str_replace(",
+              "        {{$this.class}}::EXCEPTION_COMMAND_PARAMETER,",
+              "        $command,",
+              "        {{$this.class}}::EXCEPTION_COMMAND",
+              "    );",
+              "    throw new Exception($exception);",
+              "}",
+              "$user = new {{$this.class}}($object);",
+              "return $user->{$command}();"
             ]
         },
         {
@@ -78,15 +77,14 @@
             "static": false,
             "argument": [],
             "body": [
-              "    $object = $this->object();",
-              "    try {",
-              "        $name = {{$this.class}}::name(__FUNCTION__, __CLASS__, '/');",
-              "        $url = {{$this.class}}::locate($object, $name);",
-              "        return {{$this.class}}::response($object, $url);",
-              "    }",
-              "    catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {",
-              "        return $exception;",
-              "    }",
+              "$object = $this->object();",
+              "try {",
+              "    $name = {{$this.class}}::name(__FUNCTION__, __CLASS__, '/');",
+              "    $url = {{$this.class}}::locate($object, $name);",
+              "    return {{$this.class}}::response($object, $url);",
+              "}",
+              "catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {",
+              "    return $exception;",
               "}"
             ]
         }
