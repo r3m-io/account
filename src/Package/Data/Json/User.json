@@ -26,18 +26,64 @@
         ],
         "static": true,
         "value": "null"
-      }
-    ],
-    "protected": [
+      },
       {
         "name": "array",
         "type" : "array",
         "doc_comment": [],
         "static": false,
         "value": "[]"
+      },
+      {
+        "name": "string",
+        "type" : "string",
+        "doc_comment": [],
+        "static": false,
+        "value": "[]"
+      }
+    ],
+    "protected": [
+      {
+        "name": "object",
+        "type" : "App",
+        "doc_comment": [
+          "this is a test"
+        ],
+        "static": true,
+        "value": "null"
+      },
+      {
+        "name": "array",
+        "type" : "array",
+        "doc_comment": [],
+        "static": false,
+        "value": "[]"
+      },
+      {
+        "name": "string",
+        "type" : "string",
+        "doc_comment": [],
+        "static": false,
+        "value": "[]"
       }
     ],
     "public": [
+      {
+        "name": "object",
+        "type" : "App",
+        "doc_comment": [
+          "this is a test"
+        ],
+        "static": true,
+        "value": "null"
+      },
+      {
+        "name": "array",
+        "type" : "array",
+        "doc_comment": [],
+        "static": false,
+        "value": "[]"
+      },
       {
         "name": "string",
         "type" : "string",
