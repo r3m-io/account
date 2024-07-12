@@ -32,7 +32,7 @@
         "type" : "array",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": []
       },
       {
         "name": "string",
