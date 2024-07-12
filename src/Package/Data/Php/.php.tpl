@@ -57,7 +57,8 @@ class {{$class}} {
 {{for.each($user_traits as $user_trait_use)}}
     use {{$user_trait_use}};
 {{/for.each}}
-{{Package.R3m.Io.Account:Php:variable.define($privates, 'private')}}
+{{$private = Package.R3m.Io.Account:Php:php.variable.define($privates, 'private')}}
+{{implode("\n", $private)}}
 
 
 {{for.each($privates as $private)}}
