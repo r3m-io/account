@@ -76,23 +76,22 @@ $private.value &&
 is_array($private.value)
 )}}
     private static {{$private.type}} ${{$private.name}} = [
-        {{implode(',        ', $private.value)}};
+{{for.each($private.value as $key => $value)}}
+{{if(is_numeric($key))}}
+        {{$value}},
+{{else}}
+        {{$key}} => {{$value}},
+{{/if}}
+{{/for.each}}
     ];
 {{elseif(
 $private.name &&
 $private.static &&
 $private.type &&
 $private.value &&
-is_string($private.value)
+is_scalar($private.value)
 )}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
-{{elseif(
-$private.name &&
-$private.type &&
-$private.value &&
-is_string($private.value)
-)}}
-    private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
 $private.type &&
@@ -100,22 +99,42 @@ $private.value &&
 is_array($private.value)
 )}}
     private {{$private.type}} ${{$private.name}} = [
-        {{implode(',        ', $private.value)}};
+{{for.each($private.value as $key => $value)}}
+{{if(is_numeric($key))}}
+        {{$value}},
+{{else}}
+        {{$key}} => {{$value}},
+{{/if}}
+{{/for.each}}
     ];
 {{elseif(
 $private.name &&
+$private.type &&
 $private.value &&
-is_string($private.value)
+is_scalar($private.value)
 )}}
-    private ${{$private.name}} = {{$private.value}};
+    private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
 $private.value &&
 is_array($private.value)
 )}}
     private ${{$private.name}} = [
-        {{implode(',        ', $private.value)}};
+{{for.each($private.value as $key => $value)}}
+{{if(is_numeric($key))}}
+        {{$value}},
+{{else}}
+        {{$key}} => {{$value}},
+{{/if}}
+{{/for.each}}
     ];
+{{elseif(
+$private.name &&
+$private.value &&
+is_scalar($private.value)
+)}}
+    private ${{$private.name}} = {{$private.value}};
+
 {{/if}}
 {{/for.each}}
 
