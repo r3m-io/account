@@ -53,10 +53,13 @@ class {{$class}} {
 {{/if}}
 {{if($function.throw)}}
     /**
-    {{for.each($function.throw as $throw)}}
+{{for.each($function.throw as $throw_nr => $throw)}}
      * @throws {{$throw}}
+{{if(!is.empty($function.throw[$throw_nr + 1]))}}
 
-    {{/for.each}}
+
+{{/if}}
+{{/for.each}}
 
      */
 {{/if}}
