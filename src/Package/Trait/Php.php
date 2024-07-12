@@ -96,7 +96,7 @@ trait Php
                     $arguments[] = $line;
                 }
                 if($length > 79){
-                    $header .= PHP_EOL . '        ' . implode(',' . PHP_EOL, $arguments) . PHP_EOL;
+                    $header .= PHP_EOL . '        ' . implode(',        ' . PHP_EOL, $arguments) . PHP_EOL;
                 } else {
                     $header .= implode(', ', $arguments);
                 }
