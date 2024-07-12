@@ -69,7 +69,7 @@ trait Php
                 property_exists($function, 'argument')
             ){
                 $arguments = [];
-                $length = strlen($function);
+                $length = strlen($header);
                 foreach($function->argument as $argument){
                     if(!is_object($argument)){
                         continue;
