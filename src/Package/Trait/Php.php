@@ -67,7 +67,7 @@ trait Php
                 ){
                     $header = '    ' . $function->type . ' static function ' . $function->name . '(';
                 } else {
-                    $header = '    ' . ' static function ' . $function->name . '(';
+                    $header = '    ' . 'static function ' . $function->name . '(';
                 }
             } else {
                 if(
@@ -76,7 +76,7 @@ trait Php
                 ){
                     $header = '    ' . $function->type . ' function ' . $function->name . '(';
                 } else {
-                    $header = '    ' . ' function ' . $function->name . '(';
+                    $header = '    ' . 'function ' . $function->name . '(';
                 }
             }
             $type = '';
