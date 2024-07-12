@@ -65,6 +65,10 @@ class {{$class}} {
 {{implode("\n", $public)}}
 
 
+{{$functions = Package.R3m.Io.Account:Php:php.function.define($functions)}}
+{{implode("\n", $functions)}}
+
+
 {{for.each($functions as $function)}}
 {{if($function.doc_comment)}}
     {{implode("\n    ", $function.doc_comment)}}

@@ -123,7 +123,10 @@
           "type" : "public",
           "static": false,
           "argument": [
-            "App $object"
+            {
+              "name": "object",
+              "type" : "App"
+            }
           ],
           "attribute": [],
           "return_type": [
@@ -138,7 +141,10 @@
             "type" : "public",
             "static": true,
             "argument": [
-              "App $object"
+              {
+                "name": "object",
+                "type" : "App"
+              }
             ],
             "doc_comment": [],
             "attribute": [],
