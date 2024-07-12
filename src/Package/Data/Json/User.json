@@ -58,9 +58,7 @@
               "App $object"
             ],
             "doc_comment": [],
-            "attribute": [
-              "#[Route('/blog', name: 'blog_list')]"
-            ],
+            "attribute": [],
             "return_type": [
               "mixed"
             ],
