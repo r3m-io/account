@@ -1,5 +1,7 @@
 {
   "User" : {
+    "options": "{{options()}}",
+    "class": "{{$this.options.class}}",
     "function": [
         {
             "name": "command",
