@@ -439,15 +439,11 @@ trait Main {
         ;
         $data = $object->parse_read($options->data);
         if($data){
-//            $options = App::options($object);
             $options = Core::object_merge($data->get('User'), $options);
             $object->data(App::OPTIONS, $options);
         }
         $template = File::read($url_template);
         $response = $parse->compile($template, $parse->storage());
-        if(!is_string($response)){
-            ddd($response);
-        }
         $url = $options->dir .
             $options->class .
             $object->config('extension.php')
