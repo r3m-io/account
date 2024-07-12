@@ -3,12 +3,16 @@
 <?php
 namespace {{$options.namespace}};
 
+{{if(is.array($options.use))}}
 {{for.each($options.use as $usage)}}
 use {{$usage}};
 {{/for.each}}
+{{/if}}
+{{if(is.array($options.user.use))}}
 {{for.each($options.user.use as $user.usage)}}
 use {{$user.usage}};
 {{/for.each}}
+{{/if}}
 
 {{if(!$options.class && !$options.trait)}}
 {{elseif($options.trait)}}
