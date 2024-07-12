@@ -22,7 +22,11 @@ trait Php
             if (!property_exists($variable, 'name')) {
                 continue;
             }
-            if (property_exists($variable, 'doc_comment') && is_array($variable->doc_comment) && !empty($variable->doc_comment)) {
+            if (
+                property_exists($variable, 'doc_comment') &&
+                is_array($variable->doc_comment) &&
+                !empty($variable->doc_comment)
+            ) {
                 $lines[] = '';
                 $lines[] = '    /**';
                 foreach($variable->doc_comment as $doc_comment){
