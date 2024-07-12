@@ -48,7 +48,8 @@ trait Php
         return $lines;
     }
 
-    public function php_variable_define_value($value=null){
+    public function php_variable_define_value($value=null): string
+    {
         $result = '';
         if (is_null($value)) {
             $result = 'null;' . PHP_EOL;
@@ -83,6 +84,7 @@ trait Php
         } else {
             $result .= ' = ' . $value . ';' . PHP_EOL;
         }
+        return $result;
     }
 
 }
