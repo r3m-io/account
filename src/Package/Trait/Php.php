@@ -52,11 +52,11 @@ trait Php
     {
         $result = '';
         if (is_null($value)) {
-            $result = 'null;' . PHP_EOL;
+            $result = 'null;';
         } elseif ($value === true) {
-            $result = 'true;' . PHP_EOL;
+            $result = 'true;';
         } elseif ($value === false) {
-            $result = 'false;' . PHP_EOL;
+            $result = 'false;';
         } elseif (is_array($value)) {
             if (empty($value)) {
                 $result = '[];';
