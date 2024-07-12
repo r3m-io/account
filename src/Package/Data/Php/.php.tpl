@@ -7,9 +7,9 @@
 {{$implements = $options.implements}}
 {{$use = $options.use}}
 {{$constants = $options.constant}}
-{{$privates = $options.private}}
-{{$protecteds = $options.protected}}
-{{$publics = $options.public}}
+{{$private = $options.private}}
+{{$protected = $options.protected}}
+{{$public = $options.public}}
 {{$traits = $options.trait_use}}
 {{$functions = $options.function}}
 {{$user_traits = $options.user_trait_use}}
