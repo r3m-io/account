@@ -83,7 +83,7 @@
           "this is a test"
         ],
         "static": true,
-        "value": "null"
+        "value": null
       },
       {
         "name": "array",
@@ -120,8 +120,8 @@
     "function": [
         {
           "name": "__construct",
-          "type" : null,
-          "static": true,
+          "type" : "public",
+          "static": false,
           "argument": [
             {
               "name": "object",
