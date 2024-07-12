@@ -3,6 +3,8 @@
 {{$namespace = $options.namespace}}
 {{$class = $options.class}}
 {{$trait = $options.trait}}
+{{$class = null}}
+{{$trait = null}}
 {{d($trait)}}
 {{dd($class)}}
 {{$extends = $options.extends}}
