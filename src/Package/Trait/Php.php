@@ -61,14 +61,15 @@ trait Php
                 property_exists($function, 'static') &&
                 $function->static === true
             ){
-                $lines[] = '    ' . $function->type . ' static function ' . $function->name . '(';
+                $function = '    ' . $function->type . ' static function ' . $function->name . '(';
             } else {
-                $lines[] = '    ' . $function->type . ' function ' . $function->name . '(';
+                $function = '    ' . $function->type . ' function ' . $function->name . '(';
             }
             if(
                 property_exists($function, 'argument')
             ){
                 $arguments = [];
+                $length = 0;
                 foreach($function->argument as $argument){
                     if(!is_object($argument)){
                         continue;
@@ -80,14 +81,25 @@ trait Php
                         continue;
                     }
                     if(property_exists($argument, 'value')){
-                        $arguments[] = $argument->type . ' $' . $argument->name . ' = ' . $argument->value;
+                        $line = $argument->type . ' $' . $argument->name . ' = ' . $argument->value;
                     } else {
-                        $arguments[] = $argument->type . ' $' . $argument->name;
+                        $line = $argument->type . ' $' . $argument->name;
                     }
+                    $length += strlen($line);
+                    $arguments[] = $line;
                 }
-                $lines[] = '        ' . implode(',' . PHP_EOL, $arguments);
+                if($length > 80){
+                    $function .= PHP_EOL . '        ' . implode(',' . PHP_EOL, $arguments) . PHP_EOL;
+                } else {
+                    $function .= implode(', ', $arguments);
+                }
+                $function .= ')';
+                $lines[] = $function;
             }
-            $lines[] = '    ){';
+            $lines[] = '    {';
+            if(property_exists($function, 'body')){
+                $lines[] = '        ' . implode("\n        ", $function->body);
+            }
             $lines[] = '    }';
             $lines[] = '';
         }
