@@ -14,6 +14,9 @@ trait Php
 
     public function php_function_define($array=[]){
         $lines = [];
+        if(!is_array($array)){
+            return $lines;
+        }
         foreach($array as $function){
             if(!is_object($function)){
                 continue;
