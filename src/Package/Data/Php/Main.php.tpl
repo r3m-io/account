@@ -29,6 +29,7 @@ class {{$options.class}} {
 {{/if}}
 {{/if}}
 
+{{if(is.array($options.constant))}}
 {{for.each($options.constant as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
@@ -40,12 +41,17 @@ class {{$options.class}} {
 {{/if}}
 {{/for.each}}
 
+{{/if}}
+{{if(is.array($options.trait_use))}}
 {{for.each($options.trait_use as $trait_use)}}
     use {{$trait_use}};
 {{/for.each}}
+{{/if}}
+{{if(is.array($options.user.trait_use))}}
 {{for.each($options.user.trait_use as $user.trait.use)}}
     use {{$user.trait.use}};
 {{/for.each}}
+{{/if}}
 {{$private = Package.R3m.Io.Account:Php:php.variable.define($options.private, 'private')}}
 {{implode("\n", $private)}}
 {{$protected = Package.R3m.Io.Account:Php:php.variable.define($options.protected, 'protected')}}
