@@ -87,9 +87,6 @@
             "static": false,
             "argument": [],
             "attribute": [],
-            "return_type": [
-              "mixed"
-            ],
             "body": [
               "$object = $this->object();",
               "try {",
