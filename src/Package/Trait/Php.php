@@ -61,13 +61,19 @@ trait Php
                 property_exists($function, 'static') &&
                 $function->static === true
             ){
-                if($function->type){
+                if(
+                    property_exists($function, 'type') &&
+                    !empty($function->type)
+                ){
                     $header = '    ' . $function->type . ' static function ' . $function->name . '(';
                 } else {
                     $header = '    ' . ' static function ' . $function->name . '(';
                 }
             } else {
-                if($function->type){
+                if(
+                    property_exists($function, 'type') &&
+                    !empty($function->type)
+                ){
                     $header = '    ' . $function->type . ' function ' . $function->name . '(';
                 } else {
                     $header = '    ' . ' function ' . $function->name . '(';
