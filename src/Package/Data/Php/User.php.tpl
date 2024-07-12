@@ -100,8 +100,6 @@ is.array($private.value)
         {{$private_value_key}} => false,
 {{elseif($private_value_value === true)}}
         {{$private_value_key}} => true,
-{{elseif(is.string($private_value_value))}}
-        {{$private_value_key}} => "{{$private_value_value}}",
 {{else}}
         {{$private_value_key}} => {{$private_value_value}},
 {{/if}}
@@ -124,8 +122,6 @@ is.null($private.value)
     private static {{$private.type}} ${{$private.name}} = false;
 {{elseif($private.value === true)}}
     private static {{$private.type}} ${{$private.name}} = true;
-{{elseif(is.string($private.value))}}
-    private static {{$private.type}} ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{/if}}
@@ -158,8 +154,6 @@ is.array($private.value)
         {{$private_value_key}} => false,
 {{elseif($private_value_value === true)}}
         {{$private_value_key}} => true,
-{{elseif(is.string($private_value_value))}}
-        {{$private_value_key}} => "{{$private_value_value}}",
 {{else}}
         {{$private_value_key}} => {{$private_value_value}},
 {{/if}}
@@ -181,8 +175,6 @@ is.null($private.value)
     private {{$private.type}} ${{$private.name}} = false;
 {{elseif($private.value === true)}}
     private {{$private.type}} ${{$private.name}} = true;
-{{elseif(is.string($private.value))}}
-    private {{$private.type}} ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{/if}}
@@ -202,8 +194,6 @@ is.array($private.value)
         false,
 {{elseif($private_value_value === true)}}
         true,
-{{elseif(is.string($private_value_value))}}
-        "{{$private_value_value}}",
 {{else}}
         {{$private_value_value}},
 {{/if}}
@@ -214,8 +204,6 @@ is.array($private.value)
         {{$private_value_key}} => false,
 {{elseif($private_value_value === true)}}
         {{$private_value_key}} => true,
-{{elseif(is.string($private_value_value))}}
-        {{$private_value_key}} => "{{$private_value_value}}",
 {{else}}
         {{$private_value_key}} => {{$private_value_value}},
 {{/if}}
@@ -236,8 +224,6 @@ is.null($private.value)
     private ${{$private.name}} = false;
 {{elseif($private.value === true)}}
     private ${{$private.name}} = true;
-{{elseif(is.string($private.value))}}
-    private ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private ${{$private.name}} = {{$private.value}};
 {{/if}}

@@ -38,8 +38,8 @@
           null,
           false,
           true,
-          "mooi",
-          "{{config('ds')}}"
+          "\"mooi\"",
+          "\"{{config('ds')}}\""
         ]
       },
       {
@@ -65,14 +65,14 @@
         "type" : "array",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": []
       },
       {
         "name": "string",
         "type" : "string",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": []
       }
     ],
     "public": [
@@ -90,14 +90,14 @@
         "type" : "array",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": []
       },
       {
         "name": "string",
         "type" : "string",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": []
       }
     ],
     "constant": {
