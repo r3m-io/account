@@ -61,9 +61,9 @@ trait Php
                 property_exists($function, 'static') &&
                 $function->static === true
             ){
-                $function = '    ' . $function->type . ' static function ' . $function->name . '(';
+                $header = '    ' . $function->type . ' static function ' . $function->name . '(';
             } else {
-                $function = '    ' . $function->type . ' function ' . $function->name . '(';
+                $header = '    ' . $function->type . ' function ' . $function->name . '(';
             }
             if(
                 property_exists($function, 'argument')
@@ -89,12 +89,12 @@ trait Php
                     $arguments[] = $line;
                 }
                 if($length > 79){
-                    $function .= PHP_EOL . '        ' . implode(',' . PHP_EOL, $arguments) . PHP_EOL;
+                    $header .= PHP_EOL . '        ' . implode(',' . PHP_EOL, $arguments) . PHP_EOL;
                 } else {
-                    $function .= implode(', ', $arguments);
+                    $header .= implode(', ', $arguments);
                 }
-                $function .= ')';
-                $lines[] = $function;
+                $header .= ')';
+                $lines[] = $header;
             }
             $lines[] = '    {';
             if(property_exists($function, 'body')){
