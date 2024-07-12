@@ -17,6 +17,30 @@
         "Response",
         "Controller"
     ],
+    "private": [
+      {
+        "name": "object",
+        "type" : "App",
+        "static": false,
+        "value": "null"
+      }
+    ],
+    "protected": [
+      {
+        "name": "array",
+        "type" : "array",
+        "static": false,
+        "value": "[]"
+      }
+    ],
+    "public": [
+      {
+        "name": "string",
+        "type" : "string",
+        "static": false,
+        "value": "[]"
+      }
+    ],
     "constant": {
       "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
       "NAME" : "\"{{$this.#parentNode.options.class}}\"}}",
@@ -105,6 +129,9 @@
     "user_trait_use": [
       "cms_write"
     ],
+    "user_private": [],
+    "user_protected": [],
+    "user_public": [],
     "user_constant": {},
     "user_function": []
   }
