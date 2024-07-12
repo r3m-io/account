@@ -72,10 +72,10 @@ trait Php
                         } elseif (is_array($val)) {
                             $result .= $this->php_variable_define_value($val);
                         } else {
-                            $result .= '    ' . $value . ',' . PHP_EOL;
+                            $result .= '    ' . $val . ',' . PHP_EOL;
                         }
                     } else {
-                        $result .= '    ' . $key . ' => ' . $value . ',' . PHP_EOL;
+                        $result .= '    ' . $key . ' => ' . $val . ',' . PHP_EOL;
                     }
                 }
                 $result .= '];' . PHP_EOL;
