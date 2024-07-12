@@ -6,7 +6,7 @@
 {{$extends = $options.extends}}
 {{$implements = $options.implements|default:[]}}
 {{$use = $options.use|default:[]}}
-{{$constant = $options.constant|default:(object)[]}}
+{{$constant = (object) $options.constant}}
 {{$private = $options.private|default:[]}}
 {{$protected = $options.protected|default:[]}}
 {{$public = $options.public|default:[]}}
@@ -18,7 +18,7 @@
 {{$user.traits = $options.user.trait_use|default:[]}}
 {{$user.use = $options.user.use|default:[]}}
 {{$user.function = $options.user.function|default:[]}}
-{{$user.constant = $options.user.constant|default:(object)[]}}
+{{$user.constant = (object) $options.user.constant}}
 <?php
 namespace {{$namespace}};
 
