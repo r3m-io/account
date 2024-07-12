@@ -125,7 +125,8 @@
           "argument": [
             {
               "name": "object",
-              "type" : "App"
+              "type" : "App",
+              "value": null
             },
             {
               "name": "object",
