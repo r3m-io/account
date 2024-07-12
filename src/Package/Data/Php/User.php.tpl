@@ -9,11 +9,17 @@
 {{$constants = $options.constant}}
 {{$traits = $options.trait_use}}
 {{$functions = $options.function}}
+{{$user_traits = $options.user_trait_use}}
+{{$user_use = $options.user_use}}
+{{$user_functions = $options.user_function}}
 <?php
 namespace {{$namespace}};
 
 {{for.each($use as $usage)}}
 use {{$usage}};
+{{/for.each}}
+{{for.each($user_use as $user_usage)}}
+use {{$user_usage}};
 {{/for.each}}
 
 {{if(!$class && !$trait)}}
@@ -44,6 +50,9 @@ class {{$class}} {
 
 {{for.each($traits as $trait_use)}}
     use {{$trait_use}};
+{{/for.each}}
+{{for.each($user_traits as $user_trait_use)}}
+    use {{$user_trait_use}};
 {{/for.each}}
 
 {{for.each($functions as $function)}}
@@ -80,6 +89,45 @@ class {{$class}} {
 {{/if}}
     {
         {{implode("\n        ", $function.body)}}
+
+    }
+
+
+{{/for.each}}
+{{for.each($user_functions as $user_function)}}
+{{if($user_function.doc_comment)}}
+    {{implode("\n    ", $user_function.doc_comment)}}
+
+{{/if}}
+{{if($user_function.throw)}}
+    /**
+{{for.each($user_function.throw as $user_throw_nr => $user_throw)}}
+     * @throws {{$user_throw}}
+{{if(!is.empty($user_function.throw[$user_throw_nr + 1]))}}
+
+
+{{/if}}
+{{/for.each}}
+
+     */
+{{/if}}
+{{if($user_function.attribute)}}
+    {{implode("\n    ", $user_function.attribute)}}
+
+{{/if}}
+{{if($user_function.static && $user_function.return_type)}}
+    {{$user_function.type}} static function {{$user_function.name}}({{implode(', ', $user_function.argument)}}) : {{implode('|', $user_function.return_type)}}
+
+{{elseif($user_function.static)}}
+    {{$user_function.type}} static function {{$user_function.name}}({{implode(', ', $user_function.argument)}})
+{{elseif($user_function.return_type)}}
+    {{$user_function.type}} function {{$user_function.name}}({{implode(', ', $user_function.argument)}}) : {{implode('|', $user_function.return_type)}}
+
+{{else}}
+    {{$user_function.type}} function {{$user_function.name}}({{implode(', ', $user_function.argument)}})
+{{/if}}
+    {
+        {{implode("\n        ", $user_function.body)}}
 
     }
 
