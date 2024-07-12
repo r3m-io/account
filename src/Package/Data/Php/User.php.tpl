@@ -51,7 +51,6 @@ class {{$class}} {
 {{/if}}
 {{if($function.static && $function.return_type)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) : {{implode('|', $function.return_type)}}
-
 {{elseif($function.static)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}})
 {{elseif($function.return_type)}}
