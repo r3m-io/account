@@ -30,7 +30,9 @@
       {
         "name": "array",
         "type" : "array",
-        "doc_comment": [],
+        "doc_comment": [
+          "fuck this shit"
+        ],
         "static": false,
         "value": []
       },
