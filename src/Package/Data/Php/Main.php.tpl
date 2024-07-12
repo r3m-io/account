@@ -65,14 +65,18 @@ class {{$class}} {
 {{/for.each}}
 {{$private = Package.R3m.Io.Account:Php:php.variable.define($private, 'private')}}
 {{implode("\n", $private)}}
-{{$protected = Package.R3m.Io.Account:Php:php.variable.define($protected, 'protected')}}
-{{implode("\n", $protected)}}
-{{$public = Package.R3m.Io.Account:Php:php.variable.define($public, 'public')}}
-{{implode("\n", $public)}}
 {{$user.private = Package.R3m.Io.Account:Php:php.variable.define($user.private, 'private')}}
 {{implode("\n", $user.private)}}
+
+
+{{$protected = Package.R3m.Io.Account:Php:php.variable.define($protected, 'protected')}}
+{{implode("\n", $protected)}}
 {{$user.protected = Package.R3m.Io.Account:Php:php.variable.define($user.protected, 'protected')}}
 {{implode("\n", $user.protected)}}
+
+
+{{$public = Package.R3m.Io.Account:Php:php.variable.define($public, 'public')}}
+{{implode("\n", $public)}}
 {{$user.public = Package.R3m.Io.Account:Php:php.variable.define($user.public, 'public')}}
 {{implode("\n", $user.public)}}
 
