@@ -39,7 +39,7 @@
         "type" : "string",
         "doc_comment": [],
         "static": false,
-        "value": "[]"
+        "value": "\"\""
       }
     ],
     "protected": [
