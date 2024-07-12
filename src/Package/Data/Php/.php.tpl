@@ -65,7 +65,7 @@ class {{$class}} {
 {{implode("\n", $public)}}
 
 
-{{$functions = Package.R3m.Io.Account:Php:php.functions.define($functions)}}
+{{$functions = Package.R3m.Io.Account:Php:php.function.define($functions)}}
 {{implode("\n", $functions)}}
 
 
