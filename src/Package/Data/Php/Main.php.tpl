@@ -76,10 +76,9 @@ class {{$class}} {
 {{$user.public = Package.R3m.Io.Account:Php:php.variable.define($user.public, 'public')}}
 {{implode("\n", $user.public)}}
 
+
 {{$function = Package.R3m.Io.Account:Php:php.function.define($function)}}
 {{implode("\n", $function)}}
-
-
 {{$user.function = Package.R3m.Io.Account:Php:php.function.define($user.function)}}
 {{implode("\n", $user.function)}}
 
