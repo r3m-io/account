@@ -43,16 +43,20 @@ class {{$class}} {
 {{for.each($functions as $function)}}
 {{if($function.doc_comment)}}
     {{implode("\n    ", $function.doc_comment)}}
+
 {{/if}}
 {{if($function.attribute)}}
     {{implode("\n    ", $function.attribute)}}
+
 {{/if}}
 {{if($function.static && $function.return_type)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) : {{implode('|', $function.return_type)}}
+
 {{elseif($function.static)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}})
 {{elseif($function.return_type)}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) : {{implode('|', $function.return_type)}}
+
 {{else}}
     {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}})
 {{/if}}
