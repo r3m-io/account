@@ -101,10 +101,10 @@
             ]
         }
     ],
-    "user_use": [
+    "user_use": [],
+    "user_trait_use": [
       "cms_write"
     ],
-    "user_trait_use": [],
     "user_constant": {},
     "user_function": []
   }
