@@ -57,7 +57,7 @@ class {{$class}} {
 {{for.each($user_traits as $user_trait_use)}}
     use {{$user_trait_use}};
 {{/for.each}}
-{{variable.define($privates)}}
+{{variable.define($privates, 'private')}}
 
 
 {{for.each($privates as $private)}}
