@@ -58,43 +58,6 @@ class {{$class}} {
     use {{$user_trait_use}};
 {{/for.each}}
 
-{{for.each($privates as $private)}}
-{{if($private.doc_comment)}}
-    /*
-     * {{implode("\n     * ", $private.doc_comment)}}
-
-     */
-{/if}
-{{if($private.value)}}
-    {{if($private.type)}}
-        {{if($private.static)}}
-    private static {{$private.type}} ${{$private.name}} = {{$private.value}};
-        {{else}}
-    private {{$private.type}} ${{$private.name}} = {{$private.value}};
-        {{/if}}
-    {{else}}
-        {{if($private.static)}}
-    private static ${{$private.name}} = {{$private.value}};
-        {{else}}
-    private ${{$private.name}} = {{$private.value}};
-        {{/if}}
-    {{elseif($private.type)}}
-        {{if($private.static)}}
-    private static {{$private.type}} ${{$private.name}};
-        {{else}}
-    private {{$private.type}} ${{$private.name}};
-        {{/if}}
-    {{else}}
-        {{if($private.static)}}
-    private static ${{$private.name}};
-        {{else}}
-    private ${{$private.name}};
-        {{/if}}
-    {{/if}}
-{{/if}}
-
-{{/for.each}}
-
 {{for.each($functions as $function)}}
 {{if($function.doc_comment)}}
     {{implode("\n    ", $function.doc_comment)}}
