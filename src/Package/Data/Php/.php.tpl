@@ -142,8 +142,6 @@ is.array($private.value)
         false,
 {{elseif($private_value_value === true)}}
         true,
-{{elseif(is.string($private_value_value))}}
-        "{{$private_value_value}}",
 {{else}}
         {{$private_value_value}},
 {{/if}}
