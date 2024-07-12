@@ -80,9 +80,17 @@ is.array($private.value)
     private static {{$private.type}} ${{$private.name}} = [];
 {{else}}
     private static {{$private.type}} ${{$private.name}} = [
-{{for.each($private.value as $key => $value)}}
-{{if(is.numeric($key))}}
-        {{$value}},
+{{for.each($private.value as $private_value_key => $private_value_value)}}
+{{if(is.numeric($private_value_key))}}
+    {{if(is.null($private_value_value))}}
+        null,
+    {{elseif($private_value_value === false)}}
+        false,
+    {{elseif($private_value_value === true)}}
+        true,
+    {{else}}
+        {{$private_value_value}},
+    {{/if}}
 {{else}}
         {{$key}} => {{$value}},
 {{/if}}
