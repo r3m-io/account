@@ -126,9 +126,7 @@
             {
               "name": "object",
               "type" : "App",
-              "value": [
-                "test"
-              ]
+              "value": "[]"
             },
             {
               "name": "object",
