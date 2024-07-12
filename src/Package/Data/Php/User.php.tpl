@@ -59,11 +59,63 @@ class {{$class}} {
 {{/for.each}}
 
 {{for.each($privates as $private)}}
-{{if($private.doc_comment)}}
+{{if(
+$private.name &&
+$private.doc_comment
+)}}
     /**
      *  {{implode("\n     * ", $private.doc_comment)}}
 
     */
+{{/if}}
+{{if(
+$private.name &&
+$private.static &&
+$private.type &&
+$private.value &&
+is_array($private.value)
+)}}
+    private static {{$private.type}} ${{$private.name}} = [
+        {{implode(',        ', $private.value)}};
+    ];
+{{elseif(
+$private.name &&
+$private.static &&
+$private.type &&
+$private.value &&
+is_string($private.value)
+)}}
+    private static {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{elseif(
+$private.name &&
+$private.type &&
+$private.value &&
+is_string($private.value)
+)}}
+    private {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{elseif(
+$private.name &&
+$private.type &&
+$private.value &&
+is_array($private.value)
+)}}
+    private {{$private.type}} ${{$private.name}} = [
+        {{implode(',        ', $private.value)}};
+    ];
+{{elseif(
+$private.name &&
+$private.value &&
+is_string($private.value)
+)}}
+    private ${{$private.name}} = {{$private.value}};
+{{elseif(
+$private.name &&
+$private.value &&
+is_array($private.value)
+)}}
+    private ${{$private.name}} = [
+        {{implode(',        ', $private.value)}};
+    ];
 {{/if}}
 {{/for.each}}
 
