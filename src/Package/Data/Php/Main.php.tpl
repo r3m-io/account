@@ -80,6 +80,8 @@ class {{$class}} {
 
 {{$function = Package.R3m.Io.Account:Php:php.function.define($function)}}
 {{implode("\n", $function)}}
+
+
 {{$user.function = Package.R3m.Io.Account:Php:php.function.define($user.function)}}
 {{implode("\n", $user.function)}}
 
