@@ -29,23 +29,6 @@
               "$user = new {{$this.#parentNode.class}}($object);",
               "return $user->{$command}();"
             ]
-        },
-        {
-            "name": "info",
-            "type" : "private",
-            "static": false,
-            "argument": [],
-            "body": [
-              "$object = $this->object();",
-              "try {",
-              "    $name = {{$this.#parentNode.class}}::name(__FUNCTION__, __CLASS__, '/');",
-              "    $url = {{$this.#parentNode.class}}::locate($object, $name);",
-              "    return {{$this.#parentNode.class}}::response($object, $url);",
-              "}",
-              "catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {",
-              "    return $exception;",
-              "}"
-            ]
         }
     ]
   }
