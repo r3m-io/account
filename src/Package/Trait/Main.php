@@ -433,6 +433,7 @@ trait Main {
             ;
         }
         $url_template = $dir_template .
+            'Main' .
             $object->config('extension.php') .
             $object->config('extension.tpl')
         ;
