@@ -68,7 +68,7 @@ $private.doc_comment
 
     */
 {{/if}}
-{{{d(is.array($private.value))}}
+{{d(is.array($private.value))}}
 {{if(
 $private.name &&
 $private.static &&
