@@ -59,7 +59,7 @@
               " */"
             ],
             "attribute": [
-              "#(route)"
+              "#[Route('/blog', name: 'blog_list')]"
             ],
             "return_type": [
               "mixed"
