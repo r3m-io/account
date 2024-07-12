@@ -21,8 +21,10 @@
       {
         "name": "object",
         "type" : "App",
-        "doc_comment": [],
-        "static": false,
+        "doc_comment": [
+          "this is a test"
+        ],
+        "static": true,
         "value": "null"
       }
     ],

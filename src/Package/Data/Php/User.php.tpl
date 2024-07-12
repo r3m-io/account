@@ -7,6 +7,9 @@
 {{$implements = $options.implements}}
 {{$use = $options.use}}
 {{$constants = $options.constant}}
+{{$privates = $options.private}}
+{{$protecteds = $options.protected}}
+{{$publics = $options.public}}
 {{$traits = $options.trait_use}}
 {{$functions = $options.function}}
 {{$user_traits = $options.user_trait_use}}
@@ -53,6 +56,42 @@ class {{$class}} {
 {{/for.each}}
 {{for.each($user_traits as $user_trait_use)}}
     use {{$user_trait_use}};
+{{/for.each}}
+
+{{for.each($privates as $private)}}
+{{if($private.doc_comment)}}
+    /*
+     * {{implode("\n     * ", $private.doc_comment)}}
+
+     */
+{/if}
+{{if($private.value)}}
+{{if($private.type)}}
+{{if($private.static)}}
+    private static {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{else}}
+    private {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{/if}}
+{{else}}
+{{if($private.static)}}
+    private static ${{$private.name}} = {{$private.value}};
+{{else}}
+    private ${{$private.name}} = {{$private.value}};
+{{/if}}
+{{elseif($private.type)}}
+{{if($private.static)}}
+    private static {{$private.type}} ${{$private.name}};
+{{else}}
+    private {{$private.type}} ${{$private.name}};
+{{/if}}
+{{else}}
+{{if($private.static)}}
+    private static ${{$private.name}};
+{{else}}
+    private ${{$private.name}};
+{{/if}}
+{{/if}}
+
 {{/for.each}}
 
 {{for.each($functions as $function)}}
