@@ -24,8 +24,8 @@ namespace {{$namespace}};
 {{for.each($use as $usage)}}
 use {{$usage}};
 {{/for.each}}
-{{for.each($user_use as $user_usage)}}
-use {{$user_usage}};
+{{for.each($user.use as $user.usage)}}
+use {{$user.usage}};
 {{/for.each}}
 
 {{if(!$class && !$trait)}}
