@@ -63,6 +63,7 @@ trait Php
                 $result = '[];';
             } else {
                 $result = '[' . PHP_EOL;
+                $indent++;
                 foreach ($value as $key => $val) {
                     if (is_numeric($key)) {
                         if (is_null($val)) {
@@ -80,7 +81,7 @@ trait Php
                         $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . $val . ',' . PHP_EOL;
                     }
                 }
-                $result .= '];' . PHP_EOL;
+                $result .= str_repeat(' ', $indent * 4) . '];' . PHP_EOL;
             }
         } else {
             $result .=  $value . ';' . PHP_EOL;
