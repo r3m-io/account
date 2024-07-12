@@ -83,6 +83,7 @@ class {{$class}} {
 
     }
 
+
 {{/for.each}}
 {{if($class || $trait)}}
 }
