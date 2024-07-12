@@ -84,7 +84,7 @@ trait Php
                 $result .= str_repeat(' ', $indent * 4) . '];' . PHP_EOL;
             }
         } else {
-            $result .=  $value . ';' . PHP_EOL;
+            $result .=  $value . ';';
         }
         return $result;
     }
