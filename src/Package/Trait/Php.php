@@ -22,7 +22,7 @@ trait Php
             if (!property_exists($variable, 'name')) {
                 continue;
             }
-            if (property_exists($variable, 'doc_comment')) {
+            if (property_exists($variable, 'doc_comment') && is_array($variable->doc_comment) && !empty($variable->doc_comment)) {
                 $lines[] = '    /**';
                 foreach($variable->doc_comment as $doc_comment){
                     $lines[] ='     * ' . $doc_comment;
@@ -38,7 +38,7 @@ trait Php
             }
             $line .= '$' . $variable->name;
             if (!property_exists($variable, 'value')) {
-                $line .= ';' . PHP_EOL;
+                $line .= ';';
             } else {
                 $line .= ' = ';
                 $line .= $this->php_variable_define_value($variable->value);
