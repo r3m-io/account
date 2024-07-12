@@ -65,11 +65,18 @@ trait Php
             } else {
                 $header = '    ' . $function->type . ' function ' . $function->name . '(';
             }
+            $type = '';
+            $length = 0;
+            if(property_exists($function, 'return_type')){
+                $return_type = $function->return_type;
+                $type = ' : ' . implode(' | ', $return_type);
+                $length += strlen($type);
+            }
             if(
                 property_exists($function, 'argument')
             ){
                 $arguments = [];
-                $length = strlen($header);
+                $length += strlen($header);
                 foreach($function->argument as $argument){
                     if(!is_object($argument)){
                         continue;
@@ -93,9 +100,9 @@ trait Php
                 } else {
                     $header .= implode(', ', $arguments);
                 }
-                $header .= ')';
-                $lines[] = $header;
             }
+            $header .= ')';
+            $lines[] = $header . $type;
             $lines[] = '    {';
             if(property_exists($function, 'body')){
                 $lines[] = '        ' . implode("\n        ", $function->body);
