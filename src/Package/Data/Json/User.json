@@ -55,7 +55,9 @@
               " * @throws Exception",
               " */"
             ],
-            "attribute": [],
+            "attribute": [
+              "#(route)"
+            ],
             "body": [
               "$command = $object->parameter($object, __CLASS__, 1);",
               "if($command === null){",
