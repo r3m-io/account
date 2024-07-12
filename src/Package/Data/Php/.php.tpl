@@ -11,13 +11,13 @@
 {{$protected = $options.protected}}
 {{$public = $options.public}}
 {{$traits = $options.trait_use}}
-{{$functions = $options.function}}
+{{$function = $options.function}}
 {{$user.private = $options.user.private}}
 {{$user.protected = $options.user.protected}}
 {{$user.public = $options.user.public}}
 {{$user.traits = $options.user.trait_use}}
 {{$user.use = $options.user.use}}
-{{$user.functions = $options.user.function}}
+{{$user.function = $options.user.function}}
 <?php
 namespace {{$namespace}};
 
@@ -73,10 +73,10 @@ class {{$class}} {
 {{$user.public = Package.R3m.Io.Account:Php:php.variable.define($user.public, 'public')}}
 {{implode("\n", $user.public)}}
 
-{{$functions = Package.R3m.Io.Account:Php:php.function.define($functions)}}
-{{implode("\n", $functions)}}
-{{$user_functions = Package.R3m.Io.Account:Php:php.function.define($user_functions)}}
-{{implode("\n", $user_functions)}}
+{{$function = Package.R3m.Io.Account:Php:php.function.define($function)}}
+{{implode("\n", $function)}}
+{{$user.function = Package.R3m.Io.Account:Php:php.function.define($user.function)}}
+{{implode("\n", $user.function)}}
 
 {{if($class || $trait)}}
 }
