@@ -68,7 +68,6 @@ $private.doc_comment
 
     */
 {{/if}}
-{{d(is.array($private.value))}}
 {{if(
 $private.name &&
 $private.static &&
@@ -96,9 +95,12 @@ $private.type &&
 is.scalar($private.value) ||
 is.null($private.value)
 )
-
 )}}
+{{if(is.null($private.value))}}
+    private static {{$private.type}} ${{$private.name}} = null;
+{{else}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{/if}}
 {{elseif(
 $private.name &&
 $private.type &&
@@ -125,7 +127,11 @@ is.scalar($private.value) ||
 is.null($private.value)
 )
 )}}
+{{if(is.null($private.value))}}
+    private {{$private.type}} ${{$private.name}} = null;
+{{else}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
+{{/if}}
 {{elseif(
 $private.name &&
 is.array($private.value)
@@ -150,8 +156,11 @@ is.scalar($private.value) ||
 is.null($private.value)
 )
 )}}
+{{if(is.null($private.value))}}
+    private ${{$private.name}} = null;
+{{else}}
     private ${{$private.name}} = {{$private.value}};
-
+{{/if}}
 {{/if}}
 {{/for.each}}
 
