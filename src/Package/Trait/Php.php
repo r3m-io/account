@@ -29,7 +29,7 @@ trait Php
                 }
                 $lines[] =' */' . PHP_EOL;
             }
-            $line = $type . ' ';
+            $line = '    ' . $type . ' ';
             if (property_exists($variable, 'static')) {
                 $line .= 'static ';
             }
