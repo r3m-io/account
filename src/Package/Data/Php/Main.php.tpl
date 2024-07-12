@@ -4,20 +4,21 @@
 {{$class = $options.class}}
 {{$trait = $options.trait}}
 {{$extends = $options.extends}}
-{{$implements = $options.implements}}
-{{$use = $options.use}}
-{{$constants = $options.constant}}
-{{$private = $options.private}}
-{{$protected = $options.protected}}
-{{$public = $options.public}}
-{{$traits = $options.trait_use}}
-{{$function = $options.function}}
-{{$user.private = $options.user.private}}
-{{$user.protected = $options.user.protected}}
-{{$user.public = $options.user.public}}
-{{$user.traits = $options.user.trait_use}}
-{{$user.use = $options.user.use}}
-{{$user.function = $options.user.function}}
+{{$implements = $options.implements|default:[]}}
+{{$use = $options.use|default:[]}}
+{{$constant = $options.constant|default:(object)[]}}
+{{$private = $options.private|default:[]}}
+{{$protected = $options.protected|default:[]}}
+{{$public = $options.public|default:[]}}
+{{$traits = $options.trait_use|default:[]}}
+{{$function = $options.function|default:[]}}
+{{$user.private = $options.user.private|default:[]}}
+{{$user.protected = $options.user.protected|default:[]}}
+{{$user.public = $options.user.public|default:[]}}
+{{$user.traits = $options.user.trait_use|default:[]}}
+{{$user.use = $options.user.use|default:[]}}
+{{$user.function = $options.user.function|default:[]}}
+{{$user.constant = $options.user.constant|default:(object)[]}}
 <?php
 namespace {{$namespace}};
 
@@ -46,7 +47,17 @@ class {{$class}} {
 {{/if}}
 {{/if}}
 
-{{for.each($constants as $property => $value)}}
+{{for.each($constant as $property => $value)}}
+{{if(is.array($value))}}
+    const {{$property}} = [
+        {{implode(',' + "\n        ", $value)}}
+
+    ];
+{{else}}
+    const {{$property}} = {{$value}};
+{{/if}}
+{{/for.each}}
+{{for.each($user.constant as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
         {{implode(',' + "\n        ", $value)}}

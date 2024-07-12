@@ -151,7 +151,7 @@ trait Php
             }
             $header .= ')';
             $lines[] = $header . $type;
-            //quirks of the parser (it adds an extra line with 'whitespace {')
+            //quirks of the parser (it adds an extra PHP_EOL with 'whitespace {')
             $line = '    {';
             if(property_exists($function, 'body')){
                 $line .= '        ' . implode("\n        ", $function->body);
