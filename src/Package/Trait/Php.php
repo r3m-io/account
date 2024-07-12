@@ -23,11 +23,11 @@ trait Php
                 continue;
             }
             if (property_exists($variable, 'doc_comment')) {
-                $lines[] = '/**' . PHP_EOL;
+                $lines[] = '    /**' . PHP_EOL;
                 foreach($variable->doc_comment as $doc_comment){
-                    $lines[] =' * ' . $doc_comment . PHP_EOL;
+                    $lines[] ='     * ' . $doc_comment . PHP_EOL;
                 }
-                $lines[] =' */' . PHP_EOL;
+                $lines[] ='     */' . PHP_EOL;
             }
             $line = '    ' . $type . ' ';
             if (property_exists($variable, 'static')) {
