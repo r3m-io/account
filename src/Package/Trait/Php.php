@@ -69,7 +69,7 @@ trait Php
                 property_exists($function, 'argument')
             ){
                 $arguments = [];
-                $length = 0;
+                $length = strlen($function);
                 foreach($function->argument as $argument){
                     if(!is_object($argument)){
                         continue;
@@ -88,7 +88,7 @@ trait Php
                     $length += strlen($line);
                     $arguments[] = $line;
                 }
-                if($length > 80){
+                if($length > 79){
                     $function .= PHP_EOL . '        ' . implode(',' . PHP_EOL, $arguments) . PHP_EOL;
                 } else {
                     $function .= implode(', ', $arguments);
