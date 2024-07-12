@@ -48,10 +48,11 @@ class {{$class}} {
     {{implode("\n    ", $function.attribute)}}
 {{/if}}
 {{if($function.static)}}
-    {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) {
+    {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) : {{implode('|', $function.return-type)}}
 {{else}}
-    {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) {
+    {{$function.type}} function {{$function.name}}({{implode(', ', $function.argument)}}) : {{implode('|', $function.return-type)}}
 {{/if}}
+    {
         {{implode("\n        ", $function.body)}}
 
     }
