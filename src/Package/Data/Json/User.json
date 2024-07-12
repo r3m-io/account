@@ -16,6 +16,7 @@
     "constant": {
       "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
       "NAME" : "{{echo('\"')}}{{$this.#parentNode.options.class}}{{echo('\"')}}",
+      "NAME2" : "\"{{$this.#parentNode.options.class}}\"}}",
       "COMMAND_TOKEN" : "'token'",
       "COMMAND_INFO" : "'info'",
       "COMMAND" : [
