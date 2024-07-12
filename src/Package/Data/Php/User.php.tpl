@@ -66,30 +66,31 @@ class {{$class}} {
      */
 {/if}
 {{if($private.value)}}
-{{if($private.type)}}
-{{if($private.static)}}
+    {{if($private.type)}}
+        {{if($private.static)}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
-{{else}}
+        {{else}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
-{{/if}}
-{{else}}
-{{if($private.static)}}
+        {{/if}}
+    {{else}}
+        {{if($private.static)}}
     private static ${{$private.name}} = {{$private.value}};
-{{else}}
+        {{else}}
     private ${{$private.name}} = {{$private.value}};
-{{/if}}
-{{elseif($private.type)}}
-{{if($private.static)}}
+        {{/if}}
+    {{elseif($private.type)}}
+        {{if($private.static)}}
     private static {{$private.type}} ${{$private.name}};
-{{else}}
+        {{else}}
     private {{$private.type}} ${{$private.name}};
-{{/if}}
-{{else}}
-{{if($private.static)}}
+        {{/if}}
+    {{else}}
+        {{if($private.static)}}
     private static ${{$private.name}};
-{{else}}
+        {{else}}
     private ${{$private.name}};
-{{/if}}
+        {{/if}}
+    {{/if}}
 {{/if}}
 
 {{/for.each}}
