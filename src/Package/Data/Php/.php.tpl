@@ -63,6 +63,7 @@ class {{$class}} {
 {{implode("\n", $protected)}}
 {{$public = Package.R3m.Io.Account:Php:php.variable.define($public, 'public')}}
 {{implode("\n", $public)}}
+
 {{for.each($functions as $function)}}
 {{if($function.doc_comment)}}
     {{implode("\n    ", $function.doc_comment)}}
