@@ -23,12 +23,12 @@ trait Php
                 continue;
             }
             if (property_exists($variable, 'doc_comment')) {
+                $lines[] = '';
                 $lines[] = '    /**';
                 foreach($variable->doc_comment as $doc_comment){
                     $lines[] ='     * ' . $doc_comment;
                 }
                 $lines[] ='     */';
-                $lines[] = '';
             }
             $line = '    ' . $type . ' ';
             if (property_exists($variable, 'static')) {
