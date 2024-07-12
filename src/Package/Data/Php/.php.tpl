@@ -57,6 +57,9 @@ class {{$class}} {
 {{for.each($user_traits as $user_trait_use)}}
     use {{$user_trait_use}};
 {{/for.each}}
+{{variable.define($privates)}}
+
+
 {{for.each($privates as $private)}}
 {{if(
 $private.name &&
