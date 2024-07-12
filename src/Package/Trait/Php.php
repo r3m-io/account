@@ -114,6 +114,18 @@ trait Php
                         continue;
                     }
                     if(property_exists($argument, 'value')){
+                        if(is_null($argument->value)){
+                            $argument->value = 'null';
+                        }
+                        elseif($argument->value === true){
+                            $argument->value = 'true';
+                        }
+                        elseif($argument->value === false){
+                            $argument->value = 'false';
+                        }
+                        elseif(is_array($argument->value)){
+                            $argument->value = '[]';
+                        }
                         $line = $argument->type . ' $' . $argument->name . ' = ' . $argument->value;
                     } else {
                         $line = $argument->type . ' $' . $argument->name;
@@ -224,6 +236,15 @@ trait Php
                             $result .= str_repeat(' ', $indent * 4) . $val . ',' . PHP_EOL;
                         }
                     } else {
+                        if (is_null($val)) {
+                            $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . 'null,' . PHP_EOL;
+                        } elseif ($val === true) {
+                            $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . 'true,' . PHP_EOL;
+                        } elseif ($val === false) {
+                            $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . 'false,' . PHP_EOL;
+                        } elseif (is_array($val)) {
+                            $result .= $this->php_variable_define_value($val, ++$indent);
+                        }
                         $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . $val . ',' . PHP_EOL;
                     }
                 }
