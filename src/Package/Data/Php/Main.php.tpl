@@ -4,7 +4,7 @@
 {{$class = $options.class}}
 {{$trait = $options.trait}}
 {{$extends = $options.extends}}
-{{$implements = $options.implements|default:[]}}
+{{$implements = $options.implements|default:'[]'}}
 {{$use = $options.use|default:[]}}
 {{$constant = $options.constant}}
 {{$private = $options.private|default:[]}}
