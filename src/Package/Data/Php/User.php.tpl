@@ -60,8 +60,8 @@ class {{$class}} {
 
 {{for.each($privates as $private)}}
 {{if($private.doc_comment)}}
-    /*
-     * {{implode("\n     * ", $private.doc_comment)}}
+    /**
+     *  {{implode("\n     * ", $private.doc_comment)}}
 
     */
 {{/if}}
