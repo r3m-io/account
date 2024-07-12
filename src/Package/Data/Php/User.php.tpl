@@ -92,7 +92,15 @@ is.array($private.value)
         {{$private_value_value}},
     {{/if}}
 {{else}}
-        {{$key}} => {{$value}},
+    {{if(is.null($private_value_value))}}
+        {{$private_value_key}} => null,
+    {{elseif($private_value_value === false)}}
+        {{$private_value_key}} => false,
+    {{elseif($private_value_value === true)}}
+        {{$private_value_key}} => true,
+    {{else}}
+        {{$private_value_key}} => {{$private_value_value}},
+    {{/if}}
 {{/if}}
 {{/for.each}}
     ];
@@ -126,9 +134,25 @@ is.array($private.value)
     private {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $private_value_key => $private_value_value)}}
 {{if(is.numeric($private_value_key))}}
+    {{if(is.null($private_value_value))}}
+        null,
+    {{elseif($private_value_value === false)}}
+        false,
+    {{elseif($private_value_value === true)}}
+        true,
+    {{else}}
         {{$private_value_value}},
+    {{/if}}
 {{else}}
+    {{if(is.null($private_value_value))}}
+        {{$private_value_key}} => null,
+    {{elseif($private_value_value === false)}}
+        {{$private_value_key}} => false,
+    {{elseif($private_value_value === true)}}
+        {{$private_value_key}} => true,
+    {{else}}
         {{$private_value_key}} => {{$private_value_value}},
+    {{/if}}
 {{/if}}
 {{/for.each}}
     ];
@@ -158,11 +182,27 @@ is.array($private.value)
     private ${{$private.name}} = [];
 {{else}}
     private ${{$private.name}} = [
-{{for.each($private.value as $key => $value)}}
-{{if(is.numeric($key))}}
-        {{$value}},
+{{for.each($private.value as $private_value_key => $private_value_value)}}
+{{if(is.numeric($private_value_key))}}
+    {{if(is.null($private_value_value))}}
+        null,
+    {{elseif($private_value_value === false)}}
+        false,
+    {{elseif($private_value_value === true)}}
+        true,
+    {{else}}
+        {{$private_value_value}},
+    {{/if}}
 {{else}}
-        {{$key}} => {{$value}},
+    {{if(is.null($private_value_value))}}
+        {{$private_value_key}} => null,
+    {{elseif($private_value_value === false)}}
+        {{$private_value_key}} => false,
+    {{elseif($private_value_value === true)}}
+        {{$private_value_key}} => true,
+    {{else}}
+        {{$private_value_key}} => {{$private_value_value}},
+    {{/if}}
 {{/if}}
 {{/for.each}}
     ];
