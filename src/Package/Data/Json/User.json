@@ -38,6 +38,7 @@
           "argument": [
             "App $object"
           ],
+          "attribute": [],
           "body": [
             "$this->object($object);"
           ]
@@ -54,6 +55,7 @@
               " * @throws Exception",
               " */"
             ],
+            "attribute": [],
             "body": [
               "$command = $object->parameter($object, __CLASS__, 1);",
               "if($command === null){",
@@ -76,6 +78,7 @@
             "type" : "private",
             "static": false,
             "argument": [],
+            "attribute": [],
             "body": [
               "$object = $this->object();",
               "try {",
