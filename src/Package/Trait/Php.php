@@ -24,7 +24,7 @@ trait Php
             }
             if (
                 property_exists($variable, 'doc_comment') &&
-                is_array($variable->doc_comment) &&
+                !is_scalar($variable->doc_comment) &&
                 !empty($variable->doc_comment)
             ) {
                 $lines[] = '';
