@@ -47,7 +47,7 @@
         "type" : "string",
         "doc_comment": [],
         "static": false,
-        "value": "\"\""
+        "value": "\"{{config('project.dir.root')}}\""
       }
     ],
     "protected": [
