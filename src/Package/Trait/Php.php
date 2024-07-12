@@ -72,7 +72,7 @@ trait Php
                 $type = ' : ' . implode(' | ', $return_type);
                 $length += strlen($type);
                 if($length > 10){
-                    $type = ' : ' . PHP_EOL . implode(' |' . PHP_EOL . '    ', $return_type);
+                    $type = ' : ' . PHP_EOL . '    ' .implode(' |' . PHP_EOL . '    ', $return_type);
                 }
             }
             if(
@@ -99,9 +99,9 @@ trait Php
                     $arguments[] = $line;
                 }
                 if($length > 79){
-                    $header .= PHP_EOL . '        ' . implode(',        ' . PHP_EOL, $arguments) . PHP_EOL;
+                    $header .= PHP_EOL . '        ' . implode(',' . PHP_EOL . '        ', $arguments) . PHP_EOL;
                 } else {
-                    $header .= implode(', ', $arguments);
+                    $header .= implode(',         ', $arguments);
                 }
             }
             $header .= ')';
