@@ -138,6 +138,9 @@ trait Php
     public function php_variable_define($array=[], $type='private'): array
     {
         $lines = [];
+        if(!is_array($array)){
+            return $lines;
+        }
         foreach ($array as $variable) {
             if (!is_object($variable)) {
                 continue;
