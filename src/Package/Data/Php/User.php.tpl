@@ -89,14 +89,14 @@ $private.name &&
 $private.static &&
 $private.type &&
 $private.value &&
-is_scalar($private.value)
+is.scalar($private.value)
 )}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
 $private.type &&
 $private.value &&
-is_array($private.value)
+is.array($private.value)
 )}}
     private {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $private_value_key => $private_value_value)}}
@@ -111,13 +111,13 @@ is_array($private.value)
 $private.name &&
 $private.type &&
 $private.value &&
-is_scalar($private.value)
+is.scalar($private.value)
 )}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
 $private.value &&
-is_array($private.value)
+is.array($private.value)
 )}}
     private ${{$private.name}} = [
 {{for.each($private.value as $key => $value)}}
@@ -131,7 +131,7 @@ is_array($private.value)
 {{elseif(
 $private.name &&
 $private.value &&
-is_scalar($private.value)
+is.scalar($private.value)
 )}}
     private ${{$private.name}} = {{$private.value}};
 
