@@ -73,11 +73,11 @@ $private.name &&
 $private.static &&
 $private.type &&
 $private.value &&
-is_array($private.value)
+is.array($private.value)
 )}}
     private static {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $key => $value)}}
-{{if(is_numeric($key))}}
+{{if(is.numeric($key))}}
         {{$value}},
 {{else}}
         {{$key}} => {{$value}},
@@ -100,7 +100,7 @@ is.array($private.value)
 )}}
     private {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $private_value_key => $private_value_value)}}
-{{if(is_numeric($private_value_key))}}
+{{if(is.numeric($private_value_key))}}
         {{$private_value_value}},
 {{else}}
         {{$private_value_key}} => {{$private_value_value}},
@@ -121,7 +121,7 @@ is.array($private.value)
 )}}
     private ${{$private.name}} = [
 {{for.each($private.value as $key => $value)}}
-{{if(is_numeric($key))}}
+{{if(is.numeric($key))}}
         {{$value}},
 {{else}}
         {{$key}} => {{$value}},
