@@ -41,6 +41,12 @@ class {{$class}} {
 {{/for.each}}
 
 {{for.each($functions as $function)}}
+{{if($function.doc-comment)}}
+    {{implode("\n    ", $function.doc-comment)}}
+{{/if}}
+{{if($function.attribute)}}
+    {{implode("\n    ", $function.attribute)}}
+{{/if}}
 {{if($function.static)}}
     {{$function.type}} static function {{$function.name}}({{implode(', ', $function.argument)}}) {
 {{else}}
