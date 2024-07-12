@@ -73,7 +73,6 @@ $private.doc_comment
 $private.name &&
 $private.static &&
 $private.type &&
-$private.value &&
 is.array($private.value)
 )}}
     private static {{$private.type}} ${{$private.name}} = [
@@ -89,14 +88,16 @@ is.array($private.value)
 $private.name &&
 $private.static &&
 $private.type &&
-$private.value &&
-is.scalar($private.value)
+(
+is.scalar($private.value) ||
+is.null($private.value)
+)
+
 )}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
 $private.type &&
-$private.value &&
 is.array($private.value)
 )}}
     private {{$private.type}} ${{$private.name}} = [
@@ -111,13 +112,14 @@ is.array($private.value)
 {{elseif(
 $private.name &&
 $private.type &&
-$private.value &&
-is.scalar($private.value)
+(
+is.scalar($private.value) ||
+is.null($private.value)
+)
 )}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{elseif(
 $private.name &&
-$private.value &&
 is.array($private.value)
 )}}
     private ${{$private.name}} = [
@@ -131,8 +133,10 @@ is.array($private.value)
     ];
 {{elseif(
 $private.name &&
-$private.value &&
-is.scalar($private.value)
+(
+is.scalar($private.value) ||
+is.null($private.value)
+)
 )}}
     private ${{$private.name}} = {{$private.value}};
 
