@@ -24,9 +24,6 @@ trait Php
             if (!property_exists($function, 'name')) {
                 continue;
             }
-            if (!property_exists($function, 'type')) {
-                continue;
-            }
             if(
                 property_exists($function, 'doc_comment') &&
                 !is_scalar($function->doc_comment) &&
@@ -64,9 +61,17 @@ trait Php
                 property_exists($function, 'static') &&
                 $function->static === true
             ){
-                $header = '    ' . $function->type . ' static function ' . $function->name . '(';
+                if($function->type){
+                    $header = '    ' . $function->type . ' static function ' . $function->name . '(';
+                } else {
+                    $header = '    ' . ' static function ' . $function->name . '(';
+                }
             } else {
-                $header = '    ' . $function->type . ' function ' . $function->name . '(';
+                if($function->type){
+                    $header = '    ' . $function->type . ' function ' . $function->name . '(';
+                } else {
+                    $header = '    ' . ' function ' . $function->name . '(';
+                }
             }
             $type = '';
             $length = 0;

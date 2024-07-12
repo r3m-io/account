@@ -1,5 +1,7 @@
 {{R3M}}
 {{$options = options()}}
+{{$options.class = null}}
+{{$options.trait = null}}
 <?php
 namespace {{$options.namespace}};
 
@@ -70,8 +72,6 @@ class {{$options.class}} {
 {{implode("\n", $function)}}
 {{$user.function = Package.R3m.Io.Account:Php:php.function.define($options.user.function)}}
 {{implode("\n", $user.function)}}
-
-
 {{if($options.class || $options.trait)}}
 }
 {{/if}}
