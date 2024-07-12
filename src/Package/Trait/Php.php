@@ -61,11 +61,11 @@ trait Php
             if (empty($value)) {
                 $result = '[];';
             } else {
-                $result = ' = [' . PHP_EOL;
+                $result = '[' . PHP_EOL;
                 foreach ($value as $key => $val) {
                     if (is_numeric($key)) {
                         if (is_null($val)) {
-                            $result .= ' = null;' . PHP_EOL;
+                            $result .= '    null,' . PHP_EOL;
                         } elseif ($val === true) {
                             $result .= '    true,' . PHP_EOL;
                         } elseif ($val === false) {
@@ -82,7 +82,7 @@ trait Php
                 $result .= '];' . PHP_EOL;
             }
         } else {
-            $result .= ' = ' . $value . ';' . PHP_EOL;
+            $result .=  $value . ';' . PHP_EOL;
         }
         return $result;
     }
