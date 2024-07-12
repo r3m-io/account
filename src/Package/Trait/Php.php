@@ -49,7 +49,7 @@ trait Php
         return $lines;
     }
 
-    public function php_variable_define_value($value=null): string
+    public function php_variable_define_value($value=null, $indent=1): string
     {
         $result = '';
         if (is_null($value)) {
@@ -66,18 +66,18 @@ trait Php
                 foreach ($value as $key => $val) {
                     if (is_numeric($key)) {
                         if (is_null($val)) {
-                            $result .= '    null,' . PHP_EOL;
+                            $result .= str_repeat(' ', $indent * 4) . 'null,' . PHP_EOL;
                         } elseif ($val === true) {
-                            $result .= '    true,' . PHP_EOL;
+                            $result .= str_repeat(' ', $indent * 4) . 'true,' . PHP_EOL;
                         } elseif ($val === false) {
-                            $result .= '    false,' . PHP_EOL;
+                            $result .= str_repeat(' ', $indent * 4) . 'false,' . PHP_EOL;
                         } elseif (is_array($val)) {
-                            $result .= $this->php_variable_define_value($val);
+                            $result .= $this->php_variable_define_value($val, ++$indent);
                         } else {
-                            $result .= '    ' . $val . ',' . PHP_EOL;
+                            $result .= str_repeat(' ', $indent * 4) . $val . ',' . PHP_EOL;
                         }
                     } else {
-                        $result .= '    ' . $key . ' => ' . $val . ',' . PHP_EOL;
+                        $result .= str_repeat(' ', $indent * 4) . $key . ' => ' . $val . ',' . PHP_EOL;
                     }
                 }
                 $result .= '];' . PHP_EOL;
