@@ -36,7 +36,7 @@ trait Php
             if (property_exists($variable, 'type')) {
                 $line .= $variable->type . ' ';
             }
-            $line .= $variable->name;
+            $line .= '$' . $variable->name;
             if (!property_exists($variable, 'value')) {
                 $line .= ';' . PHP_EOL;
             } else {
