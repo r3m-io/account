@@ -58,6 +58,14 @@ class {{$class}} {
     use {{$user_trait_use}};
 {{/for.each}}
 
+{{for.each($privates as $private)}}
+{{if($private.doc_comment)}}
+    /*
+     * {{implode("\n     * ", $private.doc_comment)}}
+    */
+{{/if}}
+{{/for.each}}
+
 {{for.each($functions as $function)}}
 {{if($function.doc_comment)}}
     {{implode("\n    ", $function.doc_comment)}}
