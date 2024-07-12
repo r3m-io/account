@@ -12,9 +12,12 @@
 {{$public = $options.public}}
 {{$traits = $options.trait_use}}
 {{$functions = $options.function}}
-{{$user_traits = $options.user_trait_use}}
-{{$user_use = $options.user_use}}
-{{$user_functions = $options.user_function}}
+{{$user.private = $options.user.private}}
+{{$user.protected = $options.user.protected}}
+{{$user.public = $options.user.public}}
+{{$user.traits = $options.user.trait_use}}
+{{$user.use = $options.user.use}}
+{{$user.functions = $options.user.function}}
 <?php
 namespace {{$namespace}};
 
@@ -54,8 +57,8 @@ class {{$class}} {
 {{for.each($traits as $trait_use)}}
     use {{$trait_use}};
 {{/for.each}}
-{{for.each($user_traits as $user_trait_use)}}
-    use {{$user_trait_use}};
+{{for.each($user.traits as $user.trait.use)}}
+    use {{$user.trait.use}};
 {{/for.each}}
 {{$private = Package.R3m.Io.Account:Php:php.variable.define($private, 'private')}}
 {{implode("\n", $private)}}
@@ -63,12 +66,15 @@ class {{$class}} {
 {{implode("\n", $protected)}}
 {{$public = Package.R3m.Io.Account:Php:php.variable.define($public, 'public')}}
 {{implode("\n", $public)}}
-
+{{$user.private = Package.R3m.Io.Account:Php:php.variable.define($user.private, 'private')}}
+{{implode("\n", $user.private)}}
+{{$user.protected = Package.R3m.Io.Account:Php:php.variable.define($user.protected, 'protected')}}
+{{implode("\n", $user.protected)}}
+{{$user.public = Package.R3m.Io.Account:Php:php.variable.define($user.public, 'public')}}
+{{implode("\n", $user.public)}}
 
 {{$functions = Package.R3m.Io.Account:Php:php.function.define($functions)}}
 {{implode("\n", $functions)}}
-
-
 {{$user_functions = Package.R3m.Io.Account:Php:php.function.define($user_functions)}}
 {{implode("\n", $user_functions)}}
 
