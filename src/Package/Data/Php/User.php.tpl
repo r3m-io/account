@@ -75,6 +75,9 @@ $private.static &&
 $private.type &&
 is.array($private.value)
 )}}
+{{if(!$private.value)}}
+    private static {{$private.type}} ${{$private.name}} = [];
+{{else}}
     private static {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $key => $value)}}
 {{if(is.numeric($key))}}
@@ -84,6 +87,7 @@ is.array($private.value)
 {{/if}}
 {{/for.each}}
     ];
+{{/if}}
 {{elseif(
 $private.name &&
 $private.static &&
@@ -100,6 +104,9 @@ $private.name &&
 $private.type &&
 is.array($private.value)
 )}}
+{{if(!$private.value)}}
+    private {{$private.type}} ${{$private.name}} = [];
+{{else}}
     private {{$private.type}} ${{$private.name}} = [
 {{for.each($private.value as $private_value_key => $private_value_value)}}
 {{if(is.numeric($private_value_key))}}
@@ -109,6 +116,7 @@ is.array($private.value)
 {{/if}}
 {{/for.each}}
     ];
+{{/if}}
 {{elseif(
 $private.name &&
 $private.type &&
@@ -122,6 +130,9 @@ is.null($private.value)
 $private.name &&
 is.array($private.value)
 )}}
+{{if(!$private.value)}}
+    private ${{$private.name}} = [];
+{{else}}
     private ${{$private.name}} = [
 {{for.each($private.value as $key => $value)}}
 {{if(is.numeric($key))}}
@@ -131,6 +142,7 @@ is.array($private.value)
 {{/if}}
 {{/for.each}}
     ];
+{{/if}}
 {{elseif(
 $private.name &&
 (
