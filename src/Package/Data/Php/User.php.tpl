@@ -100,6 +100,12 @@ is.null($private.value)
 )}}
 {{if(is.null($private.value))}}
     private static {{$private.type}} ${{$private.name}} = null;
+{{elseif($private.value === false)}}
+    private static {{$private.type}} ${{$private.name}} = false;
+{{elseif($private.value === true)}}
+    private static {{$private.type}} ${{$private.name}} = true;
+{{elseif(is.string($private.value))}}
+    private static {{$private.type}} ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private static {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{/if}}
@@ -131,6 +137,12 @@ is.null($private.value)
 )}}
 {{if(is.null($private.value))}}
     private {{$private.type}} ${{$private.name}} = null;
+{{elseif($private.value === false)}}
+    private {{$private.type}} ${{$private.name}} = false;
+{{elseif($private.value === true)}}
+    private {{$private.type}} ${{$private.name}} = true;
+{{elseif(is.string($private.value))}}
+    private {{$private.type}} ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private {{$private.type}} ${{$private.name}} = {{$private.value}};
 {{/if}}
@@ -160,6 +172,12 @@ is.null($private.value)
 )}}
 {{if(is.null($private.value))}}
     private ${{$private.name}} = null;
+{{elseif($private.value === false)}}
+    private ${{$private.name}} = false;
+{{elseif($private.value === true)}}
+    private ${{$private.name}} = true;
+{{elseif(is.string($private.value))}}
+    private ${{$private.name}} = "{{$private.value}}";
 {{else}}
     private ${{$private.name}} = {{$private.value}};
 {{/if}}
