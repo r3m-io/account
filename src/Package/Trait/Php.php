@@ -29,7 +29,7 @@ trait Php
                 !is_scalar($function->doc_comment) &&
                 !empty($function->doc_comment)
             ){
-                $lines[] = '';
+//                $lines[] = '';
                 $lines[] = '    /**';
                 foreach($function->doc_comment as $doc_comment){
                     $lines[] ='     * ' . $doc_comment;
