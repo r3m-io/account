@@ -37,7 +37,9 @@
         "value": [
           null,
           false,
-          true
+          true,
+          "mooi",
+          "{{config('ds')}}"
         ]
       },
       {
