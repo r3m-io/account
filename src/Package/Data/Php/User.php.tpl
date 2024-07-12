@@ -2,11 +2,12 @@
 {{$options = options()}}
 {{$namespace = $options.namespace}}
 {{$class = $options.class}}
+{{$trait = $options.trait}}
 {{$extends = $options.extends}}
 {{$implements = $options.implements}}
 {{$use = $options.use}}
 {{$constants = $options.constant}}
-{{$traits = $options.trait}}
+{{$traits = $options.trait_use}}
 {{$functions = $options.function}}
 <?php
 namespace {{$namespace}};
@@ -15,14 +16,18 @@ namespace {{$namespace}};
 use {{$usage}};
 {{/for.each}}
 
+{{if($trait)}}
+trait {{$trait}} {
+{{else}}
 {{if($implements && $extends)}}
-class {{$class}} extends {{$extends}} implements {{$implements}} {
+class {{$class}} extends {{$extends}} implements {{implode(', ', $implements)}} {
 {{elseif($implements)}}
-class {{$class}} implements {{$implements}} {
+class {{$class}} implements {{implode(', ', $implements)}} {
 {{elseif($extends)}}
 class {{$class}} extends {{$extends}} {
 {{else}}
 class {{$class}} {
+{{/if}}
 {{/if}}
 
 {{for.each($constants as $property => $value)}}
@@ -36,8 +41,8 @@ class {{$class}} {
 {{/if}}
 {{/for.each}}
 
-{{for.each($traits as $trait)}}
-    use {{$trait}};
+{{for.each($traits as $trait_use)}}
+    use {{$trait_use}};
 {{/for.each}}
 
 {{for.each($functions as $function)}}

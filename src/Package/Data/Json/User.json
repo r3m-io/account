@@ -2,6 +2,7 @@
   "User" : {
     "options": "{{options()}}",
     "class": "{{$this.options.class}}",
+    "trait": "{{$this.options.trait}}",
     "use" : [
       "R3m\\Io\\App",
       "R3m\\Io\\Module\\Response",
@@ -12,7 +13,7 @@
       "R3m\\Io\\Exception\\UrlNotExistException"
     ],
     "extends" : "Controller",
-    "implements": null,
+    "implements": [],
     "constant": {
       "DIR" : "__DIR__ . DIRECTORY_SEPARATOR",
       "NAME" : "\"{{$this.#parentNode.options.class}}\"}}",
@@ -26,7 +27,7 @@
       "EXCEPTION_COMMAND_PARAMETER" : "\"{{literal}}{{$command}}{{/literal}}\"",
       "EXCEPTION_COMMAND" : "'invalid command (' . User::EXCEPTION_COMMAND_PARAMETER . ')' . PHP_EOL"
     },
-    "trait": [
+    "trait_use": [
       "Package\\R3m\\Io\\Account\\Trait\\User",
       "Package\\R3m\\Io\\Account\\Trait\\App"
     ],
