@@ -54,21 +54,23 @@ class {{$options.class}} {
 {{/if}}
 {{$private = Package.R3m.Io.Account:Php:php.variable.define($options.private, 'private')}}
 {{implode("\n", $private)}}
-{{$protected = Package.R3m.Io.Account:Php:php.variable.define($options.protected, 'protected')}}
-{{implode("\n", $protected)}}
-{{$public = Package.R3m.Io.Account:Php:php.variable.define($options.public, 'public')}}
-{{implode("\n", $public)}}
 {{$user.private = Package.R3m.Io.Account:Php:php.variable.define($options.user.private, 'private')}}
 {{implode("\n", $user.private)}}
+{{$protected = Package.R3m.Io.Account:Php:php.variable.define($options.protected, 'protected')}}
+{{implode("\n", $protected)}}
 {{$user.protected = Package.R3m.Io.Account:Php:php.variable.define($options.user.protected, 'protected')}}
 {{implode("\n", $user.protected)}}
+{{$public = Package.R3m.Io.Account:Php:php.variable.define($options.public, 'public')}}
+{{implode("\n", $public)}}
 {{$user.public = Package.R3m.Io.Account:Php:php.variable.define($options.user.public, 'public')}}
 {{implode("\n", $user.public)}}
+
 
 {{$function = Package.R3m.Io.Account:Php:php.function.define($options.function)}}
 {{implode("\n", $function)}}
 {{$user.function = Package.R3m.Io.Account:Php:php.function.define($options.user.function)}}
 {{implode("\n", $user.function)}}
+
 
 {{if($options.class || $options.trait)}}
 }
