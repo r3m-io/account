@@ -39,6 +39,9 @@
             "App $object"
           ],
           "attribute": [],
+          "return-type": [
+            "void"
+          ],
           "body": [
             "$this->object($object);"
           ]
@@ -57,6 +60,9 @@
             ],
             "attribute": [
               "#(route)"
+            ],
+            "return-type": [
+              "mixed"
             ],
             "body": [
               "$command = $object->parameter($object, __CLASS__, 1);",
@@ -81,6 +87,9 @@
             "static": false,
             "argument": [],
             "attribute": [],
+            "return-type": [
+              "mixed"
+            ],
             "body": [
               "$object = $this->object();",
               "try {",
