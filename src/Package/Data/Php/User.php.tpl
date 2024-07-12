@@ -57,7 +57,6 @@ class {{$class}} {
 {{for.each($user_traits as $user_trait_use)}}
     use {{$user_trait_use}};
 {{/for.each}}
-
 {{for.each($privates as $private)}}
 {{if(
 $private.name &&
@@ -68,6 +67,8 @@ $private.doc_comment
      *  {{implode("\n     * ", $private.doc_comment)}}
 
     */
+{{else}}
+
 {{/if}}
 {{if(
 $private.name &&
