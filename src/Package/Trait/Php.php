@@ -128,10 +128,12 @@ trait Php
             }
             $header .= ')';
             $lines[] = $header . $type;
-            $lines[] = '    {';
+            //quirks of the parser (it adds an extra line with whitespace {)
+            $line = '    {';
             if(property_exists($function, 'body')){
-                $lines[] = '        ' . implode("\n        ", $function->body);
+                $line .= '        ' . implode("\n        ", $function->body);
             }
+            $lines[] = $line;
             $lines[] = '    }';
             $lines[] = '';
         }
