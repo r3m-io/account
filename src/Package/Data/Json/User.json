@@ -21,6 +21,7 @@
       {
         "name": "object",
         "type" : "App",
+        "doc_comment": [],
         "static": false,
         "value": "null"
       }
@@ -29,6 +30,7 @@
       {
         "name": "array",
         "type" : "array",
+        "doc_comment": [],
         "static": false,
         "value": "[]"
       }
@@ -37,6 +39,7 @@
       {
         "name": "string",
         "type" : "string",
+        "doc_comment": [],
         "static": false,
         "value": "[]"
       }
