@@ -51,6 +51,15 @@ class {{$class}} {
     {{implode("\n    ", $function.doc_comment)}}
 
 {{/if}}
+{{if($function.throw)}}
+    /**
+    {{for.each($function.throw as $throw)}}
+     * @throws {{$throw}}
+
+    {{/for.each}}
+
+     */
+{{/if}}
 {{if($function.attribute)}}
     {{implode("\n    ", $function.attribute)}}
 

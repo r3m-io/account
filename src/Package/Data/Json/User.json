@@ -57,16 +57,15 @@
             "argument": [
               "App $object"
             ],
-            "doc_comment": [
-              "/**",
-              " * @throws Exception",
-              " */"
-            ],
+            "doc_comment": [],
             "attribute": [
               "#[Route('/blog', name: 'blog_list')]"
             ],
             "return_type": [
               "mixed"
+            ],
+            "throw": [
+                "Exception"
             ],
             "body": [
               "$command = $object->parameter($object, __CLASS__, 1);",
