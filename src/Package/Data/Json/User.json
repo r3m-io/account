@@ -14,6 +14,7 @@
               " */"
             ],
             "body": [
+              "{{literal}}$command{{/literal}}",
               "$command = $object->parameter($object, __CLASS__, 1);",
               "if($command === null){",
               "    $command = {{$this.#parentNode.class}}::DEFAULT_COMMAND;",
