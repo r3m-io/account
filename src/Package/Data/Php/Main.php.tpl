@@ -32,7 +32,10 @@ use {{$usage}};
 use {{$user.usage}};
 {{/for.each}}
 
-{{if(!$class && !$trait)}}
+{{if(
+is.empty($class) &&
+is.empty($trait)
+)}}
 {{elseif($trait)}}
 trait {{$trait}} {
 {{else}}
