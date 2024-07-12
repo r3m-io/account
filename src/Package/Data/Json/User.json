@@ -120,7 +120,7 @@
     "function": [
         {
           "name": "__construct",
-          "type" : "public",
+          "type" : null,
           "static": false,
           "argument": [
             {
