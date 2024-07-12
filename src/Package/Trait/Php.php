@@ -71,6 +71,9 @@ trait Php
                 $return_type = $function->return_type;
                 $type = ' : ' . implode(' | ', $return_type);
                 $length += strlen($type);
+                if($length > 10){
+                    $type = ' : ' . PHP_EOL . implode(' |' . PHP_EOL . '    ', $return_type);
+                }
             }
             if(
                 property_exists($function, 'argument')
