@@ -25,7 +25,7 @@
           "this is a test"
         ],
         "static": true,
-        "value": null
+        "value": false
       },
       {
         "name": "array",
@@ -34,7 +34,11 @@
           "fuck this shit"
         ],
         "static": false,
-        "value": []
+        "value": [
+          null,
+          false,
+          true
+        ]
       },
       {
         "name": "string",
