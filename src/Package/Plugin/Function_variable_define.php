@@ -12,6 +12,70 @@ use R3m\Io\Module\Parse;
 use R3m\Io\Module\Data;
 
 function function_variable_define(Parse $parse, Data $data, $array=[], $type='private'){
-    d($array);
-    d($type);
+    foreach($array as $variable){
+        if(!is_object($variable)){
+            continue;
+        }
+        if(!property_exists($variable, 'name')){
+            continue;
+        }
+        if(property_exists($variable, 'doc_comment')){
+            echo '/**' . PHP_EOL;
+            echo ' * ' . $variable->doc_comment . PHP_EOL;
+            echo ' */' . PHP_EOL;
+        }
+        echo $type . ' ';
+        if(property_exists($variable, 'static')){
+            echo 'static ';
+        }
+        if(property_exists($variable, 'type')){
+            echo $variable->type . ' ';
+        }
+        echo $variable->name;
+        if(!property_exists($variable, 'value')){
+             echo ';' . PHP_EOL;
+        } else {
+            if(is_null($variable->value)){
+                echo ' = null;' . PHP_EOL;
+            }
+            elseif($variable->value === true){
+                echo ' = true;' . PHP_EOL;
+            }
+            elseif($variable->value === false){
+                echo ' = false;' . PHP_EOL;
+            }
+            elseif(is_array($variable->value)){
+                if(empty($variable->value)){
+                    echo ' = []';
+                } else {
+                    echo ' = [' . PHP_EOL;
+                    foreach($variable->value as $key => $value){
+                        if(is_numeric($key)){
+                            if(is_null($value)){
+                                echo ' = null;' . PHP_EOL;
+                            }
+                            elseif($value === true){
+                                echo '    true,' . PHP_EOL;
+                            }
+                            elseif($value === false){
+                                echo '    false,' . PHP_EOL;
+                            }
+                            elseif(is_array($value)){
+                            }
+                            else {
+                                echo '    ' . $value . ',' . PHP_EOL;
+                            }
+                        } else {
+                            echo '    ' . $key . ' => ' . $value . ',' . PHP_EOL;
+                        }
+                    }
+                    echo '];' . PHP_EOL;
+                }
+            } else {
+                echo ' = ' . $variable->value . ';' . PHP_EOL;
+            }
+        }
+    }
+
+
 }
