@@ -121,7 +121,7 @@
         {
           "name": "__construct",
           "type" : null,
-          "static": false,
+          "static": true,
           "argument": [
             {
               "name": "object",
