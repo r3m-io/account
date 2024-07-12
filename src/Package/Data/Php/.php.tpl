@@ -67,45 +67,10 @@ class {{$class}} {
 
 {{$functions = Package.R3m.Io.Account:Php:php.function.define($functions)}}
 {{implode("\n", $functions)}}
-{{for.each($user_functions as $user_function)}}
-{{if($user_function.doc_comment)}}
-    {{implode("\n    ", $user_function.doc_comment)}}
 
-{{/if}}
-{{if($user_function.throw)}}
-    /**
-{{for.each($user_function.throw as $user_throw_nr => $user_throw)}}
-     * @throws {{$user_throw}}
-{{if(!is.empty($user_function.throw[$user_throw_nr + 1]))}}
+{{$user_functions = Package.R3m.Io.Account:Php:php.function.define($user_functions)}}
+{{implode("\n", $user_functions)}}
 
-
-{{/if}}
-{{/for.each}}
-
-     */
-{{/if}}
-{{if($user_function.attribute)}}
-    {{implode("\n    ", $user_function.attribute)}}
-
-{{/if}}
-{{if($user_function.static && $user_function.return_type)}}
-    {{$user_function.type}} static function {{$user_function.name}}({{implode(', ', $user_function.argument)}}) : {{implode('|', $user_function.return_type)}}
-
-{{elseif($user_function.static)}}
-    {{$user_function.type}} static function {{$user_function.name}}({{implode(', ', $user_function.argument)}})
-{{elseif($user_function.return_type)}}
-    {{$user_function.type}} function {{$user_function.name}}({{implode(', ', $user_function.argument)}}) : {{implode('|', $user_function.return_type)}}
-
-{{else}}
-    {{$user_function.type}} function {{$user_function.name}}({{implode(', ', $user_function.argument)}})
-{{/if}}
-    {
-        {{implode("\n        ", $user_function.body)}}
-
-    }
-
-
-{{/for.each}}
 {{if($class || $trait)}}
 }
 {{/if}}
