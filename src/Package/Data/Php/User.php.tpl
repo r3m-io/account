@@ -16,7 +16,8 @@ namespace {{$namespace}};
 use {{$usage}};
 {{/for.each}}
 
-{{if($trait)}}
+{{if(!$class && !$trait)}}
+{{elseif($trait)}}
 trait {{$trait}} {
 {{else}}
 {{if($implements && $extends)}}
@@ -71,4 +72,6 @@ class {{$class}} {
     }
 
 {{/for.each}}
+{{if($class || $trait)}}
 }
+{{/if}}
