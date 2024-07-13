@@ -18,7 +18,7 @@
 {{$user.traits = $options.user.trait_use|default:[]}}
 {{$user.use = $options.user.use|default:[]}}
 {{$user.function = $options.user.function|default:[]}}
-{{$user.constant = $options.user.constant:[]}}
+{{$user.constant = $options.user.constant|default:[]}}
 <?php
 namespace {{$namespace}};
 
