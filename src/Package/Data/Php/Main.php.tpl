@@ -3,8 +3,6 @@
 {{$namespace = $options.namespace}}
 {{$class = $options.class}}
 {{$trait = $options.trait}}
-{{$trait = $class}}
-{{$class = null}}
 {{$extends = $options.extends}}
 {{$implements = $options.implements|default:[]}}
 {{$use = $options.use|default:[]}}
