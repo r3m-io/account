@@ -2,8 +2,8 @@
 {{$options = options()}}
 {{$test = true}}
 {{$constant = $options.constant2|default:(object)[
-'test' => [
-    'test' => 'test'
+'test1' => [
+    'test2' => 'test3'
 ],
 ]}}
 {{dd($constant)}}
