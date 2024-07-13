@@ -6,7 +6,7 @@
 {{$extends = $options.extends}}
 {{$implements = $options.implements|default:[]}}
 {{$use = $options.use|default:[]}}
-{{$constant = $options.constant|default:{}}}
+{{$constant = $options.constant|default:(object)[]}}
 {{$private = $options.private|default:[]}}
 {{$protected = $options.protected|default:[]}}
 {{$public = $options.public|default:[]}}
