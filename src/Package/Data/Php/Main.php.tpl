@@ -1,5 +1,5 @@
 {{R3M}}
 {{$options = options()}}
 {{$test = true}}
-{{$constant = $options.constant2|default:(object)[]}}
+{{$constant = $options.constant2|default:(object)['test' => $test]}}
 {{dd($constant)}}
