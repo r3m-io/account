@@ -6,7 +6,7 @@
 {{$extends = $options.extends}}
 {{$implements = $options.implements|default:[]}}
 {{$use = $options.use|default:[]}}
-{{$constant = $options.constant|default:(object)[]}}
+{{$constant = $options.constant|default:[]}}
 {{$private = $options.private|default:[]}}
 {{$protected = $options.protected|default:[]}}
 {{$public = $options.public|default:[]}}
@@ -18,7 +18,7 @@
 {{$user.traits = $options.user.trait_use|default:[]}}
 {{$user.use = $options.user.use|default:[]}}
 {{$user.function = $options.user.function|default:[]}}
-{{$user.constant = $options.user.constant}}
+{{$user.constant = $options.user.constant:[]}}
 <?php
 namespace {{$namespace}};
 
@@ -46,7 +46,6 @@ class {{$class}} extends {{$extends}} {
 class {{$class}} {
 {{/if}}
 {{/if}}
-{{if(is.object($constant))}}
 {{for.each($constant as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
@@ -57,8 +56,6 @@ class {{$class}} {
     const {{$property}} = {{$value}};
 {{/if}}
 {{/for.each}}
-{{/if}}
-{{if(is.object($user.constant))}}
 {{for.each($user.constant as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
@@ -69,7 +66,6 @@ class {{$class}} {
     const {{$property}} = {{$value}};
 {{/if}}
 {{/for.each}}
-{{/if}}
 
 {{for.each($traits as $trait_use)}}
     use {{$trait_use}};
