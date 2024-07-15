@@ -15,7 +15,7 @@
 
 {{$constant = $options.constant2|default:(object)[
 'test1' =>  (object) [
-    'test2' + 'test7' => $test2,
+    'test2' + 'test7' => $test3|default:'test4',
     'test3' => 'test4',
     'test7' => [
         0,
