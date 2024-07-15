@@ -17,7 +17,7 @@
 'test1' =>  (object) [,
     'test2' + 'test7' => $test2,
     'test3' => 'test4',
-    'test7' => [,
+    'test7' => [
         0,
         1
     ],
