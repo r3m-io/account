@@ -3,9 +3,9 @@
 {{$test = true}}
 
 
-{{$test2 = (object) [
+{{$test2 = (object) [,
 '1' => 'test',
-'2' => (object) [
+'2' => (object) [,
 'test2',
 'test3',
 ],
@@ -13,8 +13,8 @@
 ]}}
 
 
-{{$constant = $options.constant2|default:(object) [
-'test1' =>  (object) [
+{{$constant = $options.constant2|default:(object) [,
+'test1' =>  (object) [,
     'test2' + 'test7' => $test2,
     'test3' => 'test4',
     'test7' => [,
