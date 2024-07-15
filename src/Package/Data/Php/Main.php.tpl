@@ -9,7 +9,7 @@
 'test2',
 'test3',
 ],
-'nice' => 'very-nice'
+'nice' => 'very-nice',
 ]}}
 
 
