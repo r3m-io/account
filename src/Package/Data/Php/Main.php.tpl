@@ -3,7 +3,7 @@
 {{$test = true}}
 
 
-{{$test2 = [
+{{$test2 = (object) [
 '1' => 'test',
 '2' => (object) [
 'test2',
