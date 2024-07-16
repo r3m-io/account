@@ -15,7 +15,7 @@
 
 {{$constant = $options.constant2|default:(object) [
 'test1' =>  (object) [
-    'test2' + 'test7' => (clone) $test2,
+    'test2' + 'test7' => object.clone($test2),
     'test3' => 'test4',
     'test7' => [
         0,
