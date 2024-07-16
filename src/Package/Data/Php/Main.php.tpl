@@ -24,7 +24,8 @@
     ]
 ],
 'test5' => 'test6',
-'test8' => $test
+'test8' => (unset) $test
 ]}}
+{{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
