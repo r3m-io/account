@@ -12,6 +12,7 @@
 'nice' => 'very-nice'
 ]}}
 
+{{unset('test')}}
 
 {{$constant = $options.constant2|default:(object) [
 'test1' =>  (object) [
@@ -24,7 +25,7 @@
     ]
 ],
 'test5' => 'test6',
-'test8' => unset($test)
+'test8' => $test
 ]}}
 {{d($test)}}
 {{d($test2)}}
