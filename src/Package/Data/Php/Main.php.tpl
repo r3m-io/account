@@ -1,7 +1,6 @@
 {{R3M}}
 {{$options = options()}}
 {{$test = true}}
-
 {{$test2 = (object) [
 '1' => 'test',
 '2' => (object) [
@@ -10,9 +9,6 @@
 ],
 'nice' => 'very-nice'
 ]}}
-
-
-
 {{$constant = $options.constant2|default:(object) [
 'test1' =>  (object) [
     'test2' + 'test7' => object.clone($test2), // with  comment
@@ -29,6 +25,5 @@
 {{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
-
 {{unset($test)}}
 {{dd($test)}}
