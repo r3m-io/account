@@ -31,4 +31,7 @@
 {{d($constant)}}
 
 {{unset($test)}}
+{{$output = execute('ls -alh', $notification)}}
+{{d($output)}}
+{{d($notification)}}
 {{dd($test)}}
