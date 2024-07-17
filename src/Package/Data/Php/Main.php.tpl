@@ -31,3 +31,4 @@
 {{d($constant)}}
 
 {{unset($test)}}
+{{dd($test)}}
