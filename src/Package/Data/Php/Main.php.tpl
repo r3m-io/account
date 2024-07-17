@@ -1,7 +1,6 @@
 {{R3M}}
 {{$options = options()}}
 {{$test = true}}
-{{unset($test)}}
 
 {{$test2 = (object) [
 '1' => 'test',
@@ -30,3 +29,5 @@
 {{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
+
+{{unset($test)}}
