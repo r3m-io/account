@@ -1,7 +1,7 @@
 {{R3M}}
 {{$options = options()}}
 {{$test = true}}
-
+{{unset($test)}}
 
 {{$test2 = (object) [
 '1' => 'test',
@@ -12,7 +12,7 @@
 'nice' => 'very-nice'
 ]}}
 
-{{unset('test')}}
+
 
 {{$constant = $options.constant2|default:(object) [
 'test1' =>  (object) [
