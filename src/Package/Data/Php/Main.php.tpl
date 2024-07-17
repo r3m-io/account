@@ -31,7 +31,4 @@
 {{d($constant)}}
 
 {{unset($test)}}
-{{$output = execute('ls -alh >&2', $notification)}}
-{{d($output)}}
-{{d($notification)}}
 {{dd($test)}}
