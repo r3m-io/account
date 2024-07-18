@@ -28,4 +28,4 @@
 {{d($test2)}}
 {{d($constant)}}
 {{unset($test)}}
-{{dd($test)}}
+{{d($test)}}
