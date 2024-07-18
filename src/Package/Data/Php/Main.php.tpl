@@ -1,6 +1,7 @@
 {{R3M}}
 {{$options = options()}}
-{{$test = $options.null|default: 1 + 2}}
+{{$test3 = 2}}
+{{$test = $options.null|default: 1 + $test3}}
 {{$test2 = (object) [
 '1' => 'test',
 '2' => (object) [
