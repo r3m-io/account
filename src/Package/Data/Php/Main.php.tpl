@@ -1,4 +1,3 @@
-{{R3M}}
 {{$options = options()}}
 {{$test3 = 4.123}}
 {{$test4 = null}}
