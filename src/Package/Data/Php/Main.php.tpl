@@ -1,11 +1,11 @@
 {{R3M}}
 {{$options = options()}}
-{{$test3 = 4}}
+{{$test3 = 4.123}}
 {{$test4 = null}}
 {{$test = $options.null|default: 1 + $test3 + ($test4)}}
 {{$test2 = (object) [
-'1' => 'test',
-'2' => (object) [
+1 => 'test',
+2 => (object) [
 'test2',
 'test3',
 ],
