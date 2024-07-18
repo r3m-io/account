@@ -5,3 +5,4 @@
 {{$test5 = $test3 * 3 / 1.5}}
 {{$test = $options.null|default: 1 + $test3 + ($test4): "test"}}
 {{d($test)}}
+{{dd($test5)}}
