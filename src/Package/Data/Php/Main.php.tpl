@@ -14,7 +14,7 @@
 'test1' =>  (object) [
 'test2' + 'test7' => object.clone($test2), // with  comment
 'test2' + 'test9' => (clone) $test2,
-'test3' => ($test5|default:'test4'),
+'test3' => 'test4',
 'test7' => [
 0,
 1
