@@ -23,7 +23,7 @@
 'test5' => 'test6',
 'test8' => $test
 ]}}
-{{dd('$this'}}
+{{dd('$this')}}
 {{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
