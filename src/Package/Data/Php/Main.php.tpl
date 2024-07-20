@@ -1,7 +1,7 @@
 {{$options = options()}}
 {{$test3 = 4.123}}
 {{$test4 = null}}
-{{$test = ($options.null|default: 1 + $test3 + ($test4)) + ($options.null2|default:3)}}
+{{$test = ($options.null|default: 1 + $test3 + ($test4)) + ($options.null2|default:5)}}
 {{$test2 = (object) [
 1 => 'test',
 2 => (object) [
