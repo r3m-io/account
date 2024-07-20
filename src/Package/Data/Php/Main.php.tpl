@@ -26,5 +26,6 @@
 {{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
-{{unset($test)}}
+{{unset($test, $test2)}}
 {{d($test)}}
+{{d($test2)}}
