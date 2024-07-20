@@ -14,7 +14,7 @@
 'test1' =>  (object) [
 'test2' + 'test7' => object.clone($test2), // with  comment
 'test2' + 'test9' => (clone) $test2,
-'test3' => $source,
+'test3' => $r3m.io.parse.compile.url,
 'test7' => [
 0,
 1
@@ -23,7 +23,6 @@
 'test5' => 'test6',
 'test8' => $test
 ]}}
-{{dd($r3m.io.parse.compile.url)}}
 {{d($test)}}
 {{d($test2)}}
 {{d($constant)}}
