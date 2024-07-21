@@ -47,6 +47,8 @@ trait Php
                     $lines[] ='     * @throws ' . $throw;
                 }
                 $lines[] ='    */';
+            } else {
+                $lines[] = '';
             }
             if(
                 property_exists($function, 'attribute') &&
