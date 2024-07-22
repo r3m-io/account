@@ -19,14 +19,18 @@
 {{$user.use = $options.user.use|default:[]}}
 {{$user.function = $options.user.function|default:[]}}
 {{$user.constant = $options.user.constant|default:[]}}
+{{$variable.private = array.merge($variable.private, $user.variable.private)}}
+{{$variable.protected = array.merge($variable.protected, $user.variable.protected)}}
+{{$variable.public = array.merge($variable.public, $user.variable.public)}}
+{{$function = array.merge($function, $user.function)}}
+{{$constant = array.merge($constant, $user.constant)}}
+{{$traits = array.merge($traits, $user.traits)}}
+{{$use = array.merge($use, $user.use)}}
 <?php
 namespace {{$namespace}};
 
 {{for.each($use as $usage)}}
 use {{$usage}};
-{{/for.each}}
-{{for.each($user.use as $user.usage)}}
-use {{$user.usage}};
 {{/for.each}}
 
 {{if(
@@ -46,6 +50,7 @@ class {{$class}} extends {{$extends}} {
 class {{$class}} {
 {{/if}}
 {{/if}}
+{{if($constant)}}
 {{for.each($constant as $property => $value)}}
 {{if(is.array($value))}}
     const {{$property}} = [
@@ -56,42 +61,33 @@ class {{$class}} {
     const {{$property}} = {{$value}};
 {{/if}}
 {{/for.each}}
-{{for.each($user.constant as $property => $value)}}
-{{if(is.array($value))}}
-    const {{$property}} = [
-        {{implode(',' + "\n        ", $value)}}
-
-    ];
-{{else}}
-    const {{$property}} = {{$value}};
 {{/if}}
-{{/for.each}}
+{{if($traits)}}
 
 {{for.each($traits as $trait_use)}}
     use {{$trait_use}};
 {{/for.each}}
-{{for.each($user.traits as $user.trait.use)}}
-    use {{$user.trait.use}};
-{{/for.each}}
+{{/if}}
+{{if($variable.private)}}
+
 {{$variable.private = Package.R3m.Io.Account:Php:php.variable.define($variable.private, 'private')}}
 {{implode("\n", $variable.private)}}
-{{$user.variable.private = Package.R3m.Io.Account:Php:php.variable.define($user.variable.private, 'private')}}
-{{implode("\n", $user.variable.private)}}
+{{/if}}
+{{if($variable.protected)}}
 
 {{$variable.protected = Package.R3m.Io.Account:Php:php.variable.define($variable.protected, 'protected')}}
 {{implode("\n", $variable.protected)}}
-{{$user.variable.protected = Package.R3m.Io.Account:Php:php.variable.define($user.variable.protected, 'protected')}}
-{{implode("\n", $user.variable.protected)}}
+{{/if}}
+{{if($variable.public)}}
 
 {{$variable.public = Package.R3m.Io.Account:Php:php.variable.define($variable.public, 'public')}}
 {{implode("\n", $variable.public)}}
-{{$user.variable.public = Package.R3m.Io.Account:Php:php.variable.define($user.variable.public, 'public')}}
-{{implode("\n", $user.variable.public)}}
+{{/if}}
+{{if($function)}}
 
 {{$function = Package.R3m.Io.Account:Php:php.function.define($function)}}
 {{implode("\n", $function)}}
-{{$user.function = Package.R3m.Io.Account:Php:php.function.define($user.function)}}
-{{implode("\n", $user.function)}}
+{{/if}}
 
 {{if($class || $trait)}}
 }
