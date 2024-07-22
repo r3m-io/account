@@ -387,7 +387,7 @@ trait Main {
     /**
      * @throws Exception
      */
-    public function user_create_login($flags, $options): bool | array
+    public function user_create($flags, $options): bool | array
     {
         $object = $this->object();
         if(!property_exists($options, 'namespace')){
