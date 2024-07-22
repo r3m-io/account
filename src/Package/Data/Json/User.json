@@ -8,6 +8,9 @@
       "R3m\\Io\\Module\\Response",
       "R3m\\Io\\Module\\Controller",
       "Exception",
+      "R3m\\Io\\Exception\\AuthorizationException",
+      "R3m\\Io\\Exception\\FileWriteException",
+      "R3m\\Io\\Exception\\ObjectException",
       "R3m\\Io\\Exception\\LocateException",
       "R3m\\Io\\Exception\\UrlEmptyException",
       "R3m\\Io\\Exception\\UrlNotExistException"
@@ -94,6 +97,36 @@
           "         Response::TYPE_JSON",
           "    );",
           "}"
+        ]
+      },
+      {
+        "name": "user_current",
+        "type" : "public",
+        "static": true,
+        "argument": [
+          {
+            "name": "object",
+            "type" : "App"
+          }
+        ],
+        "attribute": [],
+        "return_type": [
+          "mixed"
+        ],
+        "throw": [
+          "Exception",
+          "AuthorizationException",
+          "ObjectException",
+          "FileWriteException"
+        ],
+        "body": [
+            "if (Handler::method() === 'GET') {",
+            "    $data = Service::current($object);",
+            "    return new Response(",
+            "        $data,",
+            "        Response::TYPE_JSON",
+            "    );",
+            "}"
         ]
       }
     ],
