@@ -7,6 +7,7 @@
       "R3m\\Io\\App",
       "R3m\\Io\\Module\\Response",
       "R3m\\Io\\Module\\Controller",
+      "Package\\R3m\\Io\\Account\\Service\\User as Service",
       "Exception",
       "R3m\\Io\\Exception\\AuthorizationException",
       "R3m\\Io\\Exception\\FileWriteException",
