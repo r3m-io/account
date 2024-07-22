@@ -448,28 +448,29 @@ trait Main {
             $options->class .
             $object->config('extension.php')
         ;
+        $size = false;
         if(
             property_exists($options, 'force') &&
             $options->force === true
         ){
-            return [
-                'size' => File::write($url, $response)
-            ];
+            $size = File::write($url, $response);
         }
         elseif(
             property_exists($options, 'patch') &&
             $options->patch === true
         ){
-            return [
-                'size' => File::write($url, $response)
-            ];
+            $size = File::write($url, $response);
         }
         elseif(File::exist($url)){
             return false;
         } else {
-            return [
-                'size' => File::write($url, $response)
-            ];
+            $size = File::write($url, $response);
         }
+        //make routes
+        //need host;
+        ddd($options);
+        return [
+            'size' => $size
+        ];
     }
 }
