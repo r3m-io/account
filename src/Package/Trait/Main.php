@@ -466,9 +466,6 @@ trait Main {
         } else {
             $size = File::write($url, $response);
         }
-        //make routes
-        //need host;
-        ddd($options);
         return [
             'size' => $size
         ];
