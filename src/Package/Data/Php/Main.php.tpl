@@ -29,7 +29,7 @@
 {{$extends = $user.extends}}
 {{/if}}
 {{$function = array.merge($function, $user.function)}}
-{{$constant = array.merge($constant, $user.constant)}}
+{{$constant = object.merge($constant, $user.constant)}}
 {{$traits = array.merge($traits, $user.traits)}}
 {{$use = array.merge($use, $user.use)}}
 <?php
