@@ -20,7 +20,7 @@ trait User
     /**
      * @throws Exception
      */
-    private function token(){
+    private function user_token(){
         $object = $this->object();
         if(Handler::method() === Handler::METHOD_CLI){
             $email = $object->parameter($object, __FUNCTION__, 1);
@@ -39,7 +39,7 @@ trait User
      * @throws Exception
      * @throws ORMException
      */
-    public function login(){
+    public function user_login(){
         $object = $this->object();
         if (Handler::method() === 'POST') {
             $data = Service::login($object);
@@ -56,7 +56,7 @@ trait User
      * @throws FileWriteException
      * @throws Exception
      */
-    public function current()
+    public function user_current()
     {
         $object = $this->object();
         if (Handler::method() === 'GET') {
@@ -72,7 +72,7 @@ trait User
      * @throws AuthorizationException
      * @throws Exception
      */
-    public function refresh_token(){
+    public function user_refresh_token(){
         $object = $this->object();
         if (Handler::method() === 'GET') {
             $data =  Service::refresh_token($object);
