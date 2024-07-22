@@ -38,49 +38,9 @@
     ],
     "function": [
       {
-        "name": "__construct",
-        "type" : "public",
-        "static": false,
-        "argument": [
-          {
-            "name": "object",
-            "type" : "App"
-          }
-        ],
-        "attribute": [],
-        "return_type": [
-          "void"
-        ],
-        "body": [
-          "$this->object($object);"
-        ]
-      },
-      {
-        "name": "info",
-        "type" : "private",
-        "static": false,
-        "argument": [],
-        "attribute": [],
-        "return_type": [
-          "mixed"
-        ],
-        "throw": [
-            "Exception",
-            "LocateException",
-            "UrlEmptyException",
-            "UrlNotExistException"
-        ],
-        "body": [
-          "$object = $this->object();",
-          "$name = {{$this.#parentNode.class}}::name(__FUNCTION__, __CLASS__, '/');",
-          "$url = {{$this.#parentNode.class}}::locate($object, $name);",
-          "return {{$this.#parentNode.class}}::response($object, $url);"
-        ]
-      },
-      {
         "name": "user_token",
         "type" : "public",
-        "static": false,
+        "static": true,
         "argument": [
           {
             "name": "object",
@@ -111,7 +71,7 @@
       {
         "name": "user_login",
         "type" : "public",
-        "static": false,
+        "static": true,
         "argument": [
           {
             "name": "object",
