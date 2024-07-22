@@ -107,6 +107,34 @@
           "    );",
           "}"
         ]
+      },
+      {
+        "name": "user_login",
+        "type" : "public",
+        "static": false,
+        "argument": [
+          {
+            "name": "object",
+            "type" : "App"
+          }
+        ],
+        "attribute": [],
+        "return_type": [
+          "mixed"
+        ],
+        "throw": [
+          "Exception",
+          "Doctrine\\ORM\\Exception\\ORMException"
+        ],
+        "body": [
+          "if (Handler::method() === 'POST') {",
+          "    $data = Service::login($object);",
+          "    return new Response(",
+          "         $data,",
+          "         Response::TYPE_JSON",
+          "    );",
+          "}"
+        ]
       }
     ],
     "user": {
