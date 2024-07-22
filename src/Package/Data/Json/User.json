@@ -38,6 +38,24 @@
     ],
     "function": [
       {
+        "name": "__construct",
+        "type" : "public",
+        "static": false,
+        "argument": [
+          {
+            "name": "object",
+            "type" : "App"
+          }
+        ],
+        "attribute": [],
+        "return_type": [
+          "void"
+        ],
+        "body": [
+          "$this->object($object);"
+        ]
+      },
+      {
         "name": "command",
         "type" : "public",
         "static": true,
@@ -81,16 +99,17 @@
         "return_type": [
           "mixed"
         ],
+        "throw": [
+            "Exception",
+            "LocateException",
+            "UrlEmptyException",
+            "UrlNotExistException"
+        ],
         "body": [
           "$object = $this->object();",
-          "try {",
-          "    $name = {{$this.#parentNode.class}}::name(__FUNCTION__, __CLASS__, '/');",
-          "    $url = {{$this.#parentNode.class}}::locate($object, $name);",
-          "    return {{$this.#parentNode.class}}::response($object, $url);",
-          "}",
-          "catch (Exception | LocateException | UrlEmptyException | UrlNotExistException $exception) {",
-          "    return $exception;",
-          "}"
+          "$name = {{$this.#parentNode.class}}::name(__FUNCTION__, __CLASS__, '/');",
+          "$url = {{$this.#parentNode.class}}::locate($object, $name);",
+          "return {{$this.#parentNode.class}}::response($object, $url);"
         ]
       }
     ],
