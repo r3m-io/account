@@ -29,7 +29,6 @@ trait Php
                 !is_scalar($function->doc_comment) &&
                 !empty($function->doc_comment)
             ){
-                $lines[] = '';
                 $lines[] = '    /**';
                 foreach($function->doc_comment as $doc_comment){
                     $lines[] ='     * ' . $doc_comment;
@@ -41,7 +40,6 @@ trait Php
                 !is_scalar($function->throw) &&
                 !empty($function->throw)
             ){
-                $lines[] = '';
                 $lines[] = '    /**';
                 foreach($function->throw as $throw){
                     $lines[] ='     * @throws ' . $throw;
