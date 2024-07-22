@@ -12,6 +12,8 @@
 {{$variable.public = $options.variable.public|default:[]}}
 {{$traits = $options.trait_use|default:[]}}
 {{$function = $options.function|default:[]}}
+{{$user.extends = $options.user.extends}}
+{{$user.implements = $options.user.implements|default:[]}}
 {{$user.variable.private = $options.user.variable.private|default:[]}}
 {{$user.variable.protected = $options.user.variable.protected|default:[]}}
 {{$user.variable.public = $options.user.variable.public|default:[]}}
@@ -22,6 +24,10 @@
 {{$variable.private = array.merge($variable.private, $user.variable.private)}}
 {{$variable.protected = array.merge($variable.protected, $user.variable.protected)}}
 {{$variable.public = array.merge($variable.public, $user.variable.public)}}
+{{$implements = array.merge($implements, $user.implements)}}
+{{if($user.extends)}}
+{{$extends = $user.extends}}
+{{/if}}
 {{$function = array.merge($function, $user.function)}}
 {{$constant = array.merge($constant, $user.constant)}}
 {{$traits = array.merge($traits, $user.traits)}}
