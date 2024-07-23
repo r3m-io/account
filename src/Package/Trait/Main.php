@@ -183,6 +183,114 @@ trait Main
         }
     }
 
+    /**
+     * @throws ObjectException
+     * @throws FileWriteException
+     * @throws Exception
+     */
+    public function setup_jwt($flags, $options)
+    {
+        $object = $this->object();
+        $url_jwt = $object->config('project.dir.data') . 'Account/Jwt.json';
+        if (File::exist($url_jwt)) {
+            if (property_exists($options, 'force')) {
+                File::delete($url_jwt);
+            } else {
+                return false;
+            }
+        }
+        if (!property_exists($options, 'token')) {
+            $options->token = (object)[];
+        }
+        $permitted_for = Core::uuid();
+        if (!property_exists($options->token, 'private_key')) {
+            $options->token->private_key = '{{config(\'project.dir.data\')}}Ssl/Token_key.pem';
+            if (!File::exist($object->config('project.dir.data') . 'Ssl/Token_key.pem')) {
+                //create private key
+                //create certificate
+                $command = Core::binary($object) .
+                    ' r3m_io/basic' .
+                    ' openssl' .
+                    ' init' .
+                    ' -keyout=' . 'Token_key.pem' .
+                    ' -out=' . 'Token_cert.pem';
+                exec($command, $output, $code);
+                if ($code !== 0) {
+                    throw new Exception('Error creating private key & certificate' . implode(PHP_EOL, $output) . PHP_EOL);
+                }
+            }
+        }
+        if (!property_exists($options->token, 'certificate')) {
+            $options->token->certificate = '{{config(\'project.dir.data\')}}Ssl/Token_cert.pem';
+        }
+        if (!property_exists($options->token, 'passphrase')) {
+            $options->token->passphrase = '';
+        }
+        if (!property_exists($options->token, 'issued_at')) {
+            $options->token->issued_at = 'now';
+        }
+        if (!property_exists($options->token, 'identified_by')) {
+            $options->token->identified_by = Core::uuid();
+        }
+        if (!property_exists($options->token, 'permitted_for')) {
+            $options->token->permitted_for = $permitted_for;
+        }
+        if (!property_exists($options->token, 'can_only_be_used_after')) {
+            $options->token->can_only_be_used_after = 'now';
+        }
+        if (!property_exists($options->token, 'expires_at')) {
+            $options->token->expires_at = '+9 hours';
+        }
+        if (!property_exists($options->token, 'issued_by')) {
+            $options->token->issued_by = 'R3m.io';
+        }
+        if (!property_exists($options, 'refresh')) {
+            $options->refresh = (object)[];
+            $options->refresh->token = (object)[];
+        }
+        if (!property_exists($options->refresh->token, 'private_key')) {
+            $options->refresh->token->private_key = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_key.pem';
+            if (!File::exist($object->config('project.dir.data') . 'Ssl/RefreshToken_key.pem')) {
+                //create private key
+                //create certificate
+                $command = Core::binary($object) .
+                    ' r3m_io/basic' .
+                    ' openssl' .
+                    ' init' .
+                    ' -keyout=' . 'RefreshToken_key.pem' .
+                    ' -out=' . 'RefreshToken_cert.pem';
+                exec($command, $output, $code);
+                if ($code !== 0) {
+                    throw new Exception('Error creating private key & certificate' . implode(PHP_EOL, $output) . PHP_EOL);
+                }
+            }
+        }
+        if (!property_exists($options->refresh->token, 'certificate')) {
+            $options->refresh->token->certificate = '{{config(\'project.dir.data\')}}Ssl/RefreshToken_cert.pem';
+        }
+        if (!property_exists($options->refresh->token, 'passphrase')) {
+            $options->refresh->token->passphrase = '';
+        }
+        if (!property_exists($options->refresh->token, 'issued_at')) {
+            $options->refresh->token->issued_at = 'now';
+        }
+        if (!property_exists($options->refresh->token, 'identified_by')) {
+            $options->refresh->token->identified_by = Core::uuid();
+        }
+        if (!property_exists($options->refresh->token, 'permitted_for')) {
+            $options->refresh->token->permitted_for = $permitted_for;
+        }
+        if (!property_exists($options->refresh->token, 'can_only_be_used_after')) {
+            $options->refresh->token->can_only_be_used_after = 'now';
+        }
+        if (!property_exists($options->refresh->token, 'expires_at')) {
+            $options->refresh->token->expires_at = '+48 hours';
+        }
+        if (!property_exists($options->refresh->token, 'issued_by')) {
+            $options->refresh->token->issued_by = 'R3m.io';
+        }
+        File::write($url_jwt, Core::object($options, Core::OBJECT_JSON));
+    }
 
 
     /**
