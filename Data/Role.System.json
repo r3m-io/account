@@ -188,10 +188,6 @@
       "#class": "Account.Permission"
     },
     {
-      "name": "Account:Role:list.relation",
-      "#class": "Account.Permission"
-    },
-    {
       "name": "Account:Role:property.delete",
       "#class": "Account.Permission"
     },
@@ -220,6 +216,10 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Role:record.relation",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Role:patch",
       "#class": "Account.Permission"
     },
@@ -233,6 +233,10 @@
     },
     {
       "name": "Account:Role:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "Account:Role:list.relation",
       "#class": "Account.Permission"
     },
     {
