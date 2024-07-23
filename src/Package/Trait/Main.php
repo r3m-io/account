@@ -27,11 +27,15 @@ trait Main
         Core::interactive();
         $object = $this->object();
         $url_role_system = $object->config('project.dir.data') .
-            'Account/Role.System' .
+            'Account' .
+            $object->config('ds') .
+            'Role.System' .
             $object->config('extension.json')
         ;
         $url_data = $object->config('project.dir.node') .
-            'Data/Account.Role' .
+            'Data' .
+            $object->config('ds') .
+            'Account.Role' .
             $object->config('extension.json')
         ;
         $url_default = $object->config('project.dir.package') .
@@ -49,6 +53,8 @@ trait Main
             $object->config('extension.json')
         ;
 
+        d($url_data);
+        d(File::exist($url_data));
         if(File::exist($url_data)){
             if(property_exists($options, 'force')){
                 //nothing
