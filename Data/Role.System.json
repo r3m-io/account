@@ -168,6 +168,10 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:Role:create.many",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:Role:read",
       "#class": "Account.Permission"
     },
