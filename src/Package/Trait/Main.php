@@ -52,9 +52,6 @@ trait Main
             'Account.Role' .
             $object->config('extension.json')
         ;
-
-        d($url_data);
-        d(File::exist($url_data));
         if(File::exist($url_data)){
             if(property_exists($options, 'force')){
                 //nothing
@@ -72,11 +69,20 @@ trait Main
 
             ddd($data);
         } else {
+            if(File::exist($url_data)){
+                File::delete($url_data);
+            }
             $data_default = $object->data_read($url_default);
-            ddd($data_default);
-
-
-
+            if($data_default){
+                $node = new Node($object);
+                $result = $node->create_many(
+                    'Account.Role',
+                    $node->role_system(),
+                    $data_default->data('Account.Role'),
+                    $options
+                );
+                d($result);
+            }
         }
     }
 
