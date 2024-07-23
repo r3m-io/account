@@ -26,12 +26,52 @@ trait Main
     {
         Core::interactive();
         $object = $this->object();
-        $url = $object->config('project.dir.data') . 'Account/Role.System.json';
-        $data = $object->data_read($url);
-        $node = new Node($object);
+        $url_role_system = $object->config('project.dir.data') .
+            'Account/Role.System' .
+            $object->config('extension.json')
+        ;
+        $url_data = $object->config('project.dir.node') .
+            'Data/Account.Role' .
+            $object->config('extension.json')
+        ;
+        $url_default = $object->config('project.dir.package') .
+            'R3m' .
+            $object->config('ds') .
+            'Io' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Data' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Account.Role' .
+            $object->config('extension.json')
+        ;
 
-        ddd($data);
-//        $role = $node->role_system();
+        if(File::exist($url_data)){
+            if(property_exists($options, 'force')){
+                //nothing
+            }
+            elseif(property_exists($options, 'patch')){
+                //nothing
+            }
+            else {
+                return false;
+            }
+        }
+        if(property_exists($options, 'patch')){
+            $data = $object->data_read($url_data);
+            $node = new Node($object);
+
+            ddd($data);
+        } else {
+            $data_default = $object->data_read($url_default);
+            ddd($data_default);
+
+
+
+        }
     }
 
 
