@@ -94,27 +94,10 @@ trait Main
             'Role.System' .
             $object->config('extension.json')
         ;
-        ddd($url_role_system);
-
-
         $url_data = $object->config('project.dir.node') .
             'Data' .
             $object->config('ds') .
-            'Account.Role' .
-            $object->config('extension.json')
-        ;
-        $url_default = $object->config('project.dir.package') .
-            'R3m' .
-            $object->config('ds') .
-            'Io' .
-            $object->config('ds') .
-            'Account' .
-            $object->config('ds') .
-            'Data' .
-            $object->config('ds') .
-            'Account' .
-            $object->config('ds') .
-            'Account.Role' .
+            'Account.Permission' .
             $object->config('extension.json')
         ;
         if(File::exist($url_data)){
@@ -137,13 +120,13 @@ trait Main
             if(File::exist($url_data)){
                 File::delete($url_data);
             }
-            $data_default = $object->data_read($url_default);
-            if($data_default){
+            $data_role_system = $object->data_read($url_role_system);
+            if($data_role_system){
                 $node = new Node($object);
                 $result = $node->create_many(
-                    'Account.Role',
+                    'Account.Permission',
                     $node->role_system(),
-                    $data_default->data('Account.Role'),
+                    $data_role_system->data('permission'),
                     $options
                 );
                 d($result);
