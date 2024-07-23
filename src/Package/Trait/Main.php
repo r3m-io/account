@@ -175,7 +175,9 @@ trait Main
                     $data_role_system->data('permission'),
                     $options
                 );
-                echo 'inserted: ' . $result['count'] ?? 0  . ' items' . PHP_EOL;
+                if(array_key_exists('count', $result)){
+                    echo 'inserted: ' . $result['count'] . ' items' . PHP_EOL;
+                }
             }
         }
     }
