@@ -117,9 +117,51 @@ trait Main
         }
         if(property_exists($options, 'patch')){
             $data = $object->data_read($url_data);
-            $node = new Node($object);
-
-            ddd($data);
+            if($data){
+                $data_role_system = $object->data_read($url_role_system);
+                foreach($data->get('Account.Permission') as $nr => $record){
+                    $is_found = false;
+                    foreach($data_role_system->get('permission') as $permission){
+                        if($record->name === $permission->name){
+                            $is_found = true;
+                            break;
+                        }
+                    }
+                    if($is_found === false){
+                        //delete record
+                        $node = new Node($object);
+                        $result = $node->delete(
+                            'Account.Permission',
+                            $node->role_system(),
+                            [
+                                'uuid' => $record->uuid
+                            ],
+                            $options
+                        );
+                        d($result);
+                    }
+                }
+                foreach($data_role_system->get('permission') as $permission){
+                    $is_found = false;
+                    foreach($data->get('Account.Permission') as $nr => $record){
+                        if($record->name === $permission->name){
+                            $is_found = true;
+                            break;
+                        }
+                    }
+                    if($is_found === false){
+                        //insert record
+                        $node = new Node($object);
+                        $result = $node->create(
+                            'Account.Permission',
+                            $node->role_system(),
+                            $permission,
+                            $options
+                        );
+                        d($result);
+                    }
+                }
+            }
         } else {
             if(File::exist($url_data)){
                 File::delete($url_data);
