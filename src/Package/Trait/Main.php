@@ -164,6 +164,7 @@ trait Main
             }
         } else {
             if(File::exist($url_data)){
+                echo 'delete: ' . $url_data . PHP_EOL;
                 File::delete($url_data);
             }
             $data_role_system = $object->data_read($url_role_system);
