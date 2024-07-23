@@ -88,7 +88,7 @@ trait Main
      * @throws ObjectException
      * @throws Exception
      */
-    public function setup_permission($flags, $options)
+    public function setup_permission($flags, $options): void
     {
         Core::interactive();
         $object = $this->object();
@@ -112,7 +112,7 @@ trait Main
                 //nothing
             }
             else {
-                return false;
+                return;
             }
         }
         if(property_exists($options, 'patch')){
@@ -175,7 +175,7 @@ trait Main
                     $data_role_system->data('permission'),
                     $options
                 );
-                return $result;
+                echo 'inserted: ' . $result['count'] ?? 0  . ' items' . PHP_EOL;
             }
         }
     }
