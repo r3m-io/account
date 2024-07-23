@@ -125,7 +125,6 @@ trait Main
                 File::delete($url_data);
             }
             $data_role_system = $object->data_read($url_role_system);
-            d($options);
             if($data_role_system){
                 $node = new Node($object);
                 $result = $node->create_many(
