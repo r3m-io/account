@@ -138,7 +138,7 @@ trait Main
                             ],
                             $options
                         );
-                        d($result);
+                        echo 'delete: ' . $record->name . PHP_EOL;
                     }
                 }
                 foreach($data_role_system->get('permission') as $permission){
@@ -158,7 +158,7 @@ trait Main
                             $permission,
                             $options
                         );
-                        d($result);
+                        echo 'insert: ' . $permission->name . PHP_EOL;
                     }
                 }
             }
