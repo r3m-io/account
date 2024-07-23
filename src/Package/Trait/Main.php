@@ -79,11 +79,15 @@ trait Main
                     $data_default->data('Account.Role'),
                     $options
                 );
-                d($result);
+                return $result;
             }
         }
     }
 
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
     public function setup_permission($flags, $options)
     {
         Core::interactive();
@@ -129,7 +133,7 @@ trait Main
                     $data_role_system->data('permission'),
                     $options
                 );
-                d($result);
+                return $result;
             }
         }
     }
