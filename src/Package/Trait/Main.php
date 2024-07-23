@@ -298,8 +298,11 @@ trait Main
         //password
         //password repeat
         $email = Cli::read('input', 'Email: ');
+        echo PHP_EOL;
         $password = Cli::read('input-hidden', 'Password: ');
+        echo PHP_EOL;
         $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
+        echo PHP_EOL;
 
         d($email);
         d($password);
