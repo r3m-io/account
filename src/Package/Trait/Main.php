@@ -22,6 +22,20 @@ use R3m\Io\Exception\ObjectException;
 trait Main
 {
 
+    public function setup_role($flags, $options)
+    {
+        Core::interactive();
+        $object = $this->object();
+        $url = $object->config('project.dir.data') . 'Account/Role.System.json';
+        $data = $object->data_read($url);
+        $node = new Node($object);
+
+        ddd($data);
+//        $role = $node->role_system();
+    }
+
+
+
     /**
      * @throws ObjectException
      * @throws FileWriteException

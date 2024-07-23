@@ -52,7 +52,7 @@ function function_variable_define(Parse $parse, Data $data, $array=[], $type='pr
                     foreach($variable->value as $key => $value){
                         if(is_numeric($key)){
                             if(is_null($value)){
-                                echo ' = null;' . PHP_EOL;
+                                echo '    null,' . PHP_EOL;
                             }
                             elseif($value === true){
                                 echo '    true,' . PHP_EOL;
@@ -76,6 +76,4 @@ function function_variable_define(Parse $parse, Data $data, $array=[], $type='pr
             }
         }
     }
-
-
 }

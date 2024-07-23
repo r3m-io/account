@@ -3,4 +3,12 @@
 {{if(!is.empty($register))}}
 {{Package.R3m.Io.Account:Import:role.system()}}
 {{$options = options()}}
+/**
+ // setup roles
+ // setup permissions
+ // setup jwt
+ // setup admin
+ // setup user login (api.example.com)
+
+ */
 {{/if}}
