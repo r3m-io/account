@@ -6,7 +6,7 @@
 /**
  // setup roles*
  // setup permissions*
- // setup jwt
+ // setup jwt* (no patch, only force)
  // setup admin
  // setup user login (api.example.com)
 

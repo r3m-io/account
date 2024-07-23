@@ -292,6 +292,21 @@ trait Main
         File::write($url_jwt, Core::object($options, Core::OBJECT_JSON));
     }
 
+    public function setup_admin($flags, $options){
+
+        //email
+        //password
+        //password repeat
+        $email = Cli::read('input', 'Email: ');
+        $password = Cli::read('input-hidden', 'Password: ');
+        $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
+
+        d($email);
+        d($password);
+        d($password_repeat);
+        ddd($options);
+    }
+
 
     /**
      * @throws ObjectException
