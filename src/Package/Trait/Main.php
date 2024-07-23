@@ -22,7 +22,69 @@ use R3m\Io\Exception\ObjectException;
 trait Main
 {
 
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
     public function setup_role($flags, $options)
+    {
+        Core::interactive();
+        $object = $this->object();
+        $url_data = $object->config('project.dir.node') .
+            'Data' .
+            $object->config('ds') .
+            'Account.Role' .
+            $object->config('extension.json')
+        ;
+        $url_default = $object->config('project.dir.package') .
+            'R3m' .
+            $object->config('ds') .
+            'Io' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Data' .
+            $object->config('ds') .
+            'Account' .
+            $object->config('ds') .
+            'Account.Role' .
+            $object->config('extension.json')
+        ;
+        if(File::exist($url_data)){
+            if(property_exists($options, 'force')){
+                //nothing
+            }
+            elseif(property_exists($options, 'patch')){
+                //nothing
+            }
+            else {
+                return false;
+            }
+        }
+        if(property_exists($options, 'patch')){
+            $data = $object->data_read($url_data);
+            $node = new Node($object);
+
+            ddd($data);
+        } else {
+            if(File::exist($url_data)){
+                File::delete($url_data);
+            }
+            $data_default = $object->data_read($url_default);
+            if($data_default){
+                $node = new Node($object);
+                $result = $node->create_many(
+                    'Account.Role',
+                    $node->role_system(),
+                    $data_default->data('Account.Role'),
+                    $options
+                );
+                d($result);
+            }
+        }
+    }
+
+    public function setup_permission($flags, $options)
     {
         Core::interactive();
         $object = $this->object();
@@ -32,6 +94,9 @@ trait Main
             'Role.System' .
             $object->config('extension.json')
         ;
+        ddd($url_role_system);
+
+
         $url_data = $object->config('project.dir.node') .
             'Data' .
             $object->config('ds') .
