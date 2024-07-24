@@ -302,9 +302,15 @@ trait Main
 //        $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
 
         Core::execute($this->object(), 'echo $HISTFILE', $output);
-        d($output);
-        Core::execute($this->object(), 'history', $output);
-        ddd($output);
+        $output = trim($output);
+        if(!$output){
+            $url_history = $output;
+        } else {
+            $url_history = '/user/root/.bash_history';
+        }
+        Core::execute($this->object(), 'history -a', $output);
+        $read =File::read($url_history, File::ARRAY);
+        d($read);
 
 
 
