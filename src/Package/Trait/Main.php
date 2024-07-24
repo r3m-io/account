@@ -309,6 +309,7 @@ trait Main
             $url_history = '/root/.bash_history';
         }
         Core::execute($this->object(), 'history -a', $output);
+        d($url_history);
         $read =File::read($url_history, File::ARRAY);
         d($read);
 
