@@ -326,7 +326,7 @@ trait Main
                 $role['node']->uuid
             ],
             'is' => (object) [
-                'active' => true,
+                'active' => time(),
                 'created' => microtime(true)
             ]
         ];
