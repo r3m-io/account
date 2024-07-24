@@ -331,9 +331,8 @@ trait Main
                 'created' => $time
             ]
         ];
-        d($user);
         $result = $node->create('Account.User', $node->role_system(), $user, $options);
-        d($result);
+        return $result;
     }
 
 
