@@ -330,13 +330,8 @@ trait Main
                 'created' => microtime(true)
             ]
         ];
-        d($user);
-
-
-        d($email);
-        d($password);
-        d($password_repeat);
-        ddd($options);
+        $result = $node->create('Account.User', $node->role_system(), $user, $options);
+        d($result);
     }
 
 
