@@ -310,6 +310,16 @@ trait Main
             $password = Cli::read('input-hidden', 'Password: ');
             $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
         }
+        $object = $this->object();
+        $node = new Node($object);
+        $role = $node->record('Account.Role', $node->role_system(), [
+            'filter' => [
+                'name' => 'ROLE_ADMIN'
+            ]
+        ]);
+        d($role);
+
+
         d($email);
         d($password);
         d($password_repeat);
