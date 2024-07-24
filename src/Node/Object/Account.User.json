@@ -80,9 +80,7 @@
                 "rank": "ASC"
             },
             "output": {
-                "filter": [
-                    "R3m:Io:Output:Filter:System:Server:url"
-                ]
+                "filter": []
             },
             "where": "",
             "filter": [],
