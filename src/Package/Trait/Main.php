@@ -301,6 +301,8 @@ trait Main
 //        $password = Cli::read('input-hidden', 'Password: ');
 //        $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
 
+        Core::execute($this->object(), 'ls - alh', $output);
+        d($output);
         Core::execute($this->object(), 'history', $output);
         ddd($output);
 
