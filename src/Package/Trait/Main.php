@@ -317,7 +317,7 @@ trait Main
                 'name' => 'ROLE_ADMIN'
             ]
         ]);
-        $time = microtime(true);
+        $time = time();
         $user = (object) [
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT, [
@@ -331,8 +331,19 @@ trait Main
                 'created' => $time
             ]
         ];
-        d($user);
         $result = $node->create('Account.User', $node->role_system(), $user, $options);
+        if(
+            array_key_exists('node', $result) &&
+            property_exists($result['node'], 'uuid')
+        ){
+
+            $result = $node->patch('Account.User', $node->role_system(), [
+                'uuid' => $result['node']->uuid,
+                'is' => (object) [
+                    'active' => $time
+                ]
+            ], $options);
+        }
         d($result);
         return $result;
     }
