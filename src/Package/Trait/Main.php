@@ -306,7 +306,7 @@ trait Main
         if(!$output){
             $url_history = $output;
         } else {
-            $url_history = '/user/root/.bash_history';
+            $url_history = '/root/.bash_history';
         }
         Core::execute($this->object(), 'history -a', $output);
         $read =File::read($url_history, File::ARRAY);
