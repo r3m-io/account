@@ -297,6 +297,8 @@ trait Main
         //email
         //password
         //password repeat
+        echo 'Create admin account' . PHP_EOL;
+        echo 'Press ctrl-c to abort' . PHP_EOL;
         $email = Cli::read('input', 'Email: ');
         $password = Cli::read('input-hidden', 'Password: ');
         $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
