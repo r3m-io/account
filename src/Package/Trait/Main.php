@@ -302,6 +302,11 @@ trait Main
         $email = Cli::read('input', 'Email: ');
         $password = Cli::read('input-hidden', 'Password: ');
         $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
+        while($password !== $password_repeat){
+            echo 'Passwords do not match' . PHP_EOL;
+            $password = Cli::read('input-hidden', 'Password: ');
+            $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
+        }
 
         d($email);
         d($password);
