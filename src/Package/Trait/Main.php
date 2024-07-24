@@ -297,30 +297,14 @@ trait Main
         //email
         //password
         //password repeat
-//        $email = Cli::read('input', 'Email: ');
-//        $password = Cli::read('input-hidden', 'Password: ');
-//        $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
+        $email = Cli::read('input', 'Email: ');
+        $password = Cli::read('input-hidden', 'Password: ');
+        $password_repeat = Cli::read('input-hidden', 'Password repeat: ');
 
-        Core::execute($this->object(), 'echo $HISTFILE', $output);
-        $output = trim($output);
-        if($output){
-            $url_history = $output;
-        } else {
-            $url_history = '/root/.bash_history';
-        }
-        Core::execute($this->object(), 'history -a', $output);
-        d($url_history);
-        $read =File::read($url_history, File::ARRAY);
-        d($read);
-
-
-
-        /*
         d($email);
         d($password);
         d($password_repeat);
         ddd($options);
-        */
     }
 
 
