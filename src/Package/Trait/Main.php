@@ -317,7 +317,20 @@ trait Main
                 'name' => 'ROLE_ADMIN'
             ]
         ]);
-        d($role);
+        $user = (object) [
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_BCRYPT, [
+                'cost' => 13
+            ]),
+            'role' => [
+                $role['node']->uuid
+            ],
+            'is' => (object) [
+                'active' => true,
+                'created' => microtime(true)
+            ]
+        ];
+        d($user);
 
 
         d($email);
