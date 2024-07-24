@@ -312,7 +312,7 @@ trait Main
         }
         $object = $this->object();
         $node = new Node($object);
-        $role = $node->record('Account.Role', $node->role_system(), [
+        $result = $node->record('Account.Role', $node->role_system(), [
             'filter' => [
                 'name' => 'ROLE_ADMIN'
             ]
@@ -324,13 +324,14 @@ trait Main
                 'cost' => 13
             ]),
             'role' => [
-                $role['node']->uuid
+                $result['node']->uuid
             ],
             'is' => (object) [
                 'active' => 0, //cannot activate immediately
                 'created' => $time
             ]
         ];
+        d($user);
         $result = $node->create('Account.User', $node->role_system(), $user, $options);
         d($result);
     }
