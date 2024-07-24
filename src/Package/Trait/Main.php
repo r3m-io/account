@@ -317,6 +317,7 @@ trait Main
                 'name' => 'ROLE_ADMIN'
             ]
         ]);
+        $time = microtime(true);
         $user = (object) [
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT, [
@@ -326,8 +327,8 @@ trait Main
                 $role['node']->uuid
             ],
             'is' => (object) [
-                'active' => time(),
-                'created' => microtime(true)
+                'active' => 0, //cannot activate immediately
+                'created' => $time
             ]
         ];
         $result = $node->create('Account.User', $node->role_system(), $user, $options);
