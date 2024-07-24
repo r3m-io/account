@@ -303,7 +303,7 @@ trait Main
 
         Core::execute($this->object(), 'echo $HISTFILE', $output);
         $output = trim($output);
-        if(!$output){
+        if($output){
             $url_history = $output;
         } else {
             $url_history = '/root/.bash_history';
