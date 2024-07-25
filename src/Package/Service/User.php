@@ -39,7 +39,7 @@ class User
                 $object->config('extension.json')
             ;
             */
-            $node = new Node();
+            $node = new Node($object);
             $record = $node->record(
                 'Account.User',
                 $node->role_system(),
