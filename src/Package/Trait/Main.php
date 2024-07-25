@@ -1,6 +1,7 @@
 <?php
 namespace Package\R3m\Io\Account\Trait;
 
+use Composer\ClassMapGenerator\PhpFileParser;
 use R3m\Io\App;
 use R3m\Io\Config;
 
@@ -292,11 +293,12 @@ trait Main
         File::write($url_jwt, Core::object($options, Core::OBJECT_JSON));
     }
 
-    public function setup_admin($flags, $options){
-
-        //email
-        //password
-        //password repeat
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public function setup_admin($flags, $options): array
+    {
         echo 'Create admin account' . PHP_EOL;
         echo 'Press ctrl-c to abort' . PHP_EOL;
         $email = Cli::read('input', 'Email: ');
@@ -344,7 +346,6 @@ trait Main
                 ]
             ], $options);
         }
-        d($result);
         return $result;
     }
 
@@ -713,9 +714,11 @@ trait Main
     /**
      * @throws Exception
      */
-    public function user_create($flags, $options): bool|array
+    public function setup_user($flags, $options): bool|array
     {
         $object = $this->object();
+        echo 'This will install user login capabilities to a domain' . PHP_EOL;
+        echo 'Press ctrl-c to abort' . PHP_EOL;
         if (!property_exists($options, 'namespace')) {
             throw new Exception('Option namespace required.');
         }
