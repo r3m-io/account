@@ -1,6 +1,7 @@
 <?php
 namespace Package\R3m\Io\Account\Service;
 
+use R3m\Io\Module\Data as Storage;
 use stdClass;
 use DateTime;
 
@@ -36,6 +37,8 @@ class User
      */
     public static function login(App $object): mixed
     {
+        $name = 'Account.User';
+        $options['function'] = __FUNCTION__;
         if(User::is_blocked($object, $object->request('email')) === false){
             /*
             $url = $object->config('project.dir.node') . 'Data' .
@@ -46,7 +49,7 @@ class User
             */
             $node = new Node($object);
             $record = $node->record(
-                'Account.User',
+                $name,
                 $node->role_system(),
                 [
                     'where' => [
@@ -81,7 +84,7 @@ class User
 //                $data = [];
 //                $data['node'] = $array;
                 $record = $node->record(
-                    'Account.User',
+                    $name,
                     $node->role_system(),
                     [
                         'where' => [
@@ -102,6 +105,46 @@ class User
                 if($record){
                     unset($record['node']->password);
                     $record['node'] = User::getTokens($object, $record['node']);
+                    $node = new Node();
+                    $data = new Storage();
+                    $data->data($record['node']);
+                    $data->set('#class', $name);
+                    $expose = $node->expose_get(
+                        $object,
+                        $name,
+                        $name . '.' . $options['function'] . '.output'
+                    );
+                    ddd($record);
+                    /*
+                    $result = $node->record(
+                        'Account.Role',
+                        $node->role_system(),
+                        [
+                            'where' => [
+                                [
+                                    'value' => $record['node']->role,
+                                    'attribute' => 'uuid',
+                                    'operator' => '==='
+                                ]
+                            ]
+                        ]
+                    )
+                    */
+
+                    if (
+                        $expose &&
+                        $role
+                    ) {
+                        $node = $node->expose(
+                            $node,
+                            $expose,
+                            $name,
+                            $options['function'],
+                            $role
+                        );
+                        $record = $node->data();
+
+
                     return $record;
                 }
 
