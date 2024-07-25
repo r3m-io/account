@@ -115,33 +115,16 @@ class User
                         $name,
                         $name . '.' . $options['function'] . '.output'
                     );
-                    ddd($record);
-                    /*
-                    $result = $node->record(
-                        'Account.Role',
-                        $node->role_system(),
-                        [
-                            'where' => [
-                                [
-                                    'value' => $record['node']->role,
-                                    'attribute' => 'uuid',
-                                    'operator' => '==='
-                                ]
-                            ]
-                        ]
-                    )
-                    */
-
                     if (
                         $expose &&
-                        $role
+                        property_exists($record['node'], 'role')
                     ) {
                         $node = $node->expose(
                             $node,
                             $expose,
                             $name,
                             $options['function'],
-                            $role
+                            current($record['node']->role)
                         );
                         $record = $node->data();
                     }
