@@ -5,8 +5,9 @@
     "trait": "{{$this.options.trait}}",
     "use" : [
       "R3m\\Io\\App",
-      "R3m\\Io\\Module\\Response",
       "R3m\\Io\\Module\\Controller",
+      "R3m\\Io\\Module\\Handler",
+      "R3m\\Io\\Module\\Response",
       "Package\\R3m\\Io\\Account\\Service\\User as Service",
       "Exception",
       "R3m\\Io\\Exception\\AuthorizationException",
