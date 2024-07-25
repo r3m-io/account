@@ -186,7 +186,6 @@ class User
         $options['user'] = $node;
         $token = Jwt::get($object, $configuration, $options);
         $token = $token->toString();
-        ddd($token);
         $options['refresh'] = true;
         $configuration = Jwt::configuration($object, $options);
         $refreshToken = Jwt::refresh_get($object, $configuration, $options);
