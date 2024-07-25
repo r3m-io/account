@@ -31,6 +31,7 @@ class User
 
     public static function login(App $object): array
     {
+        d($object->Request());
         ddd('here we are');
         if(User::is_blocked($object, $object->request('email')) === false){
             $entityManager = Database::entityManager($object);
