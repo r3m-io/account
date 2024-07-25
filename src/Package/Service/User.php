@@ -152,7 +152,7 @@ class User
     /**
      * @throws Exception
      */
-    private static function getTokens(App $object, $record): array
+    private static function getTokens(App $object, $record): mixed
     {
         $configuration = Jwt::configuration($object);
         $options = [];
