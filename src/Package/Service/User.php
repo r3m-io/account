@@ -29,6 +29,11 @@ class User
     const BLOCK_EMAIL_COUNT = 5;
     const BLOCK_PASSWORD_COUNT = 5;
 
+    /**
+     * @throws ObjectException
+     * @throws ErrorException
+     * @throws FileWriteException
+     */
     public static function login(App $object): array
     {
         if(User::is_blocked($object, $object->request('email')) === false){
@@ -58,43 +63,66 @@ class User
                     ],
                 ]
             );
-            ddd($record);
-
-
-
-
-            $entityManager = Database::entityManager($object);
-            $repository = $entityManager->getRepository(Entity::class);
-            $node = $repository->findOneBy([
-                'email' => $object->request('email'),
-                'isActive' => 1
-            ]);
-            if($node) {
+            if(
+                $record &&
+                array_key_exists('node', $record) &&
+                property_exists($record['node'], 'uuid')
+            ){
                 $password = $object->request('password');
-                $verify = password_verify($password, $node->getPassword());
+                $verify = password_verify($password, $record['node']->password);
                 if(empty($verify)){
                     $status = 401;
                     Handler::header('Status: ' . $status, $status, true);
-                    Userlogger::log($object, $node, UserLogger::STATUS_INVALID_PASSWORD);
+//                    Userlogger::log($object, $node, UserLogger::STATUS_INVALID_PASSWORD);
                     throw new ErrorException('Invalid e-mail-password.');
                 }
-                Userlogger::log($object, $node, UserLogger::STATUS_SUCCESS);
-                $array = User::getTokens($object, $node);
-                $data = [];
-                $data['node'] = $array;
-                return $data;
+//                Userlogger::log($object, $node, UserLogger::STATUS_SUCCESS);
+//                $array = User::getTokens($object, $record['node']);
+//                $data = [];
+//                $data['node'] = $array;
+                return $record['node'];
             } else {
+                //mysql user
+                /*
+                $entityManager = Database::entityManager($object);
+                $repository = $entityManager->getRepository(Entity::class);
+                $node = $repository->findOneBy([
+                    'email' => $object->request('email'),
+                    'isActive' => 1
+                ]);
+                if($node) {
+                    $password = $object->request('password');
+                    $verify = password_verify($password, $node->getPassword());
+                    if(empty($verify)){
+                        $status = 401;
+                        Handler::header('Status: ' . $status, $status, true);
+                        Userlogger::log($object, $node, UserLogger::STATUS_INVALID_PASSWORD);
+                        throw new ErrorException('Invalid e-mail-password.');
+                    }
+                    Userlogger::log($object, $node, UserLogger::STATUS_SUCCESS);
+                    $array = User::getTokens($object, $node);
+                    $data = [];
+                    $data['node'] = $array;
+                    return $data;
+                } else {
+                    $status = 401;
+                    Handler::header('Status: ' . $status, $status, true);
+                    Userlogger::log($object, null, UserLogger::STATUS_INVALID_EMAIL);
+                    throw new ErrorException('Invalid e-mail-password.');
+                }
+                */
                 $status = 401;
                 Handler::header('Status: ' . $status, $status, true);
-                Userlogger::log($object, null, UserLogger::STATUS_INVALID_EMAIL);
+//                Userlogger::log($object, null, UserLogger::STATUS_INVALID_EMAIL);
                 throw new ErrorException('Invalid e-mail-password.');
             }
         } else {
             $status = 401;
             Handler::header('Status: ' . $status, $status, true);
-            Userlogger::log($object, null, UserLogger::STATUS_BLOCKED);
+//            Userlogger::log($object, null, UserLogger::STATUS_BLOCKED);
             throw new ErrorException('User blocked.');
         }
+        return [];
     }
 
     /**
