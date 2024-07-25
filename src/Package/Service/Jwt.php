@@ -66,14 +66,29 @@ class Jwt {
         if(!$config){
             return false;
         }
-        $user = false;
+        $claim = false;
         if(array_key_exists('user', $options)){
             $user = $options['user'];
-            ddd($user);
-            unset($user['password']);
-            unset($user['profile']);
-            unset($user['parameters']);
-            unset($user['refreshToken']);
+            $role = [];
+            if(
+                property_exists($user, 'role') &&
+                is_array($user->role)
+            ){
+                foreach($user->role as $nr => $user_role){
+                    $role[] = [
+                        'name' => $user_role->name,
+                        'rank' => $user_role->rank,
+                        'permission' => [
+                            'count' => count($user_role->permission),
+                        ]
+                    ];
+                }
+            }
+            $claim = (object) [
+                'uuid' => $user->uuid,
+                'email' => $user->email,
+                'role' => $role
+            ];
         }
         $now = new DateTimeImmutable();
         return $configuration->builder()
@@ -90,7 +105,7 @@ class Jwt {
             // Configures the expiration time of the token (exp claim)
             ->expiresAt($now->modify($config->get('token.expires_at')))
             // Configures a new claim
-            ->withClaim('user', $user)
+            ->withClaim('user', $claim)
             // Builds a new token
             ->getToken($configuration->signer(), $configuration->signingKey());
     }
