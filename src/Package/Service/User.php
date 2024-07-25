@@ -101,8 +101,8 @@ class User
                 );
                 if($record){
                     unset($record['node']->password);
-                    $record = User::getTokens($object, $record['node']);
-                    return $record['node'];
+                    $record['node'] = User::getTokens($object, $record['node']);
+                    return $record;
                 }
 
             } else {
