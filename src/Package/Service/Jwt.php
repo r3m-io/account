@@ -122,8 +122,7 @@ class Jwt {
         if(
             array_key_exists('user', $options) &&
             property_exists($options['user'], 'uuid') &&
-            property_exists($options['user'], 'email') &&
-            array_key_exists('email', $options['user'])
+            property_exists($options['user'], 'email')
         ){
             $role = [];
             if(
@@ -142,7 +141,7 @@ class Jwt {
             }
             $claim = (object) [
                 'uuid' => $options['user']->uuid,
-                'email' => $options['email'],
+                'email' => $options['user']->email,
                 'role' => $role
             ];
         }
