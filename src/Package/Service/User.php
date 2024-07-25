@@ -165,15 +165,15 @@ class User
         $refreshToken = $refreshToken->toString();
         $encrypted_refreshToken = sha1($refreshToken);
 
-        $record['token'] = $token;
-        $record['refresh_token'] = $refreshToken;
+        $record->token = $token;
+        $record->refresh_token = $refreshToken;
 
         $node = new Node($object);
         $node->patch(
             'Account.User',
             $node->role_system(),
             [
-                'uuid' => $record['uuid'],
+                'uuid' => $record->uuid,
                 'refresh_token' => $encrypted_refreshToken
             ]
         );
