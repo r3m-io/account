@@ -181,7 +181,7 @@ class User
             $role
         );
         */
-        ddd($configuration);
+        d($configuration);
         $options = [];
         $options['user'] = $node;
         $token = Jwt::get($object, $configuration, $options);

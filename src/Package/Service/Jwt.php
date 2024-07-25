@@ -69,6 +69,7 @@ class Jwt {
         $user = false;
         if(array_key_exists('user', $options)){
             $user = $options['user'];
+            ddd($user);
             unset($user['password']);
             unset($user['profile']);
             unset($user['parameters']);
