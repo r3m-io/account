@@ -152,38 +152,11 @@ class User
     /**
      * @throws Exception
      */
-    private static function getTokens(App $object, $node): array
+    private static function getTokens(App $object, $record): array
     {
         $configuration = Jwt::configuration($object);
-        /*
         $options = [];
-
-        $entityManager = Database::entityManager($object, ['name' => Main::API]);
-        $entity = $object->config('doctrine.entity.prefix') . 'Role';
-        $repository = $entityManager->getRepository($entity);
-        $role_name = 'ROLE_ANONYMOUS';
-        $role = $repository->findOneBy(['name' => $role_name]);
-        $entity = 'User';
-        $function = __FUNCTION__;
-        $expose = \R3m\Io\Doctrine\Service\Entity::expose_get(
-            $object,
-            $entity,
-            $entity . '.' . $function . '.output'
-        );
-        $record = [];
-        $record = \R3m\Io\Doctrine\Service\Entity::output(
-            $object,
-            $node,
-            $expose,
-            $entity,
-            $function,
-            $record,
-            $role
-        );
-        */
-        d($configuration);
-        $options = [];
-        $options['user'] = $node;
+        $options['user'] = $record;
         $token = Jwt::get($object, $configuration, $options);
         $token = $token->toString();
         $options['refresh'] = true;
@@ -192,36 +165,19 @@ class User
         $refreshToken = $refreshToken->toString();
         $encrypted_refreshToken = sha1($refreshToken);
 
-        $entityManager = Database::entityManager($object, ['name' => Main::API]);
-        $repository = $entityManager->getRepository(Entity::class);
-        $node = $repository->findOneBy(['id' => $node->getId()]);
-        $cost = 13;
-        $node->setRefreshToken(password_hash($encrypted_refreshToken, PASSWORD_BCRYPT, [
-            'cost' => $cost
-        ]));
-        $node->setIsLoggedIn(new DateTime());
-        $entityManager->persist($node);
-        $entityManager->flush();
+        $record['token'] = $token;
+        $record['refresh_token'] = $refreshToken;
 
-        $expose = \R3m\Io\Doctrine\Service\Entity::expose_get(
-            $object,
-            $entity,
-            $entity . '.' . $function . '.output'
+        $node = new Node($object);
+        $node->patch(
+            'Account.User',
+            $node->role_system(),
+            [
+                'uuid' => $record['uuid'],
+                'refresh_token' => $encrypted_refreshToken
+            ]
         );
-        $record = [];
-        $record = \R3m\Io\Doctrine\Service\Entity::output(
-            $object,
-            $node,
-            $expose,
-            $entity,
-            $function,
-            $record,
-            $role
-        );
-        $options['user'] = $record;
-        $options['user']['token'] = $token;
-        $options['user']['refreshToken'] = $refreshToken;
-        return $options['user'];
+        return $record;
     }
 
     /**
