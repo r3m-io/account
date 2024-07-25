@@ -109,6 +109,60 @@
                     }
                 ]
             },
+            "login": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "email",
+                            "is",
+                            "profile",
+                            "role"
+                        ],
+                        "object": {
+                            "is": {
+                                "multiple": false,
+                                "output": [
+                                    "active",
+                                    "loggedIn",
+                                    "created",
+                                    "updated",
+                                    "deleted"
+                                ]
+                            },
+                            "profile": {
+                                "multiple": false,
+                                "output": [
+                                    "nickname"
+                                ]
+                            },
+                            "role": {
+                                "multiple": true,
+                                "output": [
+                                    "uuid",
+                                    "#class",
+                                    "name",
+                                    "rank",
+                                    "description",
+                                    "permission"
+                                ],
+                                "object": {
+                                    "permission": {
+                                        "multiple": true,
+                                        "output": [
+                                            "uuid",
+                                            "#class",
+                                            "name"
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
             "page": {
                 "output": [
                     {
