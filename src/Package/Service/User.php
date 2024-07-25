@@ -80,6 +80,25 @@ class User
 //                $array = User::getTokens($object, $record['node']);
 //                $data = [];
 //                $data['node'] = $array;
+                $record = $node->record(
+                    'Account.User',
+                    $node->role_system(),
+                    [
+                        'where' => [
+                            [
+                                'value' => $object->request('email'),
+                                'attribute' => 'email',
+                                'operator' => '==='
+                            ],
+                            [
+                                'value' => 1,
+                                'attribute' => 'is.active',
+                                'operator' => '>='
+                            ]
+                        ],
+                        'relation' => true
+                    ]
+                );
                 unset($record['node']->password);
                 return $record['node'];
             } else {
