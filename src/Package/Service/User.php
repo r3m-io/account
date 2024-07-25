@@ -34,6 +34,7 @@ class User
      * @throws ObjectException
      * @throws ErrorException
      * @throws FileWriteException
+     * @throws Exception
      */
     public static function login(App $object): mixed
     {
@@ -105,7 +106,7 @@ class User
                 if($record){
                     unset($record['node']->password);
                     $record['node'] = User::getTokens($object, $record['node']);
-                    $node = new Node();
+                    $node = new Node($object);
                     $data = new Storage();
                     $data->data($record['node']);
                     $data->set('#class', $name);
