@@ -143,7 +143,7 @@ class User
                             $role
                         );
                         $record = $node->data();
-
+                    }
 
                     return $record;
                 }
