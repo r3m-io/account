@@ -31,9 +31,8 @@ class User
 
     public static function login(App $object): array
     {
-        d($object->Request());
-        ddd('here we are');
         if(User::is_blocked($object, $object->request('email')) === false){
+            ddd('select user from json file first');
             $entityManager = Database::entityManager($object);
             $repository = $entityManager->getRepository(Entity::class);
             $node = $repository->findOneBy([
@@ -81,7 +80,13 @@ class User
      */
     public static function is_blocked(App $object, $email=''): bool
     {
-        ddd('is.blocked');
+        d('later');
+        return false;
+
+
+
+
+
         $entityManager = Database::entityManager($object);
         if(!$entityManager){
             throw new ErrorException('Entity manager not found.');
