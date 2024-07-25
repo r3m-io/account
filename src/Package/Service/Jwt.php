@@ -2,7 +2,7 @@
 /**
  * (c) Remco van der Velde
  */
-namespace Domain\Api_Workandtravel_World\Service;
+namespace Package\R3m\Io\Account\Service;
 
 use DateTimeImmutable;
 

@@ -99,8 +99,12 @@ class User
                         'relation' => true
                     ]
                 );
-                unset($record['node']->password);
-                return $record['node'];
+                if($record){
+                    unset($record['node']->password);
+                    $record = User::getTokens($object, $record['node']);
+                    return $record['node'];
+                }
+
             } else {
                 //mysql user
                 /*
@@ -143,6 +147,82 @@ class User
             throw new ErrorException('User blocked.');
         }
         return [];
+    }
+
+    /**
+     * @throws Exception
+     */
+    private static function getTokens(App $object, $node): array
+    {
+        $configuration = Jwt::configuration($object);
+        /*
+        $options = [];
+
+        $entityManager = Database::entityManager($object, ['name' => Main::API]);
+        $entity = $object->config('doctrine.entity.prefix') . 'Role';
+        $repository = $entityManager->getRepository($entity);
+        $role_name = 'ROLE_ANONYMOUS';
+        $role = $repository->findOneBy(['name' => $role_name]);
+        $entity = 'User';
+        $function = __FUNCTION__;
+        $expose = \R3m\Io\Doctrine\Service\Entity::expose_get(
+            $object,
+            $entity,
+            $entity . '.' . $function . '.output'
+        );
+        $record = [];
+        $record = \R3m\Io\Doctrine\Service\Entity::output(
+            $object,
+            $node,
+            $expose,
+            $entity,
+            $function,
+            $record,
+            $role
+        );
+        */
+        ddd($configuration);
+        $options = [];
+        $options['user'] = $node;
+        $token = Jwt::get($object, $configuration, $options);
+        $token = $token->toString();
+        ddd($token);
+        $options['refresh'] = true;
+        $configuration = Jwt::configuration($object, $options);
+        $refreshToken = Jwt::refresh_get($object, $configuration, $options);
+        $refreshToken = $refreshToken->toString();
+        $encrypted_refreshToken = sha1($refreshToken);
+
+        $entityManager = Database::entityManager($object, ['name' => Main::API]);
+        $repository = $entityManager->getRepository(Entity::class);
+        $node = $repository->findOneBy(['id' => $node->getId()]);
+        $cost = 13;
+        $node->setRefreshToken(password_hash($encrypted_refreshToken, PASSWORD_BCRYPT, [
+            'cost' => $cost
+        ]));
+        $node->setIsLoggedIn(new DateTime());
+        $entityManager->persist($node);
+        $entityManager->flush();
+
+        $expose = \R3m\Io\Doctrine\Service\Entity::expose_get(
+            $object,
+            $entity,
+            $entity . '.' . $function . '.output'
+        );
+        $record = [];
+        $record = \R3m\Io\Doctrine\Service\Entity::output(
+            $object,
+            $node,
+            $expose,
+            $entity,
+            $function,
+            $record,
+            $role
+        );
+        $options['user'] = $record;
+        $options['user']['token'] = $token;
+        $options['user']['refreshToken'] = $refreshToken;
+        return $options['user'];
     }
 
     /**
