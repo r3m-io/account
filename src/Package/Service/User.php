@@ -1,8 +1,6 @@
 <?php
 namespace Package\R3m\Io\Account\Service;
 
-
-
 use stdClass;
 use DateTime;
 
@@ -16,6 +14,8 @@ use R3m\Io\Module\Data;
 use R3m\Io\Module\Database;
 use R3m\Io\Module\Handler;
 use R3m\Io\Module\Response;
+
+use R3m\Io\Node\Model\Node;
 
 use Exception;
 
@@ -32,7 +32,37 @@ class User
     public static function login(App $object): array
     {
         if(User::is_blocked($object, $object->request('email')) === false){
-            ddd('select user from json file first');
+            /*
+            $url = $object->config('project.dir.node') . 'Data' .
+                $object->config('ds') .
+                'Account.User' .
+                $object->config('extension.json')
+            ;
+            */
+            $node = new Node();
+            $record = $node->record(
+                'Account.User',
+                $node->role_system(),
+                [
+                    'where' => [
+                        [
+                            'value' => $object->request('email'),
+                            'attribute' => 'email',
+                            'operator' => '==='
+                        ],
+                        [
+                            'value' => 1,
+                            'attribute' => 'is.active',
+                            'operator' => '>='
+                        ]
+                    ],
+                ]
+            );
+            ddd($record);
+
+
+
+
             $entityManager = Database::entityManager($object);
             $repository = $entityManager->getRepository(Entity::class);
             $node = $repository->findOneBy([
