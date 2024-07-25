@@ -34,7 +34,7 @@ class User
      * @throws ErrorException
      * @throws FileWriteException
      */
-    public static function login(App $object): array
+    public static function login(App $object): mixed
     {
         if(User::is_blocked($object, $object->request('email')) === false){
             /*
@@ -80,6 +80,7 @@ class User
 //                $array = User::getTokens($object, $record['node']);
 //                $data = [];
 //                $data['node'] = $array;
+                unset($record['node']->password);
                 return $record['node'];
             } else {
                 //mysql user
