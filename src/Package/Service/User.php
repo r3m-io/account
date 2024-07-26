@@ -110,6 +110,7 @@ class User
                     $data = new Storage();
                     $data->data($record['node']);
                     $data->set('#class', $name);
+                    ddd($record['node']);
                     $expose = $node->expose_get(
                         $object,
                         $name,
