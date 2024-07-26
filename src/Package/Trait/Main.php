@@ -116,7 +116,17 @@ trait Main
                 return;
             }
         }
-        if(property_exists($options, 'patch')){
+        if(
+            (
+                property_exists($options, 'patch') &&
+                $options->patch === true
+            )
+            ||
+            (
+                property_exists($options, 'force') &&
+                $options->force === true
+            )
+        ){
             $data = $object->data_read($url_data);
             if($data){
                 $data_role_system = $object->data_read($url_role_system);
