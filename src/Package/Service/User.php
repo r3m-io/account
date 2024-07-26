@@ -128,7 +128,6 @@ class User
                         );
                         $record = $node->data();
                     }
-
                     return $record;
                 }
 
