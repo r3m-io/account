@@ -145,6 +145,7 @@ trait Main
                 foreach($data_role_system->get('permission') as $permission){
                     $is_found = false;
                     foreach($data->get('Account.Permission') as $nr => $record){
+                        d($record->name);
                         if($record->name === $permission->name){
                             $is_found = true;
                             break;
