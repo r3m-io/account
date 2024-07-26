@@ -67,6 +67,7 @@ class User
                     ],
                 ]
             );
+            ddd($record);
             if(
                 $record &&
                 array_key_exists('node', $record) &&
