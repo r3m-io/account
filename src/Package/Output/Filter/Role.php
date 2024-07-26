@@ -12,13 +12,13 @@ class Role extends Controller {
 
     public static function permission(App $object, $response=null): array
     {
-        //permission object should stay intact
+        //permission array should stay intact
         return $response;
     }
 
     public static function user(App $object, $response=null): array
     {
-        //permission object should stay intact
+        //permission array can be compacted to array
         if(is_array($response)){
             foreach($response as $nr => $role){
                 if(
