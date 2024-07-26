@@ -6,7 +6,7 @@ use R3m\Io\App;
 
 use R3m\Io\Module\Controller;
 
-class Role extends Controller {
+class User extends Controller {
 
     const DIR = __DIR__ . '/';
 
