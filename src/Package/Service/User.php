@@ -115,7 +115,6 @@ class User
                         $name,
                         $name . '.' . $options['function'] . '.output'
                     );
-                    ddd($expose);
                     if (
                         $expose &&
                         property_exists($record['node'], 'role')
