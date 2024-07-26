@@ -244,6 +244,10 @@
       "#class": "Account.Permission"
     },
     {
+      "name": "Account:User:login",
+      "#class": "Account.Permission"
+    },
+    {
       "name": "Account:User:create",
       "#class": "Account.Permission"
     },
