@@ -119,7 +119,9 @@
                             "email",
                             "is",
                             "profile",
-                            "role"
+                            "role",
+                            "token",
+                            "refresh_token"
                         ],
                         "object": {
                             "is": {
