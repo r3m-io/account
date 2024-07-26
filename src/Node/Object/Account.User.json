@@ -80,7 +80,9 @@
                 "rank": "ASC"
             },
             "output": {
-                "filter": []
+                "filter": [
+                    "Package:R3m:Io:Account:Output:Filter:User:role.permission"
+                ]
             },
             "where": "",
             "filter": [],
