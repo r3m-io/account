@@ -112,7 +112,7 @@
             "login": {
                 "output": [
                     {
-                        "role": "ROLE_SYSTEM",
+                        "role": "ROLE_ADMIN",
                         "property": [
                             "uuid",
                             "#class",
