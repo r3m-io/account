@@ -67,7 +67,6 @@ class User
                     ],
                 ]
             );
-            ddd($record);
             if(
                 $record &&
                 array_key_exists('node', $record) &&
@@ -104,6 +103,7 @@ class User
                         'relation' => true
                     ]
                 );
+                ddd($record);
                 if($record){
                     unset($record['node']->password);
                     $record['node'] = User::getTokens($object, $record['node']);
