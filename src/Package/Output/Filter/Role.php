@@ -15,4 +15,11 @@ class Role extends Controller {
         //permission object should stay intact
         return $response;
     }
+
+    public static function user(App $object, $response=null): array
+    {
+        //permission object should stay intact
+        d($response);
+        return $response;
+    }
 }
