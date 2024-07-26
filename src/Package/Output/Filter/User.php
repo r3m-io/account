@@ -20,6 +20,7 @@ class User extends Controller {
             !empty($response) &&
             is_array($response)
         ){
+            /*
             foreach($response as $nr => $record){
                 if(
                     is_object($record) &&
@@ -29,6 +30,7 @@ class User extends Controller {
                     $result[] = $record->name;
                 }
             }
+            */
         }
         if($is_result){
             return $result;
