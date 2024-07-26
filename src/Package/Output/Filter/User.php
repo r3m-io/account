@@ -15,7 +15,7 @@ class User extends Controller {
         $result = [];
         $is_result = false;
         trace();
-        ddd($response);
+        d($response);
         if(
             !empty($response) &&
             is_array($response)
