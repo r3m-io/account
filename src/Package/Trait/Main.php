@@ -128,6 +128,7 @@ trait Main
             )
         ){
             $data = $object->data_read($url_data);
+            ddd('yes');
             if($data){
                 $data_role_system = $object->data_read($url_role_system);
                 foreach($data->get('Account.Permission') as $nr => $record){
