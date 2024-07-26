@@ -119,14 +119,14 @@ class User
                         $expose &&
                         property_exists($record['node'], 'role')
                     ) {
-                        $node = $node->expose(
-                            $node,
+                        $data = $node->expose(
+                            $data,
                             $expose,
                             $name,
                             $options['function'],
                             current($record['node']->role)
                         );
-                        $record = $node->data();
+                        $record = $data->data();
                     }
                     return $record;
                 }
