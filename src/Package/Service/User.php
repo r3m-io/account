@@ -221,7 +221,6 @@ class User
      */
     public static function is_blocked(App $object, $email=''): bool
     {
-        d('later');
         return false;
 
 
