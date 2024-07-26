@@ -73,7 +73,6 @@ class User
                 property_exists($record['node'], 'uuid')
             ){
                 $password = $object->request('password');
-                d($password);
                 $verify = password_verify($password, $record['node']->password);
                 if(empty($verify)){
                     $status = 401;
