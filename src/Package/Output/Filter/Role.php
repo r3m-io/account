@@ -19,7 +19,20 @@ class Role extends Controller {
     public static function user(App $object, $response=null): array
     {
         //permission object should stay intact
-        d($response);
+        if(is_array($response)){
+            foreach($response as $nr => $role){
+                if(
+                    property_exists($role, 'permission') &&
+                    is_array($role->permission)
+                ){
+                    foreach($role->permission as $permission_nr => $permission){
+                        if(property_exists($permission, 'name')){
+                            $role->permission[$permission_nr] = $permission->name;
+                        }
+                    }
+                }
+            }
+        }
         return $response;
     }
 }
