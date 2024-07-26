@@ -194,6 +194,7 @@ class User
         $record->token = $token;
         $record->refresh_token = $refreshToken;
 
+        /*
         $node = new Node($object);
         $node->patch(
             'Account.User',
@@ -203,6 +204,7 @@ class User
                 'refresh_token' => $encrypted_refreshToken
             ]
         );
+        */
         return $record;
     }
 
