@@ -133,7 +133,6 @@ class User
                         'user' => $record
                     ];
                 }
-
             } else {
                 //mysql user
                 /*
