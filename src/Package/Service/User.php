@@ -128,10 +128,7 @@ class User
                         );
                         $record = $data->data();
                     }
-                    return [
-                        'server' => $_SERVER,
-                        'user' => $record
-                    ];
+                    return $record;
                 }
             } else {
                 //mysql user
